@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/HP/Desktop/nnc about page/nnc-nextjs/src/**)",
+      "Read(//c/Users/HP/Desktop/nnc about page/nnc-nextjs/src/app/**)",
+      "Bash(npm install:*)",
+      "Bash(npx next:*)",
+      "Bash(ls \"c:/Users/HP/Downloads/nnc final complete/nnc-nextjs-bootstrap/\"*.json)"
+    ]
+  }
+}
