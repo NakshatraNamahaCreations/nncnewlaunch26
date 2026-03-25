@@ -1,4 +1,3 @@
-import Topbar from '@/components/Topbar'
 import Navbar from '@/components/Navbar'
 import AnimObserver from '@/components/AnimObserver'
 import { Footer, WaFloat } from '@/components/Sections'
@@ -17,7 +16,6 @@ export default function CaseStudiesListPage() {
 
   return (
     <>
-      <Topbar />
       <Navbar />
       <main>
         {/* HERO */}

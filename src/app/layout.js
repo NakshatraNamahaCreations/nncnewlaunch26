@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '@/styles/globals.css'
 import Script from 'next/script'
+import WhatsAppChat from '@/components/WhatsAppChat'
 
 export const metadata = {
   title: 'Best Website Development Company in Bangalore | NNC Digital',
@@ -71,7 +72,7 @@ const organizationSchema = {
   url: 'https://www.nakshatranamahacreations.com',
   logo: {
     '@type': 'ImageObject',
-    url: 'https://www.nakshatranamahacreations.com/media/nnclogo.avif',
+    url: 'https://s3.eu-north-1.amazonaws.com/admin.nakshatranamahacreations.in/NNC+NEW+LOGO+2020+low+res.png',
     width: 200,
     height: 60,
   },
@@ -263,6 +264,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         {children}
+        <WhatsAppChat />
         {/* Bootstrap JS — loaded after page content */}
         <Script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

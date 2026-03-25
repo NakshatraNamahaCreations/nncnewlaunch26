@@ -14,11 +14,27 @@ export default function ContactContent() {
   const [sent, setSent] = useState(false)
   const [sending, setSending] = useState(false)
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault()
     if (!form.name || !form.phone) { alert('Please enter your name and phone number.'); return }
     setSending(true)
-    setTimeout(() => { setSending(false); setSent(true) }, 1200)
+    try {
+      const res = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      const data = await res.json()
+      if (res.ok) {
+        setSent(true)
+      } else {
+        alert(data.error || 'Something went wrong. Please try again.')
+      }
+    } catch {
+      alert('Network error. Please try again.')
+    } finally {
+      setSending(false)
+    }
   }
 
   return (

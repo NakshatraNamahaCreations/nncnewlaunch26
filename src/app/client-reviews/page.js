@@ -1,4 +1,3 @@
-import Topbar from '@/components/Topbar'
 import Navbar from '@/components/Navbar'
 import AnimObserver from '@/components/AnimObserver'
 import { Footer, WaFloat } from '@/components/Sections'
@@ -26,7 +25,6 @@ const REVIEWS = [
 export default function ClientReviewsPage() {
   return (
     <>
-      <Topbar />
       <Navbar />
       <main>
         {/* HERO */}

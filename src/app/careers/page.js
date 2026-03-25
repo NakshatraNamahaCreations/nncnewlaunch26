@@ -1,4 +1,3 @@
-import Topbar from '@/components/Topbar'
 import Navbar from '@/components/Navbar'
 import AnimObserver from '@/components/AnimObserver'
 import { Footer, WaFloat } from '@/components/Sections'
@@ -31,7 +30,6 @@ const PERKS = [
 export default function CareersPage() {
   return (
     <>
-      <Topbar />
       <Navbar />
       <main>
         {/* HERO */}

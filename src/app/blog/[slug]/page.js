@@ -1,4 +1,3 @@
-import Topbar from '@/components/Topbar'
 import Navbar from '@/components/Navbar'
 import AnimObserver from '@/components/AnimObserver'
 import { Footer, WaFloat } from '@/components/Sections'
@@ -64,7 +63,6 @@ export default function BlogPostPage({ params }) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <Topbar />
       <Navbar />
       <main>
         {/* Breadcrumb */}

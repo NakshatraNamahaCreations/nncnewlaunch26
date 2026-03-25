@@ -1,5 +1,4 @@
 'use client'
-import Topbar from '@/components/Topbar'
 import Navbar from '@/components/Navbar'
 import AnimObserver from '@/components/AnimObserver'
 import { Footer, WaFloat } from '@/components/Sections'
@@ -22,7 +21,6 @@ const FEATURED_WORKS = [
 export default function OurWorksContent() {
   return (
     <>
-      <Topbar />
       <Navbar />
       <main>
         <section style={{ background: 'linear-gradient(135deg,#040E25 0%,#0a2055 55%,#0e2d6a 100%)', padding: '72px 0', position: 'relative', overflow: 'hidden' }}>

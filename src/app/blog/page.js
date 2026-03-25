@@ -1,4 +1,3 @@
-import Topbar from '@/components/Topbar'
 import Navbar from '@/components/Navbar'
 import AnimObserver from '@/components/AnimObserver'
 import { Footer, WaFloat } from '@/components/Sections'
@@ -17,7 +16,6 @@ const CATEGORIES = [...new Set(BLOG_POSTS.map(p => p.category))]
 export default function BlogPage() {
   return (
     <>
-      <Topbar />
       <Navbar />
       <main>
         <section style={{ background: 'linear-gradient(135deg,#040E25 0%,#0a2055 50%,#0e2d6a 100%)', padding: '64px 0 52px' }}>

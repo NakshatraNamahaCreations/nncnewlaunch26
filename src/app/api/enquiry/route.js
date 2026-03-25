@@ -57,7 +57,7 @@ function thankYouEmail(name, service) {
 
       <!-- Header -->
       <div style="background:linear-gradient(135deg,#0B1F4B 0%,#142D6B 100%);padding:40px 36px 32px;text-align:center;border-radius:12px 12px 0 0;">
-        <img src="https://www.nakshatranamahacreations.com/media/nnclogo.avif" alt="NNC" width="52" height="52" style="border-radius:12px;margin-bottom:16px;" />
+        <img src="https://s3.eu-north-1.amazonaws.com/admin.nakshatranamahacreations.in/NNC+NEW+LOGO+2020+low+res.png" alt="NNC" width="52" height="52" style="border-radius:12px;margin-bottom:16px;" />
         <h1 style="color:#ffffff;font-size:22px;font-weight:700;margin:0 0 6px;letter-spacing:-.02em;">Thank you, ${name}!</h1>
         <p style="color:rgba(255,255,255,.6);font-size:14px;margin:0;">We've received your enquiry and we're on it.</p>
       </div>
@@ -165,22 +165,35 @@ export async function POST(request) {
 
     const transporter = getTransporter()
 
+    const fromAddress = `"Nakshatra Namaha Creations" <${process.env.SMTP_USER}>`
+
     // Send enquiry to admin
     await transporter.sendMail({
-      from: `"NNC Website" <${process.env.SMTP_USER}>`,
+      from: fromAddress,
       to: 'info@nakshatranamahacreations.com',
       replyTo: email || undefined,
-      subject: `New Enquiry from ${name} — ${service || 'General'}`,
+      subject: `New Enquiry from ${name} - ${service || 'General'}`,
       html: adminEmail(name, phone, email, service, message),
+      text: `New enquiry from ${name}\nPhone: ${phone}\nEmail: ${email || 'N/A'}\nService: ${service || 'N/A'}\nMessage: ${message || 'N/A'}`,
+      headers: {
+        'X-Mailer': 'NNC Website',
+        'List-Unsubscribe': `<mailto:${process.env.SMTP_USER}?subject=unsubscribe>`,
+      },
     })
 
     // Send thank-you auto-reply to the customer (only if email provided)
     if (email) {
       await transporter.sendMail({
-        from: `"Nakshatra Namaha Creations" <${process.env.SMTP_USER}>`,
+        from: fromAddress,
         to: email,
-        subject: `Thank you, ${name}! We've received your enquiry`,
+        replyTo: process.env.SMTP_USER,
+        subject: `Thank you ${name} - We have received your enquiry`,
         html: thankYouEmail(name, service),
+        text: `Hi ${name},\n\nThank you for reaching out to Nakshatra Namaha Creations. We have received your${service ? ' ' + service : ''} enquiry and our team will get back to you within 24 hours.\n\nIf you need immediate assistance, call us at +91 99005 66466 (Mon-Sat, 9AM-7PM IST).\n\nBest regards,\nNakshatra Namaha Creations Pvt. Ltd.\nBengaluru | Mumbai | Mysuru | Hyderabad\nhttps://www.nakshatranamahacreations.com`,
+        headers: {
+          'X-Mailer': 'NNC Website',
+          'List-Unsubscribe': `<mailto:${process.env.SMTP_USER}?subject=unsubscribe>`,
+        },
       })
     }
 

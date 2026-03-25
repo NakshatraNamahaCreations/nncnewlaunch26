@@ -1,4 +1,3 @@
-import Topbar from '@/components/Topbar'
 import Navbar from '@/components/Navbar'
 import AnimObserver from '@/components/AnimObserver'
 import { Footer, WaFloat } from '@/components/Sections'
@@ -30,7 +29,7 @@ export default function CaseStudyPage({ params }) {
 
   if (!cs) return (
     <>
-      <Topbar /><Navbar />
+      <Navbar />
       <main style={{ padding: '80px 24px', textAlign: 'center', minHeight: '60vh' }}>
         <h1 style={{ fontSize: 28, color: '#0B1F4B' }}>Case study not found.</h1>
         <Link href="/our-works" style={{ color: '#2196F3', fontWeight: 700 }}>View all portfolio →</Link>
@@ -41,7 +40,6 @@ export default function CaseStudyPage({ params }) {
 
   return (
     <>
-      <Topbar />
       <Navbar />
       <main>
         {/* Breadcrumb */}

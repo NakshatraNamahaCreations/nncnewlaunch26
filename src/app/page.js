@@ -1,4 +1,3 @@
-import Topbar from '@/components/Topbar'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import { StatsBar, ClientsBand } from '@/components/StatsBar'
@@ -21,7 +20,6 @@ import AnimObserver from '@/components/AnimObserver'
 export default function Home() {
   return (
     <>
-      <Topbar />
       <Navbar />
       <main>
         <Hero />

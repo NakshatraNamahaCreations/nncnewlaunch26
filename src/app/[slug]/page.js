@@ -1,6 +1,5 @@
 import { SLUG_MAP, SERVICE_DEFS, CITY_DEFS, NEIGHBOURHOOD_DEFS } from '@/data/landingData'
 import { SITE } from '@/data/siteData'
-import Topbar from '@/components/Topbar'
 import Navbar from '@/components/Navbar'
 import AnimObserver from '@/components/AnimObserver'
 import { Footer, WaFloat } from '@/components/Sections'
@@ -80,7 +79,6 @@ export default function CityServicePage({ params }) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
-      <Topbar />
       <Navbar />
       <main>
         <CityServiceContent slug={slug} svc={svc} city={city} hood={hood} titleOverride={titleOverride} />

@@ -1,4 +1,3 @@
-import Topbar from '@/components/Topbar'
 import Navbar from '@/components/Navbar'
 import AnimObserver from '@/components/AnimObserver'
 import { Footer, WaFloat } from '@/components/Sections'
@@ -33,7 +32,6 @@ const ROLES_BREAKDOWN = [
 export default function OurTeamPage() {
   return (
     <>
-      <Topbar />
       <Navbar />
       <main>
         {/* HERO */}

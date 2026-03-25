@@ -12,7 +12,7 @@ export const SITE = {
   email: 'info@nakshatranamahacreations.com',
   founded: '2015',
   cin: 'U74999KA2015PTC082563',
-  logo: 'https://www.nakshatranamahacreations.com/media/nnclogo.avif',
+  logo: 'https://s3.eu-north-1.amazonaws.com/admin.nakshatranamahacreations.in/NNC+NEW+LOGO+2020+low+res.png',
   teamPhoto: 'https://www.nakshatranamahacreations.com/media/teams/NNCGRPPHO.avif',
   social: {
     instagram: 'https://www.instagram.com/nnc.digitalbengaluru/',
