@@ -62,11 +62,12 @@ export default function QuoteModal() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       })
+      const data = await res.json()
       if (res.ok) {
         closeModal()
         router.push('/thankyou')
       } else {
-        setError('Something went wrong. Please try again or call us directly.')
+        setError(data.error || 'Something went wrong. Please try again or call us directly.')
       }
     } catch {
       setError('Network error. Please try again or call us directly.')
