@@ -5,8 +5,8 @@ import { SITE } from '@/data/siteData'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Corporate Video Portfolio | NNC Digital',
-  description: '200+ brand films, product shoots and drone videos produced in-house by NNC Digital.',
+  title: 'Corporate Video Portfolio | Brand Films | NNC Bangalore',
+  description: "NNC's video portfolio — brand films, drone shoots, product videos and motion graphics. 90+ projects for clients across India. View our work.",
   alternates: { canonical: `${SITE.url}/our-works/corporate-video-production` },
 }
 

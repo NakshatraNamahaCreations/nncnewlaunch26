@@ -105,7 +105,7 @@ export const SERVICES = [
     id: 'crm-software',
     num: '03',
     name: 'CRM & Custom Software',
-    slug: '/services',
+    slug: '/custom-crm-development',
     icon: 'M12 2L2 7l10 5 10-5-10-5M2 17l10 5 10-5M2 12l10 5 10-5',
     iconBg: 'rgba(245,158,11,.1)',
     iconColor: '#F59E0B',

@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { SITE } from '@/data/siteData'
 
 /* ─── DATA ─────────────────────────────────────────────────────── */
@@ -11,7 +12,14 @@ const SERVICES = [
     slug: '/website-development-company-in-bangalore',
     eyebrow: 'Web Solutions', title: ['High-performance', 'Websites'],
     desc: 'Custom React JS and Next JS websites built for speed, SEO and conversion. Every delivery includes a PageSpeed 90+ guarantee written into the contract.',
-    links: ['Corporate & Business Websites', 'E-commerce Platforms', 'Web Applications & Portals', 'Landing Pages & Funnels', 'CMS & Content Platforms', 'Progressive Web Apps'],
+    links: [
+      { name: 'Corporate & Business Websites', href: '/website-development-company-in-bangalore' },
+      { name: 'E-commerce Platforms',          href: '/ecommerce-website-development-company' },
+      { name: 'Web Applications & Portals',    href: '/react-js-development-company' },
+      { name: 'Landing Pages & Funnels',       href: '/website-development-company-in-bangalore' },
+      { name: 'CMS & Content Platforms',       href: '/website-development-company-in-bangalore' },
+      { name: 'Progressive Web Apps',          href: '/website-development-company-in-bangalore' },
+    ],
   },
   {
     key: 'app', name: 'Mobile App Development', sub: 'React Native · Flutter · iOS & Android',
@@ -19,15 +27,29 @@ const SERVICES = [
     slug: '/mobile-app-development-company-in-bangalore',
     eyebrow: 'Mobile Solutions', title: ['iOS & Android', 'Mobile Apps'],
     desc: 'Cross-platform React Native and Flutter apps built by dedicated in-house specialists. Weekly APK/TestFlight builds so you track progress throughout development.',
-    links: ['On-demand Service Apps', 'E-commerce Mobile Apps', 'Healthcare & Clinic Apps', 'EdTech & Learning Apps', 'Finance & Fintech Apps', 'Enterprise & HRMS Apps'],
+    links: [
+      { name: 'On-demand Service Apps',  href: '/mobile-app-development-company-in-bangalore' },
+      { name: 'E-commerce Mobile Apps',  href: '/mobile-app-development-company-in-bangalore' },
+      { name: 'Healthcare & Clinic Apps',href: '/mobile-app-development-company-in-bangalore' },
+      { name: 'React Native Apps',       href: '/react-native-mobile-app-developers' },
+      { name: 'Flutter App Development', href: '/flutter-app-development' },
+      { name: 'iOS & Android Apps',      href: '/android-app-development' },
+    ],
   },
   {
     key: 'crm', name: 'CRM & Custom Software', sub: 'SaaS · Dashboards · Automations',
     ico: 'M12 2L2 7l10 5 10-5-10-5M2 17l10 5 10-5M2 12l10 5 10-5', ib: 'rgba(245,158,11,.12)', ic: '#F59E0B',
-    slug: '/services',
+    slug: '/custom-crm-development',
     eyebrow: 'Software Solutions', title: ['Custom CRM &', 'SaaS Platforms'],
     desc: 'Proprietary CRM systems, SaaS platforms and admin dashboards — replacing manual workflows with software your team actually uses.',
-    links: ['Custom CRM Systems', 'SaaS & Subscription Platforms', 'Admin Dashboards', 'Workflow Automation', 'ERP & Inventory Systems', 'API Integrations'],
+    links: [
+      { name: 'Custom CRM Systems',           href: '/custom-crm-development' },
+      { name: 'SaaS & Subscription Platforms',href: '/custom-crm-development' },
+      { name: 'Admin Dashboards',              href: '/crm-solutions' },
+      { name: 'Workflow Automation',           href: '/custom-crm-development' },
+      { name: 'ERP & Inventory Systems',       href: '/custom-crm-development' },
+      { name: 'API Integrations',              href: '/node-js-development-company' },
+    ],
   },
   {
     key: 'mkt', name: 'Digital Marketing & SEO', sub: 'Google Ads · Meta · SEO',
@@ -35,7 +57,14 @@ const SERVICES = [
     slug: '/digital-marketing-agency-in-bangalore',
     eyebrow: 'Growth & Marketing', title: ['Digital Marketing', 'That Drives Leads'],
     desc: 'Google Ads, Meta Ads, technical SEO and social media — managed by in-house specialists who report on real business outcomes.',
-    links: ['Google Search & Display Ads', 'Facebook & Instagram Ads', 'Technical SEO & On-page', 'Social Media Management', 'Google Shopping Campaigns', 'Local SEO & GMB'],
+    links: [
+      { name: 'Google Search & Display Ads', href: '/paid-marketing-services' },
+      { name: 'Facebook & Instagram Ads',    href: '/paid-marketing-services' },
+      { name: 'Technical SEO & On-page',     href: '/seo-services' },
+      { name: 'Social Media Management',     href: '/social-media-marketing' },
+      { name: 'Google Shopping Campaigns',   href: '/paid-marketing-services' },
+      { name: 'Local SEO & GMB',             href: '/seo-services' },
+    ],
   },
   {
     key: 'vid', name: 'Corporate Video & Animation', sub: 'Brand Films · 2D Animation · Drone',
@@ -43,7 +72,14 @@ const SERVICES = [
     slug: '/corporate-video-production-company-in-bangalore',
     eyebrow: 'Visual Production', title: ['Video & Animation', 'Production'],
     desc: 'Brand films to explainer animations — scripted, shot and edited by the NNC in-house production team. Zero outsourcing from brief to final file.',
-    links: ['Corporate Brand Films', '2D Explainer Animation', 'Character Animation', 'Drone & Aerial Footage', 'Product Ad Shoots', 'Social Media Reels'],
+    links: [
+      { name: 'Corporate Brand Films',    href: '/corporate-video-makers' },
+      { name: '2D Explainer Animation',   href: '/animated-video-creators' },
+      { name: 'Character Animation',      href: '/2d-animation-studio' },
+      { name: 'Drone & Aerial Footage',   href: '/corporate-video-production-company-in-bangalore' },
+      { name: 'Product Ad Shoots',        href: '/corporate-film-makers' },
+      { name: 'Social Media Reels',       href: '/motion-graphics-services' },
+    ],
   },
   {
     key: 'brd', name: 'Graphic Design & Branding', sub: 'Logo · UI/UX · Brand Identity',
@@ -51,7 +87,14 @@ const SERVICES = [
     slug: '/graphic-design-company-in-bangalore',
     eyebrow: 'Design & Branding', title: ['Brand Identity &', 'UI/UX Design'],
     desc: 'Logo design, brand identity systems, UI/UX for web and apps — and complete social media creative kits. Consistent visual language across every touchpoint.',
-    links: ['Logo & Brand Identity', 'UI/UX for Web & Apps', 'Social Media Creative Kits', 'Brand Guidelines & Systems', 'Marketing Collateral', 'Pitch Deck Design'],
+    links: [
+      { name: 'Logo & Brand Identity',       href: '/graphic-designing-company' },
+      { name: 'UI/UX for Web & Apps',        href: '/ui-ux-design-agency' },
+      { name: 'Social Media Creative Kits',  href: '/graphic-design-company-in-bangalore' },
+      { name: 'Brand Guidelines & Systems',  href: '/graphic-design-company-in-bangalore' },
+      { name: 'Marketing Collateral',        href: '/graphic-designing-company' },
+      { name: 'Pitch Deck Design',           href: '/graphic-designing-company' },
+    ],
   },
 ]
 
@@ -191,14 +234,14 @@ function ServicesMega({ open }) {
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6, marginBottom: 22 }}>
             {active.links.map(link => (
-              <Link key={link} href={active.slug} style={{ textDecoration: 'none' }}>
+              <Link key={link.name} href={link.href} style={{ textDecoration: 'none' }}>
                 <div style={{
                   display: 'flex', alignItems: 'center', gap: 9, padding: '10px 12px',
                   borderRadius: 8, background: '#F8FAFC', border: '1px solid #E2E8F0',
                   transition: 'all .18s', cursor: 'pointer',
                 }}>
                   <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#2196F3', flexShrink: 0 }} />
-                  <span style={{ fontSize: 12.5, fontWeight: 600, color: '#1E293B', flex: 1 }}>{link}</span>
+                  <span style={{ fontSize: 12.5, fontWeight: 600, color: '#1E293B', flex: 1 }}>{link.name}</span>
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#94A3B8" strokeWidth="2.5" style={{ flexShrink: 0 }}><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                 </div>
               </Link>
@@ -388,6 +431,13 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [mobSec, setMobSec] = useState({})
   const ref = useRef(null)
+  const pathname = usePathname()
+
+  // Close all menus on every page navigation
+  useEffect(() => {
+    setOpenMenu(null)
+    setMobileOpen(false)
+  }, [pathname])
 
   useEffect(() => {
     const s = () => setStuck(window.scrollY > 0)
@@ -478,9 +528,9 @@ export default function Navbar() {
               <Svg d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" size={13} color="currentColor" sw={2} />
               Call
             </a>
-            <Link href="/contact-us" style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13.5, fontWeight: 700, color: '#fff', padding: '0 22px', height: 40, borderRadius: 8, border: 'none', background: '#2196F3', cursor: 'pointer', transition: 'all .2s', fontFamily: 'inherit', whiteSpace: 'nowrap', textDecoration: 'none' }}>
+            <button onClick={() => window.dispatchEvent(new CustomEvent('open-quote'))} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13.5, fontWeight: 700, color: '#fff', padding: '0 22px', height: 40, borderRadius: 8, border: 'none', background: '#2196F3', cursor: 'pointer', transition: 'all .2s', fontFamily: 'inherit', whiteSpace: 'nowrap' }}>
               Get Free Quote <ArrowRight />
-            </Link>
+            </button>
           </div>
 
           {/* Hamburger */}
@@ -556,9 +606,9 @@ export default function Navbar() {
                 <Svg d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" size={14} color="currentColor" sw={2} />
                 Call
               </a>
-              <Link href="/contact-us" onClick={() => setMobileOpen(false)} style={{ flex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 7, padding: 13, borderRadius: 8, border: 'none', background: '#2196F3', fontSize: 14, fontWeight: 700, color: '#fff', cursor: 'pointer', fontFamily: 'inherit', textDecoration: 'none' }}>
+              <button onClick={() => { setMobileOpen(false); window.dispatchEvent(new CustomEvent('open-quote')) }} style={{ flex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 7, padding: 13, borderRadius: 8, border: 'none', background: '#2196F3', fontSize: 14, fontWeight: 700, color: '#fff', cursor: 'pointer', fontFamily: 'inherit' }}>
                 Get Free Quote →
-              </Link>
+              </button>
             </div>
           </div>
         </div>

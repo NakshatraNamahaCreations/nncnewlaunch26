@@ -5,8 +5,8 @@ import { SITE } from '@/data/siteData'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Website Development Portfolio | NNC Digital',
-  description: '200+ websites built on React JS and Next JS. Corporate, e-commerce, portals and SaaS.',
+  title: 'Website Portfolio | 200+ Projects | NNC Digital',
+  description: "NNC's website portfolio: 200+ corporate, e-commerce and portal projects across India and international markets. Built on React JS and Next JS.",
   alternates: { canonical: `${SITE.url}/our-works/website-development` },
 }
 

@@ -252,13 +252,15 @@ export function FaqContact() {
 
   const submit = async (e) => {
     e.preventDefault()
-    if (!form.name || !form.phone) { alert('Please enter your name and phone number.'); return }
+    if (!form.name.trim() || form.name.trim().length < 2) { alert('Please enter your full name (at least 2 characters).'); return }
+    if (!form.phone.trim() || form.phone.replace(/\D/g, '').length < 7) { alert('Please enter a valid phone number.'); return }
+    if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) { alert('Please enter a valid email address.'); return }
     setSending(true)
     try {
       const res = await fetch('/api/enquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, landingPage: typeof window !== 'undefined' ? window.location.pathname : '/' }),
       })
       const data = await res.json()
       if (res.ok) {
@@ -338,10 +340,10 @@ export function FaqContact() {
               {!sent ? (
                 <form onSubmit={submit} noValidate>
                   <div className="row g-2 mb-2">
-                    <div className="col-6"><input className="cc-inp" placeholder="Your name *" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required /></div>
-                    <div className="col-6"><input className="cc-inp" type="tel" placeholder="Phone *" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} required /></div>
+                    <div className="col-6"><input className="cc-inp" type="text" placeholder="Your name *" value={form.name} onChange={e => setForm({ ...form, name: e.target.value.replace(/[^A-Za-z\s.'-]/g, '') })} maxLength={100} required /></div>
+                    <div className="col-6"><input className="cc-inp" type="tel" placeholder="Phone *" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value.replace(/[^0-9+\-\s()]/g, '') })} maxLength={15} required /></div>
                   </div>
-                  <input className="cc-inp d-block mb-2" type="email" placeholder="Email address" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} />
+                  <input className="cc-inp d-block mb-2" type="email" placeholder="Email address" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} maxLength={150} />
                   <input className="cc-inp d-block mb-2" placeholder="What do you need? (website, app, CRM...)" value={form.service} onChange={e => setForm({ ...form, service: e.target.value })} />
                   <textarea className="cc-ta d-block mb-2" rows="3" placeholder="Brief description of your project..." value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} />
                   <button type="submit" className="cc-submit mb-3" disabled={sending}>
@@ -394,7 +396,7 @@ export function CtaBand() {
           </div>
           <div className="col-lg-4 d-flex flex-column align-items-lg-end gap-2 anim">
             <button className="btn btn-sky fw-bold px-4 py-3 d-inline-flex align-items-center gap-2 w-100 w-lg-auto justify-content-center"
-              onClick={() => document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' })}>
+              onClick={() => window.dispatchEvent(new CustomEvent('open-quote'))}>
               Get Free Quote
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M5 12h14M12 5l7 7-7 7" />
@@ -424,7 +426,7 @@ export function Footer() {
           {/* Brand column */}
           <div className="col-12 col-lg-3">
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-              <img src={SITE.logo} alt="NNC Logo" width={44} height={44} style={{ borderRadius: 10, objectFit: 'contain' }} />
+              <img src={SITE.logo} alt="Nakshatra Namaha Creations — NNC Digital Logo" width={44} height={44} style={{ borderRadius: 10, objectFit: 'contain' }} />
               <span className="ft-brand">{SITE.name}</span>
             </div>
             <p className="ft-desc">
@@ -464,12 +466,12 @@ export function Footer() {
             <div className="ft-col-h">Services</div>
             <a href="/website-development-company-in-bangalore" className="ft-link">Website Development</a>
             <a href="/mobile-app-development-company-in-bangalore" className="ft-link">Mobile App Development</a>
-            <a href="/services" className="ft-link">CRM & Custom Software</a>
+            <a href="/custom-crm-development" className="ft-link">CRM & Custom Software</a>
             <a href="/digital-marketing-agency-in-bangalore" className="ft-link">Digital Marketing & SEO</a>
             <a href="/corporate-video-production-company-in-bangalore" className="ft-link">Corporate Video Production</a>
             <a href="/graphic-design-company-in-bangalore" className="ft-link">Graphic Design & Branding</a>
-            <a href="/services" className="ft-link">2D Animation</a>
-            <a href="/services" className="ft-link">B2B Marketing</a>
+            <a href="/2d-animation-studio-in-bangalore" className="ft-link">2D Animation</a>
+            <a href="/b2b-marketing-agency-in-bangalore" className="ft-link">B2B Marketing</a>
           </div>
 
           {/* Company */}
@@ -524,7 +526,7 @@ export function Footer() {
         {/* ── BOTTOM BAR ── */}
         <div className="d-flex align-items-center justify-content-between flex-wrap gap-3" style={{ padding: '20px 0' }}>
           <p className="ft-copy mb-0">© {new Date().getFullYear()} {SITE.name}. All rights reserved. CIN: {SITE.cin}</p>
-          <div className="d-flex flex-wrap gap-3">
+          <div className="d-flex align-items-center flex-wrap gap-3">
             <span className="ft-copy">Bengaluru</span>
             <span className="ft-copy">·</span>
             <span className="ft-copy">Mumbai</span>
@@ -540,15 +542,7 @@ export function Footer() {
 }
 
 /* ── FLOATING WHATSAPP ────────────────────────────────────────── */
+// Replaced by the WhatsAppChat chatbot in layout.js — render nothing here.
 export function WaFloat() {
-  return (
-    <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer"
-       className="wa-float" aria-label="Chat on WhatsApp"
-       title="Chat with NNC on WhatsApp">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.106.552 4.083 1.515 5.8L0 24l6.37-1.492A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-5.001-1.371l-.36-.214-3.719.872.934-3.614-.235-.372A9.773 9.773 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z" />
-      </svg>
-    </a>
-  )
+  return null
 }

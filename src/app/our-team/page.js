@@ -5,8 +5,8 @@ import { SITE } from '@/data/siteData'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Our In-house Team | 35+ Permanent Specialists | NNC Digital',
-  description: 'Meet NNC Digital\'s 35+ permanent in-house specialists in Bengaluru. No freelancers, no outsourcing — every person you meet is a full-time NNC employee.',
+  title: 'Our In-house Team | NNC Digital Agency | Bangalore',
+  description: "NNC's 35+ permanent designers, developers and marketers across 4 India offices. View profiles, no outsourcing — ever. Walk in and meet the team.",
   alternates: { canonical: `${SITE.url}/our-team` },
 }
 

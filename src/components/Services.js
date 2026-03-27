@@ -19,10 +19,10 @@ export default function Services() {
               You can walk into any office and meet the team.
             </p>
             <div className="d-flex flex-wrap gap-2">
-              <a href="#faq" className="btn btn-sky fw-bold px-4"
-                 onClick={e => { e.preventDefault(); document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' }) }}>
+              <button className="btn btn-sky fw-bold px-4"
+                onClick={() => window.dispatchEvent(new CustomEvent('open-quote'))}>
                 Start Your Project →
-              </a>
+              </button>
            
             </div>
           </div>

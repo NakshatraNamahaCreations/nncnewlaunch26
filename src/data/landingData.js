@@ -154,14 +154,15 @@ export const NEIGHBOURHOOD_DEFS = {
 // Maps every slug to { service, city, neighbourhood, titleOverride, descOverride }
 export const SLUG_MAP = {
   // ── BANGALORE SERVICE PAGES ──
-  'website-development-company-in-bangalore':          { service: 'website-development',        city: 'bangalore' },
-  'mobile-app-development-company-in-bangalore':       { service: 'mobile-app-development',     city: 'bangalore' },
-  'digital-marketing-agency-in-bangalore':             { service: 'digital-marketing',          city: 'bangalore' },
-  '2d-animation-studio-in-bangalore':                  { service: '2d-animation',               city: 'bangalore' },
-  'corporate-video-production-company-in-bangalore':   { service: 'corporate-video-production', city: 'bangalore' },
-  'graphic-design-company-in-bangalore':               { service: 'graphic-design',             city: 'bangalore' },
-  'b2b-marketing-agency-in-bangalore':                 { service: 'b2b-marketing',              city: 'bangalore' },
+  'website-development-company-in-bangalore':          { service: 'website-development',        city: 'bangalore', titleOverride: 'Website Development Company in Bangalore | NNC Digital', descOverride: 'Custom React JS and Next JS website in Bangalore. Corporate, e-commerce and web apps with PageSpeed 90+ guaranteed. 200+ delivered. Fixed price.' },
+  'mobile-app-development-company-in-bangalore':       { service: 'mobile-app-development',     city: 'bangalore', titleOverride: 'Mobile App Development Company Bangalore | NNC Digital', descOverride: 'iOS and Android apps in Bangalore on React Native and Flutter. Full Play Store and App Store deployment. 150+ apps. Fixed price. Zero outsourcing.' },
+  'digital-marketing-agency-in-bangalore':             { service: 'digital-marketing',          city: 'bangalore', titleOverride: 'Digital Marketing Agency Bangalore | NNC Digital', descOverride: 'Google Ads, Meta Ads, SEO and social media in Bangalore. Real leads reported, not vanity metrics. 8+ years experience. Get a free quote today.' },
+  '2d-animation-studio-in-bangalore':                  { service: '2d-animation',               city: 'bangalore', titleOverride: '2D Animation Studio Bangalore | Explainer Videos | NNC', descOverride: 'Explainer videos, character animation and social media reels in Bangalore. Script to final delivery, entirely in-house. Request quote today.' },
+  'corporate-video-production-company-in-bangalore':   { service: 'corporate-video-production', city: 'bangalore', titleOverride: 'Corporate Video Production Company Bangalore | NNC Digital', descOverride: 'Brand films, drone footage and motion graphics in Bangalore. Full in-house production from scripting to 4K delivery. Request a quote from NNC.' },
+  'graphic-design-company-in-bangalore':               { service: 'graphic-design',             city: 'bangalore', titleOverride: 'Graphic Design Company Bangalore | Logo & UI/UX | NNC', descOverride: 'Logo design, brand identity, UI/UX and social media creative kits. NNC\'s in-house designers deliver consistent, business-ready assets.' },
+  'b2b-marketing-agency-in-bangalore':                 { service: 'b2b-marketing',              city: 'bangalore', titleOverride: 'B2B Marketing Agency Bangalore | LinkedIn & ABM | NNC', descOverride: 'Account-based marketing, LinkedIn outreach and email campaigns for B2B businesses in Bangalore. Pipeline results. Get a free quote from NNC.' },
   'software-development-company-in-bangalore':         { service: 'software-development',       city: 'bangalore' },
+  'crm-development-company-in-bangalore':              { service: 'software-development',       city: 'bangalore', titleOverride: 'CRM Development Company Bangalore | Custom SaaS | NNC', descOverride: 'Custom CRM systems, SaaS platforms and admin dashboards for businesses in Bangalore. Razorpay and WhatsApp integration. Fixed price. Request a quote.' },
   'web-development-services-in-bengaluru':             { service: 'website-development',        city: 'bangalore', titleOverride: 'Web Development Services in Bengaluru | NNC Digital' },
   'app-developers-in-bangalore':                       { service: 'mobile-app-development',     city: 'bangalore', titleOverride: 'App Developers in Bangalore | NNC Digital' },
   'best-website-development-company-in-bangalore':     { service: 'website-development',        city: 'bangalore', titleOverride: 'Best Website Development Company in Bangalore | NNC Digital' },
@@ -177,9 +178,9 @@ export const SLUG_MAP = {
   'website-development-company-in-indiranagar':        { service: 'website-development',    city: 'bangalore', neighbourhood: 'indiranagar' },
 
   // ── MUMBAI SERVICE PAGES ──
-  'website-development-company-in-mumbai':             { service: 'website-development',        city: 'mumbai' },
-  'mobile-app-development-company-in-mumbai':          { service: 'mobile-app-development',     city: 'mumbai' },
-  'digital-marketing-agency-in-mumbai':                { service: 'digital-marketing',          city: 'mumbai' },
+  'website-development-company-in-mumbai':             { service: 'website-development',        city: 'mumbai', titleOverride: 'Website Development Company in Mumbai | NNC Digital', descOverride: 'Custom websites in Mumbai on React JS and Next JS. Corporate, e-commerce and web apps. PageSpeed 90+ guaranteed. Office in Thane West. Fixed price.' },
+  'mobile-app-development-company-in-mumbai':          { service: 'mobile-app-development',     city: 'mumbai', titleOverride: 'Mobile App Development Company in Mumbai | NNC Digital', descOverride: 'iOS and Android app development in Mumbai — React Native and Flutter. Full Play Store and App Store deployment. In-house team. Office in Thane West. Fixed price.' },
+  'digital-marketing-agency-in-mumbai':                { service: 'digital-marketing',          city: 'mumbai', titleOverride: 'Digital Marketing Agency in Mumbai | NNC Digital', descOverride: 'Google Ads, Meta Ads, SEO and social media for Mumbai businesses. Real leads, transparent reports. NNC branch office in Thane West. Get a quote.' },
   'software-development-company-in-mumbai':            { service: 'software-development',       city: 'mumbai' },
   'b2b-marketing-company-in-mumbai':                   { service: 'b2b-marketing',              city: 'mumbai' },
   'b2b-marketing-agency-in-mumbai':                    { service: 'b2b-marketing',              city: 'mumbai' },
@@ -211,13 +212,23 @@ export const SLUG_MAP = {
   'best-website-design-and-development-company-in-mumbai': { service: 'website-development', city: 'mumbai', titleOverride: 'Best Website Design & Development Company in Mumbai | NNC' },
 
   // ── HYDERABAD SERVICE PAGES ──
-  'mobile-app-development-company-hyderabad':          { service: 'mobile-app-development',     city: 'hyderabad' },
-  'website-development-company-in-hyderabad':          { service: 'website-development',        city: 'hyderabad' },
+  'mobile-app-development-company-hyderabad':          { service: 'mobile-app-development',     city: 'hyderabad', titleOverride: 'Mobile App Development Company in Hyderabad | NNC Digital', descOverride: 'iOS and Android app development in Hyderabad on React Native and Flutter. Fixed price, zero outsourcing. NNC branch office in Begumpet, Hyderabad.' },
+  'website-development-company-in-hyderabad':          { service: 'website-development',        city: 'hyderabad', titleOverride: 'Website Development Company in Hyderabad | NNC Digital', descOverride: 'Professional website development in Hyderabad — corporate websites, e-commerce and web apps. Fixed price, in-house team. NNC branch office in Begumpet, Hyderabad.' },
   'digital-marketing-agency-hyderabad':                { service: 'digital-marketing',          city: 'hyderabad' },
   '2d-animation-studio-hyderabad':                     { service: '2d-animation',               city: 'hyderabad' },
   'corporate-video-production-company-hyderabad':      { service: 'corporate-video-production', city: 'hyderabad' },
   'graphic-design-services-hyderabad':                 { service: 'graphic-design',             city: 'hyderabad' },
   'b2b-marketing-company-hyderabad':                   { service: 'b2b-marketing',              city: 'hyderabad' },
+
+  // ── MYSURU SERVICE PAGES ──
+  'website-development-company-in-mysuru':             { service: 'website-development',        city: 'mysuru', titleOverride: 'Website Development Company in Mysuru | NNC Digital', descOverride: 'Professional website development in Mysuru — corporate websites, e-commerce and web apps. Fixed price, in-house team. NNC branch office in JP Nagar.' },
+  'mobile-app-development-company-in-mysuru':          { service: 'mobile-app-development',     city: 'mysuru' },
+  'digital-marketing-agency-in-mysuru':                { service: 'digital-marketing',          city: 'mysuru' },
+  'software-development-company-in-mysuru':            { service: 'software-development',       city: 'mysuru' },
+  'graphic-design-company-in-mysuru':                  { service: 'graphic-design',             city: 'mysuru' },
+  'corporate-video-production-company-in-mysuru':      { service: 'corporate-video-production', city: 'mysuru' },
+  '2d-animation-studio-in-mysuru':                     { service: '2d-animation',               city: 'mysuru' },
+  'b2b-marketing-agency-in-mysuru':                    { service: 'b2b-marketing',              city: 'mysuru' },
 
   // ── GENERIC SERVICE PAGES (no city) ──
   'mobile-app-development-company':                    { service: 'mobile-app-development' },
@@ -285,6 +296,16 @@ export const BLOG_POSTS = [
   { slug: 'how-to-speed-up-your-website-for-better-conversions', title: 'How to Speed Up Your Website for Better Conversions', category: 'Website Development', date: '2025-10-07', readTime: '6 min' },
   { slug: 'does-your-business-need-a-mobile-app-a-complete-guide-for-small-growing-companies', title: 'Does Your Business Need a Mobile App? A Complete Guide', category: 'Mobile Apps', date: '2025-11-26', readTime: '8 min' },
   { slug: 'how-businesses-are-using-mobile-apps-to-increase-sales', title: 'How Businesses Are Using Mobile Apps to Increase Sales', category: 'Mobile Apps', date: '2025-11-26', readTime: '6 min' },
+  { slug: 'website-development-cost-in-bangalore', title: 'Website Development Cost in Bangalore 2026', category: 'Website Development', date: '2026-03-01', readTime: '7 min', description: 'How much does a website cost in Bangalore in 2026? Honest pricing guide for corporate sites, e-commerce and web apps — no vague estimates, no fluff.' },
+  { slug: 'react-js-vs-next-js', title: 'React JS vs Next JS — Which to Choose in 2026', category: 'Tech', date: '2026-03-01', readTime: '6 min', description: 'React JS or Next JS — Which to Choose in 2026? Practical guide on the difference, when to use each and what Indian businesses should choose for their web project in 2026.' },
+  { slug: 'mobile-app-development-cost-india-2026', title: 'Mobile App Development Cost in India 2026', category: 'Mobile Apps', date: '2026-03-01', readTime: '8 min', description: 'Detailed breakdown of Android, iOS and cross-platform app costs in India — from MVP to enterprise apps. Honest 2026 pricing, no hidden charges.' },
+  { slug: 'best-crm-software-for-indian-businesses', title: 'Best CRM for Indian SMEs in 2026', category: 'Business', date: '2026-03-01', readTime: '7 min', description: 'Custom CRM or off-the-shelf? Compare both options for Indian SMEs — covering costs, features and long-term value to help you make the right call.' },
+  { slug: 'digital-marketing-guide-for-small-businesses', title: 'Digital Marketing Guide for Small Businesses Bangalore', category: 'Digital Marketing', date: '2026-03-01', readTime: '8 min', description: 'Practical digital marketing guide for Bangalore SMEs — Google Ads, Meta Ads, SEO and social media. What works, what to avoid and what to budget.' },
+  { slug: 'mobile-app-development-process-explained', title: 'Mobile App Development Process Explained', category: 'Mobile Apps', date: '2026-03-01', readTime: '7 min', description: 'Step-by-step guide to building a mobile app — discovery, wireframing, development, QA and Play Store deployment. Clear timelines and jargon-free for business owners.' },
+  { slug: 'why-outsourcing-website-development-fails', title: 'Why Outsourcing Website Development Fails', category: 'Business', date: '2026-03-01', readTime: '6 min', description: 'Outsourcing web projects causes delays, quality gaps and miscommunication. Why in-house agency teams consistently deliver better outcomes for clients.' },
+  { slug: 'seo-guide-for-businesses-in-bangalore', title: 'SEO Guide for Businesses in Bangalore 2026', category: 'SEO', date: '2026-03-01', readTime: '10 min', description: 'Get your Bangalore business on Page 1 of Google in 2026. Practical local SEO and Google Business Profile strategies for Indian businesses in 2026.' },
+  { slug: 'how-to-build-an-ecommerce-website-in-india', title: 'E-commerce Guide India — How to Build & Launch in 2026', category: 'Website Development', date: '2026-03-01', readTime: '9 min', description: 'How to start selling online in India — platform comparison, payment gateways, GST compliance and mobile-first design. Step-by-step guide for 2026.' },
+  { slug: '2d-animation-vs-live-video-for-marketing', title: '2D Animation vs Live Video for Marketing', category: 'Animation', date: '2026-03-01', readTime: '6 min', description: '2D animation or live video? Compare cost, engagement, flexibility and production time to choose the right format for your brand marketing campaign.' },
 ]
 
 // ─── CASE STUDIES ─────────────────────────────────────────────────────────────

@@ -9,7 +9,6 @@ const TEAM = [
   { name: 'Suman', role: 'Developer', dept: 'Development Team', photo: 'https://www.nakshatranamahacreations.com/media/teams/Suman.jpeg' },
   { name: 'Kavana', role: 'Designer', dept: 'Design Team', photo: 'https://www.nakshatranamahacreations.com/media/teams/Kavana.jpg' },
   { name: 'Kiruthika', role: 'Designer', dept: 'Design Team', photo: 'https://www.nakshatranamahacreations.com/media/teams/Kiruthika.jpeg' },
-  { name: 'Sonali', role: 'Marketing Specialist', dept: 'Marketing Team', photo: 'https://www.nakshatranamahacreations.com/media/teams/Sonali.jpeg' },
   { name: 'Jayanth', role: 'Developer', dept: 'Development Team', photo: 'https://www.nakshatranamahacreations.com/media/teams/Jayanth.jpeg' },
   { name: 'Guru', role: 'Developer', dept: 'Development Team', photo: 'https://www.nakshatranamahacreations.com/media/teams/Guru.jpeg' },
   { name: 'Dashavantha', role: 'Specialist', dept: 'Operations Team', photo: 'https://www.nakshatranamahacreations.com/media/teams/Dashu.jpeg' },
@@ -88,14 +87,53 @@ export default function AboutContent() {
               </div>
             </div>
             <div className="col-lg-6 d-none d-lg-block">
-              <div style={{ position: 'relative', borderRadius: 16, overflow: 'hidden', boxShadow: 'var(--sh2)', border: '1.5px solid var(--border)', aspectRatio: '4/3', background: 'var(--surface)' }}>
-                <img src={SITE.teamPhoto} alt="NNC team — Nakshatra Namaha Creations Bangalore" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', bottom: 16, left: 16, background: 'rgba(7,20,53,.88)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,.12)', padding: '10px 14px', borderRadius: 'var(--r)' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: 10.5, fontWeight: 700, color: 'rgba(255,255,255,.55)', letterSpacing: '.08em', textTransform: 'uppercase', marginBottom: 4 }}>
-                    <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#4CAF50', display: 'inline-block' }} />Our full in-house team
+              <div style={{ position: 'relative', borderRadius: 20, overflow: 'hidden', boxShadow: '0 24px 64px rgba(7,20,53,.18)', border: '1.5px solid rgba(37,99,235,.15)', background: 'linear-gradient(135deg, #071435 0%, #0f2460 50%, #1a3a8f 100%)', padding: 32 }}>
+                {/* Decorative circles */}
+                <div style={{ position: 'absolute', top: -40, right: -40, width: 220, height: 220, borderRadius: '50%', background: 'rgba(37,99,235,.12)', pointerEvents: 'none' }} />
+                <div style={{ position: 'absolute', bottom: -30, left: -30, width: 160, height: 160, borderRadius: '50%', background: 'rgba(14,165,233,.1)', pointerEvents: 'none' }} />
+
+                {/* Header */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 28, position: 'relative', zIndex: 1 }}>
+                  <div style={{ background: 'linear-gradient(135deg,#2563eb,#0ea5e9)', borderRadius: 10, padding: '8px 10px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                   </div>
-                  <p style={{ fontSize: 14, fontWeight: 700, color: '#fff', marginBottom: 2 }}>35+ specialists. Same team. Every project.</p>
-                  <p style={{ fontSize: 11.5, color: 'rgba(255,255,255,.5)', marginBottom: 0 }}>Bengaluru headquarters — not outsourced, never.</p>
+                  <div>
+                    <div style={{ fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,.5)', letterSpacing: '.1em', textTransform: 'uppercase' }}>Nakshatra Namaha Creations</div>
+                    <div style={{ fontSize: 15, fontWeight: 700, color: '#fff' }}>Full-Stack Digital Agency</div>
+                  </div>
+                </div>
+
+                {/* Services grid */}
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginBottom: 20, position: 'relative', zIndex: 1 }}>
+                  {[
+                    { icon: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6', label: 'Website Development' },
+                    { icon: 'M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z', label: 'Mobile App Dev' },
+                    { icon: 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z', label: 'Digital Marketing' },
+                    { icon: 'M15 10l4.553-2.069A1 1 0 0121 8.87V15.13a1 1 0 01-1.447.9L15 14M3 8h12a2 2 0 012 2v4a2 2 0 01-2 2H3a2 2 0 01-2-2v-4a2 2 0 012-2z', label: 'Video Production' },
+                    { icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4', label: 'Custom CRM' },
+                    { icon: 'M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z M4 6a2 2 0 100-4 2 2 0 000 4z', label: 'SEO & Growth' },
+                  ].map(({ icon, label }) => (
+                    <div key={label} style={{ background: 'rgba(255,255,255,.06)', border: '1px solid rgba(255,255,255,.1)', borderRadius: 12, padding: '12px 14px', display: 'flex', alignItems: 'center', gap: 10, backdropFilter: 'blur(4px)' }}>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d={icon} /></svg>
+                      <span style={{ fontSize: 12, fontWeight: 600, color: 'rgba(255,255,255,.85)' }}>{label}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Bottom stats bar */}
+                <div style={{ display: 'flex', gap: 0, background: 'rgba(255,255,255,.07)', borderRadius: 12, border: '1px solid rgba(255,255,255,.1)', overflow: 'hidden', position: 'relative', zIndex: 1 }}>
+                  {[['565+', 'Projects'], ['35+', 'Experts'], ['4', 'Cities'], ['Since', '2015']].map(([n, l], i, arr) => (
+                    <div key={l} style={{ flex: 1, textAlign: 'center', padding: '14px 8px', borderRight: i < arr.length - 1 ? '1px solid rgba(255,255,255,.1)' : 'none' }}>
+                      <div style={{ fontSize: 20, fontWeight: 800, color: '#38bdf8', letterSpacing: '-.03em', lineHeight: 1 }}>{n}</div>
+                      <div style={{ fontSize: 10.5, color: 'rgba(255,255,255,.45)', fontWeight: 500, marginTop: 3 }}>{l}</div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Live badge */}
+                <div style={{ position: 'absolute', top: 20, right: 20, display: 'flex', alignItems: 'center', gap: 6, background: 'rgba(34,197,94,.15)', border: '1px solid rgba(34,197,94,.3)', borderRadius: 20, padding: '5px 12px', zIndex: 2 }}>
+                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#22c55e', display: 'inline-block', boxShadow: '0 0 6px #22c55e' }} />
+                  <span style={{ fontSize: 11, fontWeight: 700, color: '#22c55e' }}>100% In-house</span>
                 </div>
               </div>
             </div>
@@ -251,46 +289,89 @@ export default function AboutContent() {
       </div>
 
       {/* ── TEAM GRID ── */}
-      <section id="team" style={{ borderBottom: '1px solid var(--border)', padding: '80px 0' }}>
+      <section id="team" style={{ borderBottom: '1px solid var(--border)', padding: '90px 0', background: 'linear-gradient(180deg,#f8faff 0%,#fff 100%)' }}>
         <div style={{ maxWidth: 1220, margin: '0 auto', padding: '0 24px' }}>
-          <div className="row align-items-end mb-5 g-4">
-            <div className="col-lg-7 anim">
-              <div className="section-tag"><span className="tag-dot" />Meet the team</div>
-              <h2 className="sec-h">The people who build <span className="sky">your digital products.</span></h2>
-              <p className="sec-sub">Designers, developers, marketers, animators — all working under one roof, all accountable to you.</p>
-            </div>
-            <div className="col-lg-5 anim">
-              <div style={{ background: 'var(--sky-pale)', border: '1.5px solid #BBDEFB', borderRadius: 'var(--r)', padding: '22px 24px' }}>
-                <h4 style={{ fontSize: 15, fontWeight: 700, color: 'var(--navy)', marginBottom: 6 }}>We&apos;re hiring</h4>
-                <p style={{ fontSize: 13.5, color: 'var(--ink3)', lineHeight: 1.65, marginBottom: 12 }}>Join a team that builds real products for real businesses.</p>
-                <Link href="/careers" style={{ fontSize: 13, fontWeight: 700, color: 'var(--sky)' }}>View open positions ↗</Link>
-              </div>
-            </div>
+
+          {/* Header */}
+          <div className="text-center mb-5 anim" style={{ maxWidth: 640, margin: '0 auto 56px' }}>
+            <div className="section-tag" style={{ margin: '0 auto 14px' }}><span className="tag-dot" />Meet the team</div>
+            <h2 className="sec-h">The people who build <span className="sky">your digital products.</span></h2>
+            <p className="sec-sub" style={{ marginBottom: 0 }}>Designers, developers, animators — all in-house, all accountable to you.</p>
           </div>
-          <div className="row g-3">
-            {TEAM.map((m, i) => (
-              <div key={m.name} className="col-6 col-md-4 col-lg anim" style={{ transitionDelay: `${i * .05}s` }}>
-                <div style={{ borderRadius: 'var(--r)', overflow: 'hidden', border: '1.5px solid var(--border)', transition: 'all .25s', background: 'var(--surface)' }}>
-                  <div style={{ aspectRatio: '3/4', overflow: 'hidden', position: 'relative' }}>
-                    <img src={m.photo} alt={`${m.name} — ${m.role} at NNC`} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  </div>
-                  <div style={{ padding: '14px 12px' }}>
-                    <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--navy)', marginBottom: 2 }}>{m.name}</div>
-                    <div style={{ fontSize: 12, color: 'var(--sky)', fontWeight: 600 }}>{m.role}</div>
-                    <div style={{ fontSize: 11.5, color: 'var(--ink4)', marginTop: 1 }}>{m.dept}</div>
-                  </div>
+
+          {(() => {
+            const deptMeta = {
+              'Development Team': { grad: 'linear-gradient(135deg,#1e3a8a,#2563eb)', accent: '#2563eb', light: 'rgba(37,99,235,.08)', label: 'Development' },
+              'Design Team':      { grad: 'linear-gradient(135deg,#5b21b6,#7c3aed)', accent: '#7c3aed', light: 'rgba(124,58,237,.08)', label: 'Design' },
+              'Operations Team':  { grad: 'linear-gradient(135deg,#065f46,#059669)', accent: '#059669', light: 'rgba(5,150,105,.08)', label: 'Operations' },
+              'Marketing Team':   { grad: 'linear-gradient(135deg,#92400e,#d97706)', accent: '#d97706', light: 'rgba(217,119,6,.08)',   label: 'Marketing' },
+            }
+            return (
+              <div className="row g-4 justify-content-center">
+                {TEAM.map((m, i) => {
+                  const dm = deptMeta[m.dept] || deptMeta['Development Team']
+                  const initials = m.name.slice(0, 2).toUpperCase()
+                  return (
+                    <div key={m.name} className="col-6 col-md-4 col-lg-3 anim" style={{ transitionDelay: `${i * .05}s` }}>
+                      <div
+                        style={{ borderRadius: 24, overflow: 'hidden', background: '#fff', boxShadow: '0 2px 16px rgba(7,20,53,.07)', border: '1.5px solid var(--border)', transition: 'transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s' }}
+                        onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)'; e.currentTarget.style.boxShadow = '0 24px 48px rgba(7,20,53,.13)' }}
+                        onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0) scale(1)'; e.currentTarget.style.boxShadow = '0 2px 16px rgba(7,20,53,.07)' }}
+                      >
+                        {/* Card top — gradient banner with avatar */}
+                        <div style={{ background: dm.grad, padding: '28px 20px 48px', position: 'relative', overflow: 'hidden' }}>
+                          {/* Decorative circles */}
+                          <div style={{ position: 'absolute', top: -20, right: -20, width: 100, height: 100, borderRadius: '50%', background: 'rgba(255,255,255,.07)', pointerEvents: 'none' }} />
+                          <div style={{ position: 'absolute', bottom: -10, left: -10, width: 70, height: 70, borderRadius: '50%', background: 'rgba(255,255,255,.05)', pointerEvents: 'none' }} />
+                          {/* Dept label top-right */}
+                          <div style={{ position: 'absolute', top: 14, right: 14, background: 'rgba(255,255,255,.15)', borderRadius: 999, padding: '3px 10px', fontSize: 10, fontWeight: 700, color: '#fff', letterSpacing: '.06em', textTransform: 'uppercase' }}>{dm.label}</div>
+                          {/* Avatar */}
+                          <div style={{ width: 80, height: 80, borderRadius: '50%', margin: '0 auto', background: 'rgba(255,255,255,.15)', border: '3px solid rgba(255,255,255,.4)', overflow: 'hidden', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                            <span style={{ fontSize: 26, fontWeight: 800, color: '#fff', userSelect: 'none' }}>{initials}</span>
+                            <img
+                              src={m.photo} alt={m.name} loading="lazy"
+                              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+                              onError={e => { e.currentTarget.style.display = 'none' }}
+                            />
+                          </div>
+                        </div>
+
+                        {/* Card bottom — name & role */}
+                        <div style={{ padding: '20px 20px 22px', textAlign: 'center', background: '#fff', marginTop: -24, borderRadius: '20px 20px 0 0', position: 'relative' }}>
+                          <div style={{ fontSize: 15, fontWeight: 800, color: 'var(--navy)', marginBottom: 3, letterSpacing: '-.01em' }}>{m.name}</div>
+                          <div style={{ fontSize: 12.5, fontWeight: 600, color: dm.accent }}>{m.role}</div>
+                          {/* Divider */}
+                          <div style={{ height: 1, background: 'var(--border)', margin: '14px 0 12px' }} />
+                          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 5, background: dm.light, borderRadius: 999, padding: '5px 12px' }}>
+                            <span style={{ width: 6, height: 6, borderRadius: '50%', background: dm.accent, display: 'inline-block' }} />
+                            <span style={{ fontSize: 11, fontWeight: 700, color: dm.accent }}>NNC {dm.label}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                })}
+
+                {/* Hiring card */}
+                <div className="col-6 col-md-4 col-lg-3 anim" style={{ transitionDelay: `${TEAM.length * .05}s` }}>
+                  <Link href="/careers" style={{ textDecoration: 'none' }}>
+                    <div
+                      style={{ borderRadius: 24, overflow: 'hidden', background: '#fff', boxShadow: '0 2px 16px rgba(7,20,53,.07)', border: '2px dashed #cbd5e1', transition: 'transform .25s, box-shadow .25s', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 220, padding: 28, textAlign: 'center', gap: 10 }}
+                      onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-8px)'; e.currentTarget.style.boxShadow = '0 24px 48px rgba(7,20,53,.1)'; e.currentTarget.style.borderColor = '#2563eb' }}
+                      onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 2px 16px rgba(7,20,53,.07)'; e.currentTarget.style.borderColor = '#cbd5e1' }}
+                    >
+                      <div style={{ width: 52, height: 52, borderRadius: '50%', background: 'linear-gradient(135deg,#2563eb,#0ea5e9)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 4, boxShadow: '0 8px 20px rgba(37,99,235,.3)' }}>
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                      </div>
+                      <div style={{ fontSize: 15, fontWeight: 800, color: 'var(--navy)' }}>We&apos;re Hiring</div>
+                      <div style={{ fontSize: 12.5, color: 'var(--ink3)', lineHeight: 1.55 }}>Join our in-house team. Real products, real impact.</div>
+                      <div style={{ fontSize: 12, fontWeight: 700, color: '#2563eb', marginTop: 4 }}>View open positions ↗</div>
+                    </div>
+                  </Link>
                 </div>
               </div>
-            ))}
-          </div>
-          {/* Group photo */}
-          <div className="anim" style={{ position: 'relative', borderRadius: 'var(--r)', overflow: 'hidden', border: '1.5px solid var(--border)', marginTop: 24, aspectRatio: '16/6' }}>
-            <img src={SITE.teamPhoto} alt="The complete NNC team" loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-            <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, background: 'linear-gradient(to top,rgba(7,20,53,.88),transparent)', padding: 28 }}>
-              <p style={{ fontSize: 19, fontWeight: 700, color: '#fff', marginBottom: 4 }}>The complete NNC team — not outsourced, not freelancers. Your people.</p>
-              <p style={{ fontSize: 13, color: 'rgba(255,255,255,.55)', marginBottom: 0 }}>Every person in this photograph is a full-time, permanent NNC team member.</p>
-            </div>
-          </div>
+            )
+          })()}
         </div>
       </section>
 

@@ -157,11 +157,15 @@ function thankYouEmail(name, service) {
 export async function POST(request) {
   try {
     const body = await request.json()
-    const { name, phone, email, service, message } = body
+    const { name, phone, email, service, message, landingPage, source } = body
 
     if (!name || !phone) {
       return Response.json({ error: 'Name and phone are required.' }, { status: 400 })
     }
+
+    // Determine the landing page label — prefer explicit landingPage field,
+    // fall back to source if it looks like a URL path
+    const pagePath = landingPage || (source && String(source).startsWith('/') ? source : null)
 
     const transporter = getTransporter()
 
@@ -195,6 +199,23 @@ export async function POST(request) {
           'List-Unsubscribe': `<mailto:${process.env.SMTP_USER}?subject=unsubscribe>`,
         },
       })
+    }
+
+    // Forward enquiry to CRM (fire-and-forget — don't block the response)
+    const crmUrl = process.env.CRM_BACKEND_URL
+    if (crmUrl) {
+      fetch(`${crmUrl}/api/website-enquiry`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          phone,
+          email: email || '',
+          service,
+          requirements: message || '',
+          landingPage: pagePath || '/',
+        }),
+      }).catch(err => console.error('CRM forward error:', err.message))
     }
 
     return Response.json({ success: true })

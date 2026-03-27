@@ -4,8 +4,8 @@ import { Footer, WaFloat } from '@/components/Sections'
 import { SITE } from '@/data/siteData'
 
 export const metadata = {
-  title: 'Careers at NNC Digital | Join Our In-house Team | Bengaluru',
-  description: 'Join NNC Digital\'s 35+ member in-house team in Bengaluru. We hire React JS, React Native, Flutter developers, UI/UX designers, SEO specialists and digital marketers.',
+  title: 'Careers at NNC Digital | Join Our Team in Bangalore',
+  description: 'NNC is hiring across design, development and digital marketing. Join a 35+ member in-house team at our Bengaluru, Mumbai or Mysuru office today.',
   alternates: { canonical: `${SITE.url}/careers` },
 }
 

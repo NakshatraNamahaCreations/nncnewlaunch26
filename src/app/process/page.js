@@ -5,8 +5,8 @@ import { SITE, PROCESS_STEPS } from '@/data/siteData'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Our Process | How NNC Works | Fixed Price · Zero Outsourcing',
-  description: 'NNC Digital\'s 6-step project process — Discovery to Launch. Fixed price agreed before work starts. Weekly staging updates. PageSpeed 90+ guaranteed on delivery.',
+  title: 'Our Project Process | How NNC Delivers | Bangalore',
+  description: "NNC's 6-step delivery: discovery, fixed quote, UI/UX, development, QA and handover. Your approval required at every stage. Zero surprises guaranteed.",
   alternates: { canonical: `${SITE.url}/process` },
 }
 

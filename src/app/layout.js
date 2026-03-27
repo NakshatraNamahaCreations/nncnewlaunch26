@@ -2,11 +2,12 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import '@/styles/globals.css'
 import Script from 'next/script'
 import WhatsAppChat from '@/components/WhatsAppChat'
+import QuoteModal from '@/components/QuoteModal'
 
 export const metadata = {
-  title: 'Best Website Development Company in Bangalore | NNC Digital',
+  title: 'Website & App Development Company in Bangalore | NNC',
   description:
-    'Nakshatra Namaha Creations — top-rated website development company in Bangalore. Custom websites, mobile apps, CRM software, digital marketing & 2D animation. 565+ projects. 4.9★ Google. Call +91 99005 66466.',
+    'NNC builds websites, mobile apps, CRM software and runs digital marketing. 35+ in-house team, 565+ projects, 4 offices. Fixed price. Free quote in 24hrs.',
   keywords: [
     'website development company in bangalore',
     'web design company bangalore',
@@ -36,9 +37,9 @@ export const metadata = {
     locale: 'en_IN',
     url: 'https://www.nakshatranamahacreations.com',
     siteName: 'NNC Digital — Website Development Company Bangalore',
-    title: 'Best Website Development Company in Bangalore | NNC Digital',
+    title: 'Website & App Development Company in Bangalore | NNC',
     description:
-      'Custom websites, mobile apps, CRM & digital marketing by a 35+ member in-house team. 565+ projects. 4.9★ on Google. Offices in Bengaluru, Mumbai, Mysuru & Hyderabad.',
+      'NNC builds websites, mobile apps, CRM software and runs digital marketing. 35+ in-house team, 565+ projects, 4 offices. Fixed price. Free quote in 24hrs.',
     images: [
       {
         url: 'https://www.nakshatranamahacreations.com/media/teams/NNCGRPPHO.avif',
@@ -52,14 +53,14 @@ export const metadata = {
     card: 'summary_large_image',
     site: '@nncbengaluru',
     creator: '@nncbengaluru',
-    title: 'Best Website Development Company in Bangalore | NNC Digital',
+    title: 'Website & App Development Company in Bangalore | NNC',
     description:
-      'Custom websites, mobile apps, CRM & digital marketing. 565+ projects. 4.9★ Google. Call +91 99005 66466.',
+      'NNC builds websites, mobile apps, CRM software and runs digital marketing. 35+ in-house team, 565+ projects, 4 offices. Fixed price. Free quote in 24hrs.',
     images: ['https://www.nakshatranamahacreations.com/media/teams/NNCGRPPHO.avif'],
   },
-  verification: {
-    google: 'google-site-verification-token-here',
-  },
+  // verification: {
+  //   google: 'REPLACE_WITH_YOUR_ACTUAL_GSC_TOKEN',  // get from Google Search Console → Settings → Ownership verification → HTML tag
+  // },
 }
 
 /* ── JSON-LD Schemas ─────────────────────────────────────────── */
@@ -265,6 +266,7 @@ export default function RootLayout({ children }) {
       <body>
         {children}
         <WhatsAppChat />
+        <QuoteModal />
         {/* Bootstrap JS — loaded after page content */}
         <Script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

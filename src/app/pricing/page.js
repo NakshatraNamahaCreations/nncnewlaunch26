@@ -5,8 +5,8 @@ import { SITE } from '@/data/siteData'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Pricing Guide | Website, App, Marketing | NNC Digital',
-  description: 'NNC Digital pricing guide. Website from ₹24,999. Mobile apps from ₹75,000. All fixed price. No hourly billing, no surprises. Get a free quote within 24 hours.',
+  title: 'Website & App Pricing in Bangalore | NNC Digital',
+  description: 'Clear pricing for websites, apps, CRM and digital marketing. Fixed pricing, zero hidden charges. Get your quote in 24 hours.',
   alternates: { canonical: `${SITE.url}/pricing` },
 }
 

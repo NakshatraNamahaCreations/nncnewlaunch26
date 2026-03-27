@@ -47,7 +47,7 @@ export default function CaseStudyPage({ params }) {
           <div style={{ maxWidth: 1220, margin: '0 auto', padding: '0 24px', display: 'flex', gap: 6, fontSize: 12.5, flexWrap: 'wrap' }}>
             <Link href="/" style={{ color: 'rgba(255,255,255,.45)', textDecoration: 'none' }}>Home</Link>
             <span style={{ color: 'rgba(255,255,255,.2)' }}>›</span>
-            <Link href="/our-works" style={{ color: 'rgba(255,255,255,.45)', textDecoration: 'none' }}>Our Works</Link>
+            <Link href="/case-studies" style={{ color: 'rgba(255,255,255,.45)', textDecoration: 'none' }}>Case Studies</Link>
             <span style={{ color: 'rgba(255,255,255,.2)' }}>›</span>
             <span style={{ color: '#2196F3', fontWeight: 600 }}>{cs.title}</span>
           </div>

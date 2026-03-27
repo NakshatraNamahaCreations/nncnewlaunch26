@@ -1,8 +1,8 @@
 import OurWorksContent from './OurWorksContent'
 
 export const metadata = {
-  title: 'Our Works & Portfolio | 565+ Projects — Mobile Apps, Websites, Videos | NNC Digital Bangalore',
-  description: 'Explore NNC Digital\'s portfolio of 565+ projects — mobile app development, website development, corporate video production and 2D animation. All built in-house by 35+ permanent specialists. Zero outsourcing since 2015.',
+  title: 'Our Work | 565+ Projects Delivered | NNC Bangalore',
+  description: '565+ projects: 200+ websites, 150+ apps, 60+ CRM platforms, 90+ videos and 100+ branding projects. All built in-house across 10+ industries.',
   alternates: { canonical: 'https://www.nakshatranamahacreations.com/our-works' },
 }
 

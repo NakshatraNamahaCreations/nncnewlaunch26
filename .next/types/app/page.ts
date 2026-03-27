@@ -1,4 +1,4 @@
-// File: C:\Users\HP\Downloads\nnc final complete\nnc-nextjs-bootstrap\src\app\page.js
+// File: C:\Users\HP\Downloads\new_nnc_crm\src\app\page.js
 import * as entry from '../../../src/app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

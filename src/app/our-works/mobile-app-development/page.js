@@ -5,8 +5,8 @@ import { SITE } from '@/data/siteData'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Mobile App Development Portfolio | NNC Digital',
-  description: '150+ Android and iOS apps delivered by NNC Digital. React Native, Flutter. Play Store & App Store.',
+  title: 'Mobile App Portfolio | 150+ Apps Delivered | NNC',
+  description: '150+ Android and iOS apps across healthcare, logistics, finance and e-commerce. Built on React Native and Flutter by NNC\'s in-house team in Bangalore.',
   alternates: { canonical: `${SITE.url}/our-works/mobile-app-development` },
 }
 

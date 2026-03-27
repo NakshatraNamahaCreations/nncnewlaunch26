@@ -5,8 +5,8 @@ import { SITE } from '@/data/siteData'
 import Link from 'next/link'
 
 export const metadata = {
-  title: '2D Animation Portfolio | NNC Digital',
-  description: '90+ explainer videos, character animations and motion graphics delivered in-house.',
+  title: '2D Animation Portfolio | Explainer Videos | NNC',
+  description: 'Explainer videos, whiteboard videos and social reels produced entirely in-house by NNC for clients across India and abroad.',
   alternates: { canonical: `${SITE.url}/our-works/animation` },
 }
 

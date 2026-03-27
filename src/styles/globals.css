@@ -36,12 +36,17 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--f);
   background: var(--white);
   color: var(--navy);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  max-width: 100%;
 }
 
 a {
@@ -52,6 +57,11 @@ a {
 img {
   display: block;
   max-width: 100%;
+}
+
+/* Prevent horizontal overflow from Bootstrap rows and absolute-positioned decoratives */
+section {
+  overflow-x: clip;
 }
 
 ::-webkit-scrollbar {
@@ -166,14 +176,16 @@ img {
 
 .anim-l {
   opacity: 0;
-  transform: translateX(-24px);
+  transform: translateX(-20px);
   transition: opacity .65s cubic-bezier(.16, 1, .3, 1), transform .65s cubic-bezier(.16, 1, .3, 1);
+  will-change: transform, opacity;
 }
 
 .anim-r {
   opacity: 0;
-  transform: translateX(24px);
+  transform: translateX(20px);
   transition: opacity .65s cubic-bezier(.16, 1, .3, 1), transform .65s cubic-bezier(.16, 1, .3, 1);
+  will-change: transform, opacity;
 }
 
 .anim.in,
@@ -1672,6 +1684,8 @@ img {
   font-size: 13.5px;
   font-weight: 600;
   color: rgba(255, 255, 255, .55);
+  text-decoration: none;
+  cursor: pointer;
   transition: all .18s;
 }
 

@@ -5,8 +5,8 @@ import ContactContent from './ContactContent'
 import { SITE } from '@/data/siteData'
 
 export const metadata = {
-  title: 'Contact Us | NNC Digital — Nakshatra Namaha Creations',
-  description: 'Contact NNC Digital — Website Development, Mobile App Development, Digital Marketing. Call +91 99005 66466 or visit us in Bengaluru, Mumbai, Mysuru or Hyderabad.',
+  title: 'Contact NNC | Get a Free Quote Within 24 Hours',
+  description: 'Get a fixed-price quote from NNC within 24 hours for your website, app, CRM or digital marketing. Call +91 99005 66466 or visit a branch office.',
   alternates: { canonical: `${SITE.url}/contact-us` },
 }
 

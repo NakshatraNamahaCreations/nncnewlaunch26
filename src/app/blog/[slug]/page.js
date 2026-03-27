@@ -12,11 +12,26 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const post = BLOG_POSTS.find(p => p.slug === params.slug)
   if (!post) return { title: 'Blog | NNC Digital' }
+  const description = post.description || `${post.title} — practical insights from NNC Digital's in-house team in Bengaluru. Expert guide on ${post.category.toLowerCase()} for businesses in India.`
   return {
     title: `${post.title} | NNC Digital Blog`,
-    description: `${post.title} — insights from NNC Digital's team in Bengaluru. Read our guide on ${post.category.toLowerCase()}.`,
+    description,
     alternates: { canonical: `${SITE.url}/blog/${post.slug}` },
-    openGraph: { title: post.title, description: `NNC Digital blog — ${post.category}`, type: 'article', publishedTime: post.date },
+    openGraph: {
+      title: post.title,
+      description,
+      type: 'article',
+      publishedTime: post.date,
+      url: `${SITE.url}/blog/${post.slug}`,
+      images: [{ url: SITE.teamPhoto, width: 1200, height: 630, alt: `${post.title} — NNC Digital Blog` }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      site: '@nncbengaluru',
+      title: post.title,
+      description,
+      images: [SITE.teamPhoto],
+    },
   }
 }
 

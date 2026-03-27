@@ -5,8 +5,8 @@ import { SITE } from '@/data/siteData'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Client Reviews | 4.9★ Google Rating | NNC Digital',
-  description: '87 verified Google reviews for NNC Digital. 4.9★ average rating from clients across Bengaluru, Mumbai, Hyderabad and Mysuru. Read what our clients say.',
+  title: 'Client Reviews | 4.9 Google Rating | NNC Bangalore',
+  description: '87 verified Google reviews at 4.9 star NNC. Real client feedback on website, app and digital marketing projects delivered by NNC across India. Read them.',
   alternates: { canonical: `${SITE.url}/client-reviews` },
 }
 

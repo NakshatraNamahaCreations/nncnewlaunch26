@@ -6,8 +6,8 @@ import { CASE_STUDY_DATA } from '@/data/landingData'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Case Studies | Real Projects. Documented Results. | NNC Digital',
-  description: 'NNC Digital case studies — real client challenges, what we built, and documented outcomes. Healthcare, home services, e-commerce and more. Every client reachable for a reference.',
+  title: 'Case Studies | Documented Results by NNC | Bangalore',
+  description: 'Page 1 Google in 90 days, 340% booking growth, 10K app downloads in month one. Read documented NNC website, app and CRM projects in detail.',
   alternates: { canonical: `${SITE.url}/case-studies` },
 }
 

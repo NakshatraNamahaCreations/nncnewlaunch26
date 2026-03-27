@@ -351,7 +351,8 @@ function Portfolio() {
                 {/* Image */}
                 <div style={{ position: 'relative', height: 220, overflow: 'hidden', background: 'var(--surface)' }}>
                   <Image src={p.img} alt={`${p.name} mobile app built by NNC Bangalore`}
-                    fill style={{ objectFit: 'cover', filter: 'brightness(.8)', transition: 'transform .5s,filter .5s' }} />
+                    fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    style={{ objectFit: 'cover', filter: 'brightness(.8)', transition: 'transform .5s,filter .5s' }} />
                   {/* Store badges */}
                   <div style={{ position: 'absolute', top: 12, right: 12, display: 'flex', gap: 6 }}>
                     {p.stores.map((s, si) => (
@@ -517,11 +518,21 @@ function FaqContact() {
   const [sent, setSent] = useState(false)
   const [sending, setSending] = useState(false)
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault()
-    if (!form.name || !form.phone) { alert('Please enter your name and phone.'); return }
+    if (!form.name.trim() || form.name.trim().length < 2) { alert('Please enter your full name (at least 2 characters).'); return }
+    if (!form.phone.trim() || form.phone.replace(/\D/g, '').length < 7) { alert('Please enter a valid phone number.'); return }
+    if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) { alert('Please enter a valid email address.'); return }
     setSending(true)
-    setTimeout(() => { setSending(false); setSent(true) }, 1300)
+    try {
+      const res = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: form.name, phone: form.phone, email: form.email, service: `Mobile App — ${form.app || ''}`, message: form.budget ? `Budget: ${form.budget}` : '', landingPage: '/mobile-app-development-company-in-bangalore' }),
+      })
+      if (res.ok) { setSent(true) } else { alert('Something went wrong. Please try again.') }
+    } catch { alert('Network error. Please try again.') }
+    finally { setSending(false) }
   }
 
   return (
@@ -573,10 +584,10 @@ function FaqContact() {
               {!sent ? (
                 <form onSubmit={submit} noValidate>
                   <div className="row g-2 mb-2">
-                    <div className="col-6"><input className="cc-inp" placeholder="Your name *" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required /></div>
-                    <div className="col-6"><input className="cc-inp" type="tel" placeholder="Phone *" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} required /></div>
+                    <div className="col-6"><input className="cc-inp" type="text" placeholder="Your name *" value={form.name} onChange={e => setForm({ ...form, name: e.target.value.replace(/[^A-Za-z\s.'-]/g, '') })} maxLength={100} required /></div>
+                    <div className="col-6"><input className="cc-inp" type="tel" placeholder="Phone *" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value.replace(/[^0-9+\-\s()]/g, '') })} maxLength={15} required /></div>
                   </div>
-                  <input className="cc-inp d-block mb-2" type="email" placeholder="Email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} />
+                  <input className="cc-inp d-block mb-2" type="email" placeholder="Email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} maxLength={150} />
                   <input className="cc-inp d-block mb-2" placeholder="Type of app (on-demand, e-commerce, etc.)" value={form.app} onChange={e => setForm({ ...form, app: e.target.value })} />
                   <select className="cc-inp d-block mb-2" value={form.budget} onChange={e => setForm({ ...form, budget: e.target.value })} style={{ background: 'rgba(255,255,255,.07)', color: form.budget ? '#fff' : 'rgba(255,255,255,.2)' }}>
                     <option value="" disabled>Estimated budget</option>

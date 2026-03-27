@@ -19,9 +19,13 @@ export default function sitemap() {
     { url: `${BASE}/our-works/website-development`, lastModified: now, priority: 1.0, changeFrequency: 'monthly' },
     { url: `${BASE}/our-works/corporate-video-production`, lastModified: now, priority: 0.8, changeFrequency: 'monthly' },
     { url: `${BASE}/our-works/animation`, lastModified: now, priority: 0.8, changeFrequency: 'monthly' },
-    { url: `${BASE}/crm-solutions`, lastModified: now, priority: 1.0, changeFrequency: 'monthly' },
-    { url: `${BASE}/custom-crm-development`, lastModified: now, priority: 1.0, changeFrequency: 'monthly' },
-    { url: `${BASE}/corporate-film-makers`, lastModified: now, priority: 0.8, changeFrequency: 'monthly' },
+    // Note: crm-solutions, custom-crm-development, corporate-film-makers are in SLUG_MAP
+    // and are already included via slugPages below — do not duplicate them here.
+    // ── Dedicated service sub-pages (static routes, not in SLUG_MAP) ──
+    { url: `${BASE}/corporate-website-development`,   lastModified: now, priority: 1.0, changeFrequency: 'monthly' },
+    { url: `${BASE}/web-application-development`,     lastModified: now, priority: 1.0, changeFrequency: 'monthly' },
+    { url: `${BASE}/landing-page-development`,        lastModified: now, priority: 1.0, changeFrequency: 'monthly' },
+    { url: `${BASE}/progressive-web-app-development`, lastModified: now, priority: 1.0, changeFrequency: 'monthly' },
   ]
 
   // All dynamic slug pages

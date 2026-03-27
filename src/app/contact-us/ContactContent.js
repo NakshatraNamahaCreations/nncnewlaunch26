@@ -16,13 +16,15 @@ export default function ContactContent() {
 
   const submit = async (e) => {
     e.preventDefault()
-    if (!form.name || !form.phone) { alert('Please enter your name and phone number.'); return }
+    if (!form.name.trim() || form.name.trim().length < 2) { alert('Please enter your full name (at least 2 characters).'); return }
+    if (!form.phone.trim() || form.phone.replace(/\D/g, '').length < 7) { alert('Please enter a valid phone number.'); return }
+    if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) { alert('Please enter a valid email address.'); return }
     setSending(true)
     try {
       const res = await fetch('/api/enquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, landingPage: '/contact-us' }),
       })
       const data = await res.json()
       if (res.ok) {
@@ -131,12 +133,12 @@ export default function ContactContent() {
                     <div className="row g-3 mb-3">
                       <div className="col-md-6">
                         <label style={{ fontSize: 12.5, fontWeight: 600, color: '#475569', marginBottom: 6, display: 'block' }}>Your Name *</label>
-                        <input style={{ width: '100%', border: '1.5px solid #E2E8F0', borderRadius: 8, padding: '13px 16px', fontFamily: 'inherit', fontSize: 14, color: '#1E293B', outline: 'none', transition: 'border-color .15s' }} placeholder="John Smith" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })}
+                        <input style={{ width: '100%', border: '1.5px solid #E2E8F0', borderRadius: 8, padding: '13px 16px', fontFamily: 'inherit', fontSize: 14, color: '#1E293B', outline: 'none', transition: 'border-color .15s' }} type="text" placeholder="John Smith" value={form.name} onChange={e => setForm({ ...form, name: e.target.value.replace(/[^A-Za-z\s.'-]/g, '') })} maxLength={100}
                           onFocus={e => e.target.style.borderColor = '#2196F3'} onBlur={e => e.target.style.borderColor = '#E2E8F0'} required />
                       </div>
                       <div className="col-md-6">
                         <label style={{ fontSize: 12.5, fontWeight: 600, color: '#475569', marginBottom: 6, display: 'block' }}>Phone Number *</label>
-                        <input style={{ width: '100%', border: '1.5px solid #E2E8F0', borderRadius: 8, padding: '13px 16px', fontFamily: 'inherit', fontSize: 14, color: '#1E293B', outline: 'none', transition: 'border-color .15s' }} type="tel" placeholder="+91 98765 43210" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })}
+                        <input style={{ width: '100%', border: '1.5px solid #E2E8F0', borderRadius: 8, padding: '13px 16px', fontFamily: 'inherit', fontSize: 14, color: '#1E293B', outline: 'none', transition: 'border-color .15s' }} type="tel" placeholder="+91 98765 43210" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value.replace(/[^0-9+\-\s()]/g, '') })} maxLength={15}
                           onFocus={e => e.target.style.borderColor = '#2196F3'} onBlur={e => e.target.style.borderColor = '#E2E8F0'} required />
                       </div>
                     </div>

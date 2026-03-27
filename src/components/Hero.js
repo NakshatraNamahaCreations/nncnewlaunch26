@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link'
 import { SITE } from '@/data/siteData'
 
 export default function Hero() {
@@ -15,22 +16,24 @@ export default function Hero() {
 
 
             <h1 className="hero-h1 mb-3">
-              We Build Digital Solutions<br />
-              <span className="sky">That Grow</span> Your Business
+              Website Development Company<br />
+              <span className="sky">in Bangalore</span> — Apps, CRM &amp; Digital Marketing
             </h1>
 
             <p className="hero-sub mb-4">
-              Custom websites, mobile apps, CRM systems &amp; digital marketing — by a{' '}
+              <Link href="/website-development-company-in-bangalore" style={{ color: 'inherit', textDecoration: 'underline', textDecorationColor: 'rgba(255,255,255,.3)' }}>Custom websites</Link>,{' '}
+              <Link href="/mobile-app-development-company-in-bangalore" style={{ color: 'inherit', textDecoration: 'underline', textDecorationColor: 'rgba(255,255,255,.3)' }}>mobile apps</Link>,{' '}
+              <Link href="/custom-crm-development" style={{ color: 'inherit', textDecoration: 'underline', textDecorationColor: 'rgba(255,255,255,.3)' }}>CRM systems</Link> &amp;{' '}
+              <Link href="/digital-marketing-agency-in-bangalore" style={{ color: 'inherit', textDecoration: 'underline', textDecorationColor: 'rgba(255,255,255,.3)' }}>digital marketing</Link> — by a{' '}
               <strong>35+ member in-house team</strong> across Bengaluru, Mumbai, Mysuru &amp; Hyderabad.{' '}
               <strong>565+ projects delivered. Zero outsourced.</strong>
             </p>
 
             <div className="hero-btns d-flex flex-wrap gap-3 mb-4">
-              <a href="#faq" className="btn btn-sky fw-bold px-4 py-3 d-inline-flex align-items-center gap-2"
-                onClick={e => { e.preventDefault(); document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' }) }}>
+              <button className="btn btn-sky fw-bold px-4 py-3 d-inline-flex align-items-center gap-2"
+                onClick={() => window.dispatchEvent(new CustomEvent('open-quote'))}>
                 Get Free Consultation
-                
-              </a>
+              </button>
 
            
             </div>

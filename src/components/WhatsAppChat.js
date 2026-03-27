@@ -313,6 +313,7 @@ export default function WhatsAppChat() {
           email: email || '',
           service: ans.service || 'General',
           message: `[Chatbot Lead]\n\n${message}`,
+          landingPage: typeof window !== 'undefined' ? window.location.pathname : '/',
         }),
       })
     } catch { /* silent fail — WhatsApp is the primary channel */ }
@@ -326,7 +327,7 @@ export default function WhatsAppChat() {
   return (
     <>
       {/* ── Floating trigger ─────────────────────────────── */}
-      <div style={{ position: 'fixed', bottom: 28, right: 28, zIndex: 9999, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 10 }}>
+      <div style={{ position: 'fixed', bottom: 100, right: 28, zIndex: 9999, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 10 }}>
         {!open && (
           <div style={{
             background: '#fff', padding: '10px 16px', borderRadius: 12,
@@ -363,10 +364,21 @@ export default function WhatsAppChat() {
         </button>
       </div>
 
+      {/* ── Back to Top ─────────────────────────────────── */}
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        aria-label="Back to top"
+        style={{ position: 'fixed', bottom: 28, right: 28, zIndex: 9999, width: 48, height: 48, borderRadius: 14, background: 'linear-gradient(135deg,#2563eb,#0ea5e9)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 6px 20px rgba(37,99,235,.4)', transition: 'transform .2s, box-shadow .2s' }}
+        onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-3px)'; e.currentTarget.style.boxShadow = '0 12px 28px rgba(37,99,235,.55)' }}
+        onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 6px 20px rgba(37,99,235,.4)' }}
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 15l-6-6-6 6" /></svg>
+      </button>
+
       {/* ── Chat window ─────────────────────────────────── */}
       {open && (
         <div style={{
-          position: 'fixed', bottom: 108, right: 28, zIndex: 9998,
+          position: 'fixed', bottom: 180, right: 28, zIndex: 9998,
           width: 400, maxWidth: 'calc(100vw - 24px)',
           borderRadius: 20, overflow: 'hidden',
           boxShadow: '0 24px 80px rgba(0,0,0,.18), 0 0 0 1px rgba(0,0,0,.04)',

@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { SITE } from '@/data/siteData'
 
 const sc = () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
@@ -12,8 +13,8 @@ function Svg({ d, size = 16, color = 'currentColor', sw = 1.8 }) {
 }
 
 export default function CityServiceContent({ slug, svc, city, hood, titleOverride }) {
+  const router = useRouter()
   const [form, setForm] = useState({ name: '', phone: '', email: '', message: '' })
-  const [sent, setSent] = useState(false)
   const [open, setOpen] = useState(null)
 
   const location = hood ? `${hood.name}, ${city?.name}` : city?.name || 'India'
@@ -21,10 +22,18 @@ export default function CityServiceContent({ slug, svc, city, hood, titleOverrid
     ? titleOverride.replace(' | NNC Digital', '').replace(' | NNC', '')
     : `${svc?.name} in ${location}`
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault()
-    if (!form.name || !form.phone) { alert('Please enter your name and phone.'); return }
-    setTimeout(() => setSent(true), 1000)
+    if (!form.name.trim() || form.name.trim().length < 2) { alert('Please enter your full name.'); return }
+    if (!form.phone.trim() || form.phone.replace(/\D/g, '').length < 7) { alert('Please enter a valid phone number.'); return }
+    try {
+      await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, service: svc?.name, landingPage: `/${slug}` }),
+      })
+    } catch {}
+    router.push('/thank-you')
   }
 
   const faqs = [
@@ -266,11 +275,10 @@ export default function CityServiceContent({ slug, svc, city, hood, titleOverrid
                     {SITE.email}
                   </a>
                 </div>
-                {!sent ? (
-                  <form onSubmit={submit} noValidate>
+                <form onSubmit={submit} noValidate>
                     <div className="row g-2 mb-2">
-                      <div className="col-6"><input style={{ width: '100%', background: 'rgba(255,255,255,.07)', border: '1px solid rgba(255,255,255,.1)', borderRadius: 8, padding: '12px 14px', fontFamily: 'inherit', fontSize: 14, color: '#fff', outline: 'none', marginBottom: 0 }} placeholder="Your name *" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} /></div>
-                      <div className="col-6"><input style={{ width: '100%', background: 'rgba(255,255,255,.07)', border: '1px solid rgba(255,255,255,.1)', borderRadius: 8, padding: '12px 14px', fontFamily: 'inherit', fontSize: 14, color: '#fff', outline: 'none' }} type="tel" placeholder="Phone *" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} /></div>
+                      <div className="col-6"><input style={{ width: '100%', background: 'rgba(255,255,255,.07)', border: '1px solid rgba(255,255,255,.1)', borderRadius: 8, padding: '12px 14px', fontFamily: 'inherit', fontSize: 14, color: '#fff', outline: 'none', marginBottom: 0 }} placeholder="Your name *" value={form.name} onChange={e => setForm({ ...form, name: e.target.value.replace(/[^A-Za-z\s.'-]/g, '') })} maxLength={100} /></div>
+                      <div className="col-6"><input style={{ width: '100%', background: 'rgba(255,255,255,.07)', border: '1px solid rgba(255,255,255,.1)', borderRadius: 8, padding: '12px 14px', fontFamily: 'inherit', fontSize: 14, color: '#fff', outline: 'none' }} type="tel" placeholder="Phone *" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value.replace(/[^0-9+\-\s()]/g, '') })} maxLength={15} /></div>
                     </div>
                     <input style={{ width: '100%', background: 'rgba(255,255,255,.07)', border: '1px solid rgba(255,255,255,.1)', borderRadius: 8, padding: '12px 14px', fontFamily: 'inherit', fontSize: 14, color: '#fff', outline: 'none', marginBottom: 9, display: 'block' }} type="email" placeholder="Email address" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} />
                     <textarea style={{ width: '100%', background: 'rgba(255,255,255,.07)', border: '1px solid rgba(255,255,255,.1)', borderRadius: 8, padding: '12px 14px', fontFamily: 'inherit', fontSize: 14, color: '#fff', outline: 'none', marginBottom: 9, resize: 'vertical', minHeight: 80 }} rows="3" placeholder={`Tell us about your ${svc?.name?.toLowerCase()} requirements...`} value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} />
@@ -281,15 +289,6 @@ export default function CityServiceContent({ slug, svc, city, hood, titleOverrid
                       {['✓ No spam', '✓ 24hr response', '✓ Fixed price'].map(t => <span key={t} style={{ fontSize: 11, color: 'rgba(255,255,255,.22)', display: 'flex', alignItems: 'center', gap: 4 }}>{t}</span>)}
                     </div>
                   </form>
-                ) : (
-                  <div style={{ textAlign: 'center', padding: '24px 0' }}>
-                    <div style={{ width: 52, height: 52, borderRadius: '50%', background: 'rgba(16,185,129,.14)', border: '1.5px solid rgba(16,185,129,.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px' }}>
-                      <Svg d="M20 6 9 17 4 12" size={22} color="#10B981" sw={2.5} />
-                    </div>
-                    <div style={{ fontSize: 20, fontWeight: 800, color: '#fff', marginBottom: 7 }}>Enquiry Received!</div>
-                    <p style={{ color: 'rgba(255,255,255,.4)', fontSize: 14 }}>We&apos;ll call you within 24 hours. Urgent? Call {SITE.phone}</p>
-                  </div>
-                )}
               </div>
             </div>
           </div>
