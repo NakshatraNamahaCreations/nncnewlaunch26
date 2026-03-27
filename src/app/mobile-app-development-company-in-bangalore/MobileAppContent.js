@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import {
@@ -513,9 +514,9 @@ function Testimonials() {
    11. FAQ + CONTACT
 ══════════════════════════════════════════════════════════════ */
 function FaqContact() {
+  const router = useRouter()
   const [open, setOpen] = useState(null)
   const [form, setForm] = useState({ name: '', phone: '', email: '', app: '', budget: '', message: '' })
-  const [sent, setSent] = useState(false)
   const [sending, setSending] = useState(false)
 
   const submit = async (e) => {
@@ -530,7 +531,7 @@ function FaqContact() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: form.name, phone: form.phone, email: form.email, service: `Mobile App — ${form.app || ''}`, message: form.budget ? `Budget: ${form.budget}` : '', landingPage: '/mobile-app-development-company-in-bangalore' }),
       })
-      if (res.ok) { setSent(true) } else { alert('Something went wrong. Please try again.') }
+      if (res.ok) { router.push('/thankyou') } else { alert('Something went wrong. Please try again.') }
     } catch { alert('Network error. Please try again.') }
     finally { setSending(false) }
   }
@@ -581,8 +582,7 @@ function FaqContact() {
                 </a>
               </div>
 
-              {!sent ? (
-                <form onSubmit={submit} noValidate>
+              <form onSubmit={submit} noValidate>
                   <div className="row g-2 mb-2">
                     <div className="col-6"><input className="cc-inp" type="text" placeholder="Your name *" value={form.name} onChange={e => setForm({ ...form, name: e.target.value.replace(/[^A-Za-z\s.'-]/g, '') })} maxLength={100} required /></div>
                     <div className="col-6"><input className="cc-inp" type="tel" placeholder="Phone *" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value.replace(/[^0-9+\-\s()]/g, '') })} maxLength={15} required /></div>
@@ -606,15 +606,6 @@ function FaqContact() {
                     <span className="cc-ti">✓ Fixed price</span>
                   </div>
                 </form>
-              ) : (
-                <div className="text-center py-4">
-                  <div style={{ width: 54, height: 54, borderRadius: '50%', background: 'rgba(16,185,129,.15)', border: '1.5px solid rgba(16,185,129,.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 14px' }}>
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--mint)" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-                  </div>
-                  <div style={{ fontSize: 20, fontWeight: 800, color: '#fff', marginBottom: 8 }}>Quote Request Received!</div>
-                  <p style={{ color: 'rgba(255,255,255,.4)', fontSize: 14 }}>We&apos;ll call you within 24 hours with scope, stack recommendation and price. Urgent? Call {SITE.phone}</p>
-                </div>
-              )}
             </div>
           </div>
         </div>

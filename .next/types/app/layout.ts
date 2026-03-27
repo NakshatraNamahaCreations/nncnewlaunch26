@@ -1,4 +1,4 @@
-// File: C:\Users\HP\Downloads\new_nnc_crm\src\app\layout.js
+// File: C:\Users\HP\Desktop\nnc website new launch2026\src\app\layout.js
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

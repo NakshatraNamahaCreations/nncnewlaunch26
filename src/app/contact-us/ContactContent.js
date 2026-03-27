@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { SITE, OFFICES } from '@/data/siteData'
 
 function Svg({ d, size = 16, color = 'currentColor', sw = 1.8 }) {
@@ -10,8 +11,8 @@ function Svg({ d, size = 16, color = 'currentColor', sw = 1.8 }) {
 }
 
 export default function ContactContent() {
+  const router = useRouter()
   const [form, setForm] = useState({ name: '', phone: '', email: '', service: '', message: '' })
-  const [sent, setSent] = useState(false)
   const [sending, setSending] = useState(false)
 
   const submit = async (e) => {
@@ -28,7 +29,7 @@ export default function ContactContent() {
       })
       const data = await res.json()
       if (res.ok) {
-        setSent(true)
+        router.push('/thankyou')
       } else {
         alert(data.error || 'Something went wrong. Please try again.')
       }
@@ -128,8 +129,7 @@ export default function ContactContent() {
                   </p>
                 </div>
 
-                {!sent ? (
-                  <form onSubmit={submit} noValidate>
+                <form onSubmit={submit} noValidate>
                     <div className="row g-3 mb-3">
                       <div className="col-md-6">
                         <label style={{ fontSize: 12.5, fontWeight: 600, color: '#475569', marginBottom: 6, display: 'block' }}>Your Name *</label>
@@ -171,18 +171,6 @@ export default function ContactContent() {
                       ))}
                     </div>
                   </form>
-                ) : (
-                  <div style={{ textAlign: 'center', padding: '40px 20px' }}>
-                    <div style={{ width: 72, height: 72, borderRadius: '50%', background: 'rgba(16,185,129,.1)', border: '2px solid rgba(16,185,129,.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
-                      <Svg d="M20 6 9 17 4 12" size={28} color="#10B981" sw={2.5} />
-                    </div>
-                    <h3 style={{ fontSize: 22, fontWeight: 800, color: '#0B1F4B', marginBottom: 10 }}>Message Received!</h3>
-                    <p style={{ fontSize: 15, color: '#6B7A99', lineHeight: 1.7, maxWidth: 380, margin: '0 auto' }}>
-                      Thank you. Our team will review your requirements and call you within 24 hours with a detailed proposal.
-                    </p>
-                    <p style={{ fontSize: 14, color: '#94A3B8', marginTop: 16 }}>Urgent? Call us directly: <a href={SITE.phoneHref} style={{ color: '#2196F3', fontWeight: 700 }}>{SITE.phone}</a></p>
-                  </div>
-                )}
               </div>
             </div>
           </div>

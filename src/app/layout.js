@@ -6,6 +6,11 @@ import QuoteModal from '@/components/QuoteModal'
 
 export const metadata = {
   title: 'Website & App Development Company in Bangalore | NNC',
+  icons: {
+    icon: 'https://s3.eu-north-1.amazonaws.com/admin.nakshatranamahacreations.in/NNC+NEW+LOGO+2020+low+res.png',
+    apple: 'https://s3.eu-north-1.amazonaws.com/admin.nakshatranamahacreations.in/NNC+NEW+LOGO+2020+low+res.png',
+    shortcut: 'https://s3.eu-north-1.amazonaws.com/admin.nakshatranamahacreations.in/NNC+NEW+LOGO+2020+low+res.png',
+  },
   description:
     'NNC builds websites, mobile apps, CRM software and runs digital marketing. 35+ in-house team, 565+ projects, 4 offices. Fixed price. Free quote in 24hrs.',
   keywords: [

@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { CASE_STUDIES, PROCESS_STEPS, TESTIMONIALS, CLIENTS, INDUSTRIES, TECH_STACK, FAQS, SITE, OFFICES } from '@/data/siteData'
 
@@ -243,9 +244,9 @@ export function TechStack() {
 
 /* ── FAQ + CONTACT ────────────────────────────────────────────── */
 export function FaqContact() {
+  const router = useRouter()
   const [open, setOpen] = useState(null)
   const [form, setForm] = useState({ name: '', phone: '', email: '', service: '', message: '' })
-  const [sent, setSent] = useState(false)
   const [sending, setSending] = useState(false)
 
   const toggle = (i) => setOpen(open === i ? null : i)
@@ -264,7 +265,7 @@ export function FaqContact() {
       })
       const data = await res.json()
       if (res.ok) {
-        setSent(true)
+        router.push('/thankyou')
       } else {
         alert(data.error || 'Something went wrong. Please try again.')
       }
@@ -337,8 +338,7 @@ export function FaqContact() {
                 </a>
               </div>
 
-              {!sent ? (
-                <form onSubmit={submit} noValidate>
+              <form onSubmit={submit} noValidate>
                   <div className="row g-2 mb-2">
                     <div className="col-6"><input className="cc-inp" type="text" placeholder="Your name *" value={form.name} onChange={e => setForm({ ...form, name: e.target.value.replace(/[^A-Za-z\s.'-]/g, '') })} maxLength={100} required /></div>
                     <div className="col-6"><input className="cc-inp" type="tel" placeholder="Phone *" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value.replace(/[^0-9+\-\s()]/g, '') })} maxLength={15} required /></div>
@@ -355,15 +355,6 @@ export function FaqContact() {
                     <span className="cc-ti">✓ Fixed price</span>
                   </div>
                 </form>
-              ) : (
-                <div className="text-center py-4">
-                  <div className="cc-ok-ico mx-auto mb-3">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--mint)" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
-                  </div>
-                  <div className="fw-800 fs-5 text-white mb-2">Enquiry Received!</div>
-                  <p style={{ color: 'rgba(255,255,255,.4)', fontSize: 14 }}>We&apos;ll call you within 24 hours. Urgent? Call {SITE.phone} directly.</p>
-                </div>
-              )}
             </div>
           </div>
         </div>

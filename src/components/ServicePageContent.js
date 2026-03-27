@@ -30,9 +30,9 @@ export default function ServicePageContent({ data }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, service: data.serviceName, landingPage: typeof window !== 'undefined' ? window.location.pathname : '' }),
       })
-      router.push('/thank-you')
+      router.push('/thankyou')
     } catch {
-      router.push('/thank-you')
+      router.push('/thankyou')
     } finally {
       setSending(false)
     }

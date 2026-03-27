@@ -64,7 +64,7 @@ export default function QuoteModal() {
       })
       if (res.ok) {
         closeModal()
-        router.push('/thank-you')
+        router.push('/thankyou')
       } else {
         setError('Something went wrong. Please try again or call us directly.')
       }

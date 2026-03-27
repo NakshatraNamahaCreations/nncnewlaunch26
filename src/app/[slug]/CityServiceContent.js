@@ -33,7 +33,7 @@ export default function CityServiceContent({ slug, svc, city, hood, titleOverrid
         body: JSON.stringify({ ...form, service: svc?.name, landingPage: `/${slug}` }),
       })
     } catch {}
-    router.push('/thank-you')
+    router.push('/thankyou')
   }
 
   const faqs = [
