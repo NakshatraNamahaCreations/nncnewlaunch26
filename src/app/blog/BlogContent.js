@@ -51,7 +51,7 @@ export default function BlogContent() {
         ) : (
           <div className="row g-4">
             {posts.map((post, i) => (
-              <div key={post.slug} className="col-12 col-md-6 col-lg-4 anim" style={{ transitionDelay: `${(i % 6) * .07}s` }}>
+              <div key={post.slug} className="col-12 col-md-6 col-lg-4" style={{ transitionDelay: `${(i % 6) * .07}s` }}>
                 <Link href={`/blog/${post.slug}`} style={{ textDecoration: 'none' }}>
                   <div style={{ background: '#fff', border: '1.5px solid #E2E8F0', borderRadius: 14, overflow: 'hidden', height: '100%', display: 'flex', flexDirection: 'column', transition: 'all .22s' }}>
                     <div style={{ height: 4, background: 'linear-gradient(90deg,#2196F3,#1565C0)' }} />
