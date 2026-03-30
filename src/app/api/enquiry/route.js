@@ -167,41 +167,7 @@ export async function POST(request) {
     // fall back to source if it looks like a URL path
     const pagePath = landingPage || (source && String(source).startsWith('/') ? source : null)
 
-    const transporter = getTransporter()
-
-    const fromAddress = `"Nakshatra Namaha Creations" <${process.env.SMTP_USER}>`
-
-    // Send enquiry to admin
-    await transporter.sendMail({
-      from: fromAddress,
-      to: 'info@nakshatranamahacreations.com',
-      replyTo: email || undefined,
-      subject: `New Enquiry from ${name} - ${service || 'General'}`,
-      html: adminEmail(name, phone, email, service, message),
-      text: `New enquiry from ${name}\nPhone: ${phone}\nEmail: ${email || 'N/A'}\nService: ${service || 'N/A'}\nMessage: ${message || 'N/A'}`,
-      headers: {
-        'X-Mailer': 'NNC Website',
-        'List-Unsubscribe': `<mailto:${process.env.SMTP_USER}?subject=unsubscribe>`,
-      },
-    })
-
-    // Send thank-you auto-reply to the customer (only if email provided)
-    if (email) {
-      await transporter.sendMail({
-        from: fromAddress,
-        to: email,
-        replyTo: process.env.SMTP_USER,
-        subject: `Thank you ${name} - We have received your enquiry`,
-        html: thankYouEmail(name, service),
-        text: `Hi ${name},\n\nThank you for reaching out to Nakshatra Namaha Creations. We have received your${service ? ' ' + service : ''} enquiry and our team will get back to you within 24 hours.\n\nIf you need immediate assistance, call us at +91 99005 66466 (Mon-Sat, 9AM-7PM IST).\n\nBest regards,\nNakshatra Namaha Creations Pvt. Ltd.\nBengaluru | Mumbai | Mysuru | Hyderabad\nhttps://www.nakshatranamahacreations.com`,
-        headers: {
-          'X-Mailer': 'NNC Website',
-          'List-Unsubscribe': `<mailto:${process.env.SMTP_USER}?subject=unsubscribe>`,
-        },
-      })
-    }
-
-    // Forward enquiry to CRM (fire-and-forget — don't block the response)
+    // Forward enquiry to CRM first (always succeeds regardless of email status)
     const crmUrl = process.env.CRM_BACKEND_URL
     if (crmUrl) {
       fetch(`${crmUrl}/api/website-enquiry`, {
@@ -218,9 +184,46 @@ export async function POST(request) {
       }).catch(err => console.error('CRM forward error:', err.message))
     }
 
+    // Send emails — non-blocking, errors are logged but don't fail the request
+    try {
+      const transporter = getTransporter()
+      const fromAddress = `"Nakshatra Namaha Creations" <${process.env.SMTP_USER}>`
+
+      await transporter.sendMail({
+        from: fromAddress,
+        to: 'info@nakshatranamahacreations.com',
+        replyTo: email || undefined,
+        subject: `New Enquiry from ${name} - ${service || 'General'}`,
+        html: adminEmail(name, phone, email, service, message),
+        text: `New enquiry from ${name}\nPhone: ${phone}\nEmail: ${email || 'N/A'}\nService: ${service || 'N/A'}\nMessage: ${message || 'N/A'}`,
+        headers: {
+          'X-Mailer': 'NNC Website',
+          'List-Unsubscribe': `<mailto:${process.env.SMTP_USER}?subject=unsubscribe>`,
+        },
+      })
+
+      if (email) {
+        await transporter.sendMail({
+          from: fromAddress,
+          to: email,
+          replyTo: process.env.SMTP_USER,
+          subject: `Thank you ${name} - We have received your enquiry`,
+          html: thankYouEmail(name, service),
+          text: `Hi ${name},\n\nThank you for reaching out to Nakshatra Namaha Creations. We have received your${service ? ' ' + service : ''} enquiry and our team will get back to you within 24 hours.\n\nIf you need immediate assistance, call us at +91 99005 66466 (Mon-Sat, 9AM-7PM IST).\n\nBest regards,\nNakshatra Namaha Creations Pvt. Ltd.\nBengaluru | Mumbai | Mysuru | Hyderabad\nhttps://www.nakshatranamahacreations.com`,
+          headers: {
+            'X-Mailer': 'NNC Website',
+            'List-Unsubscribe': `<mailto:${process.env.SMTP_USER}?subject=unsubscribe>`,
+          },
+        })
+      }
+    } catch (emailErr) {
+      // Log the email error but don't fail — enquiry is already saved to CRM
+      console.error('Email send error (non-fatal):', emailErr.message)
+    }
+
     return Response.json({ success: true })
   } catch (err) {
-    console.error('Email send error:', err.message)
-    return Response.json({ error: `Failed to send: ${err.message}` }, { status: 500 })
+    console.error('Enquiry error:', err.message)
+    return Response.json({ error: `Something went wrong: ${err.message}` }, { status: 500 })
   }
 }
