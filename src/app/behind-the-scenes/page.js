@@ -52,7 +52,7 @@ export default function BehindTheScenesPage() {
               margin: '0 auto 28px',
               lineHeight: 1.75,
             }}>
-              A candid look into how NNC's 35+ member team builds, creates and delivers every day.
+              A candid look into how NNC&apos;s 35+ member team builds, creates and delivers every day.
             </p>
 
             {/* Stat pills */}
