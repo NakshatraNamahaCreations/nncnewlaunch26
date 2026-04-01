@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/page": [
+    "/careers/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/app/careers/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -12,15 +12,30 @@
       "static/css/css-src_styles_globals_css.css",
       "static/chunks/app/layout.js"
     ],
-    "/blog/page": [
+    "/[slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/blog/page.js"
+      "static/chunks/app/[slug]/page.js"
     ],
-    "/blog/[slug]/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/blog/[slug]/page.js"
+      "static/chunks/app/page.js"
+    ],
+    "/our-works/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/our-works/page.js"
+    ],
+    "/behind-the-scenes/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/behind-the-scenes/page.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

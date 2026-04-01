@@ -12,6 +12,204 @@ function Svg({ d, size = 16, color = 'currentColor', sw = 1.8 }) {
   )
 }
 
+function ServiceIllustration({ svcName = '', stat1, stat1Label, city }) {
+  const n = (svcName || '').toLowerCase()
+  const isApp      = n.includes('app') || n.includes('mobile') || n.includes('flutter') || n.includes('react native')
+  const isCrm      = n.includes('crm') || n.includes('software') || n.includes('erp') || n.includes('saas')
+  const isMarketing= n.includes('marketing') || n.includes('seo') || n.includes('ads') || n.includes('b2b') || n.includes('social media')
+  const is2dAnim   = n.includes('2d') || n.includes('animation') || n.includes('explainer') || n.includes('whiteboard')
+  const isVideo    = !is2dAnim && (n.includes('video') || n.includes('production') || n.includes('motion'))
+  const isEcom     = n.includes('ecommerce') || n.includes('e-commerce') || n.includes('shop')
+  const isUiux     = n.includes('ui') || n.includes('design') || n.includes('branding') || n.includes('graphic') || n.includes('logo')
+
+  return (
+    <div style={{ position: 'relative', borderRadius: 20, overflow: 'hidden', background: 'rgba(255,255,255,.05)', border: '1px solid rgba(255,255,255,.1)', padding: '28px 24px 24px' }}>
+      <div style={{ position: 'absolute', top: -60, right: -60, width: 200, height: 200, borderRadius: '50%', background: 'radial-gradient(circle,rgba(33,150,243,.18) 0%,transparent 70%)', pointerEvents: 'none' }} />
+
+      {/* Illustration */}
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 24 }}>
+        {isMarketing ? (
+          <svg width="260" height="190" viewBox="0 0 260 190" fill="none">
+            <rect x="20" y="20" width="220" height="150" rx="12" fill="rgba(33,150,243,.06)" stroke="rgba(33,150,243,.2)" strokeWidth="1.5"/>
+            {/* Bar chart */}
+            <rect x="40" y="130" width="24" height="25" rx="4" fill="rgba(33,150,243,.35)"/>
+            <rect x="74" y="108" width="24" height="47" rx="4" fill="rgba(33,150,243,.5)"/>
+            <rect x="108" y="85" width="24" height="70" rx="4" fill="rgba(33,150,243,.65)"/>
+            <rect x="142" y="65" width="24" height="90" rx="4" fill="rgba(16,185,129,.6)"/>
+            <rect x="176" y="45" width="24" height="110" rx="4" fill="rgba(16,185,129,.8)"/>
+            {/* Trend line */}
+            <polyline points="52,128 86,106 120,83 154,63 188,43" stroke="#10B981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+            {[52,86,120,154,188].map((x,i)=><circle key={i} cx={x} cy={[128,106,83,63,43][i]} r="4" fill="#10B981" stroke="rgba(255,255,255,.3)" strokeWidth="1.5"/>)}
+            {/* Metric cards */}
+            <rect x="150" y="6" width="90" height="28" rx="8" fill="rgba(16,185,129,.15)" stroke="rgba(16,185,129,.35)" strokeWidth="1"/>
+            <text x="162" y="17" fontSize="9" fill="rgba(16,185,129,.9)" fontWeight="700">↑ 143% Traffic</text>
+            <text x="162" y="28" fontSize="8" fill="rgba(255,255,255,.4)">Organic Growth</text>
+            <rect x="4" y="55" width="82" height="28" rx="8" fill="rgba(33,150,243,.15)" stroke="rgba(33,150,243,.35)" strokeWidth="1"/>
+            <text x="14" y="66" fontSize="9" fill="rgba(33,150,243,.9)" fontWeight="700">4.9★ Quality Score</text>
+            <text x="14" y="77" fontSize="8" fill="rgba(255,255,255,.4)">Google Ads</text>
+            {['Jan','Apr','Jul','Oct','Dec'].map((l,i)=>(
+              <text key={l} x={46+i*34} y="170" fontSize="9" fill="rgba(255,255,255,.3)" textAnchor="middle">{l}</text>
+            ))}
+          </svg>
+        ) : isApp ? (
+          <svg width="260" height="190" viewBox="0 0 260 190" fill="none">
+            <rect x="70" y="5" width="90" height="175" rx="18" fill="rgba(33,150,243,.12)" stroke="rgba(33,150,243,.4)" strokeWidth="2"/>
+            <rect x="82" y="22" width="66" height="130" rx="8" fill="rgba(33,150,243,.1)"/>
+            <rect x="90" y="30" width="50" height="10" rx="3" fill="rgba(33,150,243,.5)"/>
+            <rect x="90" y="45" width="35" height="7" rx="2" fill="rgba(255,255,255,.2)"/>
+            <rect x="90" y="57" width="50" height="32" rx="6" fill="rgba(33,150,243,.2)" stroke="rgba(33,150,243,.35)" strokeWidth="1"/>
+            <polyline points="96,83 106,72 116,76 126,65 136,68" stroke="#2196F3" strokeWidth="1.8" strokeLinecap="round" fill="none"/>
+            {[96,106,116,126,136].map((x,i)=><circle key={i} cx={x} cy={[83,72,76,65,68][i]} r="2.5" fill="#2196F3"/>)}
+            <rect x="90" y="96" width="23" height="20" rx="4" fill="rgba(16,185,129,.2)" stroke="rgba(16,185,129,.4)" strokeWidth="1"/>
+            <rect x="118" y="96" width="23" height="20" rx="4" fill="rgba(245,158,11,.15)" stroke="rgba(245,158,11,.35)" strokeWidth="1"/>
+            <rect x="90" y="122" width="50" height="14" rx="4" fill="rgba(33,150,243,.4)"/>
+            <circle cx="115" cy="168" r="5" fill="rgba(255,255,255,.2)"/>
+            <rect x="0" y="40" width="62" height="26" rx="8" fill="rgba(16,185,129,.15)" stroke="rgba(16,185,129,.3)" strokeWidth="1"/>
+            <text x="10" y="51" fontSize="8" fill="rgba(16,185,129,.9)" fontWeight="700">React Native</text>
+            <text x="10" y="62" fontSize="8" fill="rgba(255,255,255,.4)">iOS & Android</text>
+            <rect x="196" y="70" width="58" height="26" rx="8" fill="rgba(124,58,237,.15)" stroke="rgba(124,58,237,.3)" strokeWidth="1"/>
+            <text x="206" y="81" fontSize="8" fill="rgba(167,139,250,.9)" fontWeight="700">Flutter</text>
+            <text x="206" y="92" fontSize="8" fill="rgba(255,255,255,.4)">Play Store</text>
+          </svg>
+        ) : is2dAnim ? (
+          // 2D Animation illustration character + keyframe timeline
+          <svg width="260" height="190" viewBox="0 0 260 190" fill="none">
+            {/* Canvas area */}
+            <rect x="20" y="10" width="150" height="110" rx="10" fill="rgba(245,158,11,.08)" stroke="rgba(245,158,11,.3)" strokeWidth="1.5"/>
+            {/* Stick figure character */}
+            <circle cx="95" cy="38" r="14" fill="rgba(245,158,11,.2)" stroke="rgba(245,158,11,.6)" strokeWidth="1.5"/>
+            <text x="89" y="42" fontSize="11" fill="rgba(245,158,11,.9)" fontWeight="800">:)</text>
+            <line x1="95" y1="52" x2="95" y2="80" stroke="rgba(245,158,11,.6)" strokeWidth="2.5" strokeLinecap="round"/>
+            <line x1="95" y1="60" x2="78" y2="72" stroke="rgba(245,158,11,.6)" strokeWidth="2" strokeLinecap="round"/>
+            <line x1="95" y1="60" x2="112" y2="68" stroke="rgba(245,158,11,.6)" strokeWidth="2" strokeLinecap="round"/>
+            <line x1="95" y1="80" x2="82" y2="100" stroke="rgba(245,158,11,.6)" strokeWidth="2" strokeLinecap="round"/>
+            <line x1="95" y1="80" x2="108" y2="100" stroke="rgba(245,158,11,.6)" strokeWidth="2" strokeLinecap="round"/>
+            {/* Ghost frames */}
+            <circle cx="60" cy="38" r="12" fill="none" stroke="rgba(245,158,11,.2)" strokeWidth="1"/>
+            <line x1="60" y1="50" x2="60" y2="76" stroke="rgba(245,158,11,.15)" strokeWidth="2" strokeLinecap="round"/>
+            <circle cx="130" cy="38" r="12" fill="none" stroke="rgba(245,158,11,.2)" strokeWidth="1"/>
+            <line x1="130" y1="50" x2="130" y2="76" stroke="rgba(245,158,11,.15)" strokeWidth="2" strokeLinecap="round"/>
+            {/* Stars / sparkles */}
+            {[[38,22],[148,18],[35,85],[152,78]].map(([x,y],i)=>(
+              <g key={i}>
+                <line x1={x} y1={y-5} x2={x} y2={y+5} stroke="rgba(245,158,11,.4)" strokeWidth="1.5" strokeLinecap="round"/>
+                <line x1={x-5} y1={y} x2={x+5} y2={y} stroke="rgba(245,158,11,.4)" strokeWidth="1.5" strokeLinecap="round"/>
+              </g>
+            ))}
+            {/* Timeline bar */}
+            <rect x="20" y="128" width="220" height="52" rx="8" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.1)" strokeWidth="1"/>
+            <rect x="28" y="136" width="204" height="6" rx="3" fill="rgba(255,255,255,.06)"/>
+            {/* Keyframe diamonds */}
+            {[28,82,130,180,220].map((x,i)=>(
+              <g key={i} transform={`translate(${x},139) rotate(45)`}>
+                <rect x="-5" y="-5" width="10" height="10" rx="1" fill={i===2?'#F59E0B':'rgba(245,158,11,.35)'}/>
+              </g>
+            ))}
+            {/* Track labels */}
+            <text x="28" y="158" fontSize="8" fill="rgba(255,255,255,.3)">Character</text>
+            <rect x="28" y="162" width="100" height="5" rx="2" fill="rgba(245,158,11,.25)"/>
+            <text x="140" y="158" fontSize="8" fill="rgba(255,255,255,.3)">Background</text>
+            <rect x="140" y="162" width="80" height="5" rx="2" fill="rgba(124,58,237,.25)"/>
+            {/* Tools panel right */}
+            <rect x="180" y="10" width="60" height="110" rx="8" fill="rgba(124,58,237,.1)" stroke="rgba(124,58,237,.25)" strokeWidth="1"/>
+            <text x="192" y="28" fontSize="8" fill="rgba(167,139,250,.7)" fontWeight="700">Tools</text>
+            {['Pen','Brush','Fill','Ease'].map((t,i)=>(
+              <g key={t}>
+                <rect x="188" y={34+i*20} width="44" height="14" rx="4" fill={i===1?'rgba(124,58,237,.4)':'rgba(255,255,255,.05)'} stroke="rgba(255,255,255,.08)" strokeWidth="1"/>
+                <text x="196" y={44+i*20} fontSize="8" fill={i===1?'white':'rgba(255,255,255,.4)'}>{t}</text>
+              </g>
+            ))}
+          </svg>
+        ) : isVideo ? (
+          <svg width="260" height="190" viewBox="0 0 260 190" fill="none">
+            <rect x="20" y="25" width="155" height="115" rx="12" fill="rgba(124,58,237,.12)" stroke="rgba(124,58,237,.35)" strokeWidth="1.5"/>
+            <circle cx="97" cy="82" r="32" fill="rgba(124,58,237,.2)" stroke="rgba(124,58,237,.4)" strokeWidth="1.5"/>
+            <polygon points="89,68 89,96 117,82" fill="rgba(167,139,250,.9)"/>
+            <rect x="188" y="15" width="48" height="175" rx="8" fill="rgba(33,150,243,.1)" stroke="rgba(33,150,243,.25)" strokeWidth="1"/>
+            {[0,1,2,3,4,5].map(i=><rect key={i} x="194" y={23+i*28} width="36" height="18" rx="4" fill={`rgba(33,150,243,${0.08+i*0.04})`}/>)}
+            <rect x="20" y="152" width="155" height="26" rx="8" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.1)" strokeWidth="1"/>
+            <rect x="28" y="160" width="55" height="10" rx="3" fill="rgba(124,58,237,.5)"/>
+            <rect x="90" y="160" width="35" height="10" rx="3" fill="rgba(245,158,11,.35)"/>
+            <rect x="132" y="160" width="34" height="10" rx="3" fill="rgba(16,185,129,.3)"/>
+          </svg>
+        ) : isEcom ? (
+          <svg width="260" height="190" viewBox="0 0 260 190" fill="none">
+            <rect x="20" y="15" width="220" height="160" rx="12" fill="rgba(33,150,243,.07)" stroke="rgba(33,150,243,.2)" strokeWidth="1.5"/>
+            <rect x="20" y="15" width="220" height="26" rx="12" fill="rgba(33,150,243,.18)"/>
+            {[[38,21],[53,21],[68,21]].map(([cx,cy],i)=><circle key={i} cx={cx} cy={cy+6} r="4" fill={['rgba(239,68,68,.5)','rgba(245,158,11,.5)','rgba(16,185,129,.5)'][i]}/>)}
+            {[[36,52],[128,52],[36,120],[128,120]].map(([x,y],i)=>(
+              <g key={i}>
+                <rect x={x} y={y} width="84" height="60" rx="7" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.08)" strokeWidth="1"/>
+                <rect x={x+8} y={y+8} width="68" height="32" rx="4" fill={['rgba(33,150,243,.2)','rgba(16,185,129,.2)','rgba(245,158,11,.15)','rgba(124,58,237,.18)'][i]}/>
+                <rect x={x+8} y={y+45} width="44" height="5" rx="2" fill="rgba(255,255,255,.2)"/>
+                <rect x={x+8} y={y+53} width="26" height="4" rx="2" fill="rgba(33,150,243,.5)"/>
+              </g>
+            ))}
+            <rect x="158" y="6" width="90" height="28" rx="8" fill="rgba(16,185,129,.15)" stroke="rgba(16,185,129,.4)" strokeWidth="1"/>
+            <text x="168" y="18" fontSize="9" fill="rgba(16,185,129,.9)" fontWeight="700">Cart: ₹4,299</text>
+            <text x="168" y="29" fontSize="8" fill="rgba(255,255,255,.4)">Razorpay Ready</text>
+          </svg>
+        ) : isUiux ? (
+          <svg width="260" height="190" viewBox="0 0 260 190" fill="none">
+            <rect x="20" y="20" width="220" height="150" rx="12" fill="rgba(33,150,243,.06)" stroke="rgba(33,150,243,.2)" strokeWidth="1.5"/>
+            {[[36,36,80,70,'rgba(33,150,243,.15)'],[126,36,80,70,'rgba(16,185,129,.12)'],[36,118,80,42,'rgba(245,158,11,.12)'],[126,118,80,42,'rgba(124,58,237,.12)']].map(([x,y,w,h,bg],i)=>(
+              <g key={i}>
+                <rect x={x} y={y} width={w} height={h} rx="8" fill={bg} stroke="rgba(255,255,255,.1)" strokeWidth="1"/>
+                <rect x={x+8} y={y+10} width={w-16} height={8} rx="3" fill="rgba(255,255,255,.2)"/>
+                <rect x={x+8} y={y+24} width={w-28} height={6} rx="2" fill="rgba(255,255,255,.12)"/>
+              </g>
+            ))}
+            <rect x="136" y="8" width="90" height="26" rx="8" fill="rgba(124,58,237,.15)" stroke="rgba(124,58,237,.35)" strokeWidth="1"/>
+            <text x="148" y="19" fontSize="8" fill="rgba(167,139,250,.9)" fontWeight="700">Figma Design</text>
+            <text x="148" y="29" fontSize="7" fill="rgba(255,255,255,.4)">Pixel Perfect UI</text>
+          </svg>
+        ) : (
+          // Default: Website Development
+          <svg width="260" height="190" viewBox="0 0 260 190" fill="none">
+            <rect x="15" y="15" width="230" height="150" rx="12" fill="rgba(33,150,243,.07)" stroke="rgba(33,150,243,.22)" strokeWidth="1.5"/>
+            <rect x="15" y="15" width="230" height="30" rx="12" fill="rgba(33,150,243,.2)"/>
+            {[[33,21],[48,21],[63,21]].map(([cx,cy],i)=><circle key={i} cx={cx} cy={cy+9} r="5" fill={['rgba(239,68,68,.5)','rgba(245,158,11,.5)','rgba(16,185,129,.5)'][i]}/>)}
+            <rect x="82" y="24" width="130" height="14" rx="4" fill="rgba(255,255,255,.08)"/>
+            <text x="90" y="34.5" fontSize="8" fill="rgba(255,255,255,.35)">nakshatranamahacreations.com</text>
+            <rect x="30" y="58" width="96" height="90" rx="8" fill="rgba(33,150,243,.1)"/>
+            <rect x="40" y="68" width="76" height="10" rx="3" fill="rgba(33,150,243,.5)"/>
+            <rect x="40" y="84" width="60" height="7" rx="2" fill="rgba(255,255,255,.18)"/>
+            <rect x="40" y="95" width="68" height="7" rx="2" fill="rgba(255,255,255,.13)"/>
+            <rect x="40" y="112" width="54" height="20" rx="6" fill="rgba(33,150,243,.55)"/>
+            <rect x="138" y="58" width="90" height="42" rx="8" fill="rgba(16,185,129,.1)" stroke="rgba(16,185,129,.22)" strokeWidth="1"/>
+            <rect x="148" y="68" width="50" height="7" rx="2" fill="rgba(16,185,129,.45)"/>
+            <rect x="148" y="79" width="36" height="6" rx="2" fill="rgba(255,255,255,.15)"/>
+            <rect x="138" y="108" width="42" height="40" rx="8" fill="rgba(245,158,11,.1)" stroke="rgba(245,158,11,.22)" strokeWidth="1"/>
+            <rect x="186" y="108" width="42" height="40" rx="8" fill="rgba(124,58,237,.1)" stroke="rgba(124,58,237,.22)" strokeWidth="1"/>
+          </svg>
+        )}
+      </div>
+
+      {/* Stats */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: city ? 14 : 0 }}>
+        {[
+          { n: stat1 || '200+', l: stat1Label || 'Projects' },
+          { n: '4.9★', l: 'Google Rating' },
+          { n: '8+', l: 'Years Operating' },
+          { n: '35+', l: 'In-house Team' },
+        ].map(s => (
+          <div key={s.l} style={{ textAlign: 'center', padding: '13px 10px', background: 'rgba(255,255,255,.04)', borderRadius: 10, border: '1px solid rgba(255,255,255,.06)' }}>
+            <div style={{ fontSize: 22, fontWeight: 800, color: '#2196F3', letterSpacing: '-.06em', lineHeight: 1, marginBottom: 4 }}>{s.n}</div>
+            <div style={{ fontSize: 11, color: 'rgba(255,255,255,.4)' }}>{s.l}</div>
+          </div>
+        ))}
+      </div>
+
+      {city && (
+        <div style={{ padding: '12px 14px', background: 'rgba(16,185,129,.08)', border: '1px solid rgba(16,185,129,.2)', borderRadius: 10 }}>
+          <div style={{ fontSize: 10, fontWeight: 700, color: '#10B981', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 3 }}>Our {city.name} Office</div>
+          <div style={{ fontSize: 12, color: 'rgba(255,255,255,.45)', lineHeight: 1.5 }}>{city.office}</div>
+        </div>
+      )}
+    </div>
+  )
+}
+
 export default function CityServiceContent({ slug, svc, city, hood, titleOverride }) {
   const router = useRouter()
   const [form, setForm] = useState({ name: '', phone: '', email: '', message: '' })
@@ -40,7 +238,7 @@ export default function CityServiceContent({ slug, svc, city, hood, titleOverrid
     { q: `How much does ${svc?.name?.toLowerCase()} cost in ${location}?`, a: `NNC Digital offers transparent, fixed pricing for ${svc?.name?.toLowerCase()} projects in ${location}. Every project is scoped individually with a fixed price agreed before work begins. No hourly billing, no surprise invoices. Contact us for a free quote within 24 hours.` },
     { q: `How long does a ${svc?.name?.toLowerCase()} project take?`, a: `Timelines depend on scope. A standard project typically takes 3–8 weeks. All timelines are agreed upfront and tracked with weekly updates. You get access to a live staging environment throughout development.` },
     { q: 'Does NNC outsource any work?', a: `Never. Every person on your project is a permanent full-time NNC employee. No freelancers, no offshore contractors. You can walk into our ${city?.name || 'Bengaluru'} office and meet the team building your product.` },
-    { q: 'Do I own the source code?', a: 'Yes — completely and permanently. On delivery you receive every source file, database schema, admin credential and hosting login. 100% yours with no ongoing obligation to NNC.' },
+    { q: 'Do I own the source code?', a: 'Yes completely and permanently. On delivery you receive every source file, database schema, admin credential and hosting login. 100% yours with no ongoing obligation to NNC.' },
     { q: `Why choose NNC for ${svc?.name?.toLowerCase()} in ${location}?`, a: `NNC has been operating since 2015 with 565+ projects delivered and a 4.9★ Google rating from 87 verified reviews. We have a physical office presence, 35+ permanent in-house specialists, and a contractual PageSpeed 90+ guarantee on all website projects.` },
   ]
 
@@ -96,30 +294,9 @@ export default function CityServiceContent({ slug, svc, city, hood, titleOverrid
                 ))}
               </div>
             </div>
-            {/* Stats panel */}
+            {/* Illustration panel */}
             <div className="col-lg-5 d-none d-lg-block">
-              <div style={{ background: 'rgba(255,255,255,.06)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,.12)', borderRadius: 16, padding: 32 }}>
-                <div style={{ fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,.4)', marginBottom: 20, textTransform: 'uppercase', letterSpacing: '.1em' }}>NNC at a Glance</div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
-                  {[
-                    { n: svc?.stat1 || '200+', l: svc?.stat1Label || 'Projects' },
-                    { n: '4.9★', l: 'Google Rating' },
-                    { n: '8+', l: 'Years Operating' },
-                    { n: '35+', l: 'In-house Team' },
-                  ].map(s => (
-                    <div key={s.l} style={{ textAlign: 'center', padding: '16px 12px', background: 'rgba(255,255,255,.04)', borderRadius: 10, border: '1px solid rgba(255,255,255,.06)' }}>
-                      <div style={{ fontSize: 28, fontWeight: 800, color: '#2196F3', letterSpacing: '-.06em', lineHeight: 1, marginBottom: 5 }}>{s.n}</div>
-                      <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.4)' }}>{s.l}</div>
-                    </div>
-                  ))}
-                </div>
-                {city && (
-                  <div style={{ marginTop: 20, padding: '14px 16px', background: 'rgba(16,185,129,.08)', border: '1px solid rgba(16,185,129,.2)', borderRadius: 10 }}>
-                    <div style={{ fontSize: 10.5, fontWeight: 700, color: '#10B981', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 4 }}>Our {city.name} Office</div>
-                    <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.5)', lineHeight: 1.6 }}>{city.office}</div>
-                  </div>
-                )}
-              </div>
+              <ServiceIllustration svcName={svc?.name} stat1={svc?.stat1} stat1Label={svc?.stat1Label} city={city} />
             </div>
           </div>
         </div>
@@ -139,7 +316,7 @@ export default function CityServiceContent({ slug, svc, city, hood, titleOverrid
             </div>
             <div className="col-lg-7 d-flex align-items-end">
               <p style={{ fontSize: 16, color: '#6B7A99', lineHeight: 1.74 }}>
-                Every {svc?.name?.toLowerCase()} project from NNC&apos;s {location} team includes these capabilities — all delivered by permanent in-house specialists with no outsourcing.
+                Every {svc?.name?.toLowerCase()} project from NNC&apos;s {location} team includes these capabilities all delivered by permanent in-house specialists with no outsourcing.
               </p>
             </div>
           </div>
@@ -182,11 +359,11 @@ export default function CityServiceContent({ slug, svc, city, hood, titleOverrid
           <div className="row g-0">
             {[
               { n: '01', t: '35+ permanent in-house employees', b: 'Every team member is a full-time NNC employee. Walk into our office and meet them. No freelancers, no offshore.' },
-              { n: '02', t: 'Fixed price — agreed before work starts', b: 'In 565+ projects, not one client has been invoiced more than quoted. Price agreed before a wireframe is drawn.' },
+              { n: '02', t: 'Fixed price agreed before work starts', b: 'In 565+ projects, not one client has been invoiced more than quoted. Price agreed before a wireframe is drawn.' },
               { n: '03', t: 'Source code 100% yours', b: 'Full source code, every credential and hosting login delivered to you. Zero lock-in, zero ongoing obligation.' },
-              { n: '04', t: 'Verifiable 4.9★ Google rating', b: '87 verified Google reviews published publicly. Not a claim — a verifiable public record anyone can check.' },
+              { n: '04', t: 'Verifiable 4.9★ Google rating', b: '87 verified Google reviews published publicly. Not a claim a verifiable public record anyone can check.' },
               { n: '05', t: 'PageSpeed 90+ contractual guarantee', b: `All NNC website projects include a contractual PageSpeed 90+ guarantee on both mobile and desktop.` },
-              { n: '06', t: 'One named PM — start to finish', b: 'Every project has a named project manager from discovery to handover. Weekly updates, direct access.' },
+              { n: '06', t: 'One named PM start to finish', b: 'Every project has a named project manager from discovery to handover. Weekly updates, direct access.' },
             ].map((w, i) => (
               <div key={i} className="col-12 col-md-6 col-lg-4 anim" style={{ transitionDelay: `${i * .07}s` }}>
                 <div style={{ background: 'rgba(255,255,255,.025)', border: '1px solid rgba(255,255,255,.06)', padding: '28px', transition: 'all .28s' }}>

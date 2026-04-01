@@ -26,7 +26,7 @@ export default function ProcessPage() {
               A Process Built Around<br /><span style={{ color: '#2196F3' }}>Your Confidence</span>
             </h1>
             <p style={{ fontSize: 16, color: 'rgba(255,255,255,.5)', maxWidth: 520, margin: '0 auto', lineHeight: 1.72 }}>
-              Fixed price agreed before a single wireframe is drawn. Weekly staging updates. You see progress every step of the way — and pay the final balance only when you are satisfied.
+              Fixed price agreed before a single wireframe is drawn. Weekly staging updates. You see progress every step of the way and pay the final balance only when you are satisfied.
             </p>
           </div>
         </section>
@@ -79,7 +79,7 @@ export default function ProcessPage() {
             </div>
             <div className="row g-3">
               {[
-                { n: '01', t: 'Fixed price — no exceptions', d: 'The price in your proposal is the price you pay. Zero change orders, zero surprise invoices. Locked in writing before we start.' },
+                { n: '01', t: 'Fixed price no exceptions', d: 'The price in your proposal is the price you pay. Zero change orders, zero surprise invoices. Locked in writing before we start.' },
                 { n: '02', t: 'PageSpeed 90+ guaranteed', d: 'Your website will score 90+ on Google PageSpeed on both mobile and desktop. Written into the contract. We fix it before final payment.' },
                 { n: '03', t: 'Source code 100% yours', d: 'On delivery you receive every source file, credential and hosting login. Zero lock-in, zero ongoing obligation to NNC.' },
                 { n: '04', t: 'Zero outsourcing commitment', d: 'Every person on your project is a full-time NNC employee. We will not subcontract any part of your project to a freelancer or third party.' },

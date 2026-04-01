@@ -23,7 +23,7 @@ export default function ServicesPage() {
               Eight Services.<br /><span style={{ color: '#2196F3' }}>Zero Outsourcing.</span>
             </h1>
             <p style={{ fontSize: 16, color: 'rgba(255,255,255,.5)', maxWidth: 500, margin: '0 auto 28px', lineHeight: 1.72 }}>
-              NNC&apos;s in-house team covers the complete digital stack. Every project is built by permanent NNC employees — you can walk into any office and meet them.
+              NNC&apos;s in-house team covers the complete digital stack. Every project is built by permanent NNC employees you can walk into any office and meet them.
             </p>
             <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
               {['565+ Projects Delivered', '4.9★ Google Rating', '35+ In-house Specialists', 'Since 2015'].map(t => (

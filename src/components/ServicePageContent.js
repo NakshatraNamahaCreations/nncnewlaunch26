@@ -10,6 +10,250 @@ function Svg({ d, size = 16, color = 'currentColor', sw = 1.8 }) {
   )
 }
 
+function ServiceIllustration({ badge = '', stat1, stat1Label }) {
+  const b = badge.toLowerCase()
+
+  // Pick illustration based on service type
+  const isApp     = b.includes('app') || b.includes('mobile') || b.includes('flutter') || b.includes('react native')
+  const isCrm     = b.includes('crm') || b.includes('software') || b.includes('saas') || b.includes('erp')
+  const isMarketing = b.includes('marketing') || b.includes('seo') || b.includes('ads') || b.includes('social')
+  const isVideo   = b.includes('video') || b.includes('animation') || b.includes('production')
+  const isEcom    = b.includes('ecommerce') || b.includes('e-commerce') || b.includes('shop')
+  const isLanding = b.includes('landing')
+  const isPwa     = b.includes('progressive') || b.includes('pwa')
+
+  return (
+    <div style={{ position: 'relative', borderRadius: 20, overflow: 'hidden', background: 'rgba(255,255,255,.05)', border: '1px solid rgba(255,255,255,.1)', padding: 32 }}>
+      {/* Glow accent */}
+      <div style={{ position: 'absolute', top: -60, right: -60, width: 220, height: 220, borderRadius: '50%', background: 'radial-gradient(circle, rgba(33,150,243,.18) 0%, transparent 70%)', pointerEvents: 'none' }} />
+
+      {/* Illustration */}
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 28 }}>
+        {isApp ? (
+          // Mobile app illustration
+          <svg width="220" height="200" viewBox="0 0 220 200" fill="none">
+            <rect x="60" y="10" width="100" height="180" rx="18" fill="rgba(33,150,243,.12)" stroke="rgba(33,150,243,.4)" strokeWidth="2"/>
+            <rect x="72" y="30" width="76" height="120" rx="6" fill="rgba(33,150,243,.15)"/>
+            <rect x="80" y="38" width="60" height="10" rx="3" fill="rgba(33,150,243,.5)"/>
+            <rect x="80" y="54" width="40" height="7" rx="3" fill="rgba(255,255,255,.2)"/>
+            <rect x="80" y="66" width="56" height="7" rx="3" fill="rgba(255,255,255,.15)"/>
+            <rect x="80" y="80" width="60" height="28" rx="6" fill="rgba(33,150,243,.25)" stroke="rgba(33,150,243,.4)" strokeWidth="1"/>
+            <circle cx="100" cy="94" r="6" fill="rgba(33,150,243,.6)"/>
+            <rect x="111" y="89" width="22" height="4" rx="2" fill="rgba(255,255,255,.3)"/>
+            <rect x="111" y="96" width="14" height="3" rx="1.5" fill="rgba(255,255,255,.2)"/>
+            <rect x="80" y="115" width="28" height="24" rx="5" fill="rgba(16,185,129,.2)" stroke="rgba(16,185,129,.4)" strokeWidth="1"/>
+            <rect x="114" y="115" width="26" height="24" rx="5" fill="rgba(245,158,11,.15)" stroke="rgba(245,158,11,.35)" strokeWidth="1"/>
+            <circle cx="110" cy="168" r="5" fill="rgba(255,255,255,.2)"/>
+            {/* Floating badges */}
+            <rect x="0" y="50" width="52" height="28" rx="8" fill="rgba(16,185,129,.15)" stroke="rgba(16,185,129,.35)" strokeWidth="1"/>
+            <text x="10" y="59" fontSize="7" fill="rgba(16,185,129,.9)" fontWeight="700">React</text>
+            <text x="10" y="70" fontSize="7" fill="rgba(255,255,255,.5)">Native</text>
+            <rect x="168" y="80" width="50" height="28" rx="8" fill="rgba(124,58,237,.15)" stroke="rgba(124,58,237,.35)" strokeWidth="1"/>
+            <text x="176" y="89" fontSize="7" fill="rgba(167,139,250,.9)" fontWeight="700">Flutter</text>
+            <text x="176" y="100" fontSize="7" fill="rgba(255,255,255,.5)">iOS/Android</text>
+          </svg>
+        ) : isCrm ? (
+          // CRM / Software illustration
+          <svg width="220" height="200" viewBox="0 0 220 200" fill="none">
+            <rect x="20" y="20" width="180" height="130" rx="12" fill="rgba(33,150,243,.08)" stroke="rgba(33,150,243,.25)" strokeWidth="1.5"/>
+            <rect x="20" y="20" width="180" height="28" rx="12" fill="rgba(33,150,243,.2)"/>
+            <circle cx="38" cy="34" r="5" fill="rgba(239,68,68,.5)"/>
+            <circle cx="53" cy="34" r="5" fill="rgba(245,158,11,.5)"/>
+            <circle cx="68" cy="34" r="5" fill="rgba(16,185,129,.5)"/>
+            <rect x="36" y="60" width="72" height="72" rx="8" fill="rgba(33,150,243,.12)" stroke="rgba(33,150,243,.25)" strokeWidth="1"/>
+            <rect x="44" y="68" width="56" height="8" rx="3" fill="rgba(33,150,243,.4)"/>
+            <rect x="44" y="82" width="40" height="6" rx="2" fill="rgba(255,255,255,.2)"/>
+            <rect x="44" y="92" width="48" height="6" rx="2" fill="rgba(255,255,255,.15)"/>
+            <rect x="44" y="102" width="35" height="6" rx="2" fill="rgba(255,255,255,.12)"/>
+            <rect x="44" y="112" width="45" height="12" rx="4" fill="rgba(16,185,129,.25)" stroke="rgba(16,185,129,.4)" strokeWidth="1"/>
+            <rect x="120" y="60" width="68" height="30" rx="8" fill="rgba(124,58,237,.15)" stroke="rgba(124,58,237,.3)" strokeWidth="1"/>
+            <rect x="128" y="70" width="35" height="5" rx="2" fill="rgba(167,139,250,.5)"/>
+            <rect x="128" y="79" width="25" height="5" rx="2" fill="rgba(255,255,255,.2)"/>
+            <rect x="120" y="98" width="68" height="34" rx="8" fill="rgba(245,158,11,.12)" stroke="rgba(245,158,11,.3)" strokeWidth="1"/>
+            <rect x="128" y="106" width="20" height="5" rx="2" fill="rgba(245,158,11,.5)"/>
+            {[0,1,2].map(i => <rect key={i} x={128} y={115+i*5} width={[42,28,36][i]} height="4" rx="2" fill="rgba(255,255,255,.15)"/>)}
+            {/* Connection lines */}
+            <line x1="110" y1="100" x2="120" y2="80" stroke="rgba(33,150,243,.3)" strokeWidth="1" strokeDasharray="3,3"/>
+            <line x1="110" y1="115" x2="120" y2="118" stroke="rgba(245,158,11,.3)" strokeWidth="1" strokeDasharray="3,3"/>
+            {/* Bottom stats */}
+            <rect x="36" y="148" width="148" height="0" rx="0" fill="none"/>
+            {[['CRM','#2196F3'],['SaaS','#7C3AED'],['ERP','#10B981']].map(([l,c],i) => (
+              <g key={l}>
+                <rect x={36+i*56} y={148} width={48} height={20} rx={5} fill={`${c}22`} stroke={`${c}44`} strokeWidth="1"/>
+                <text x={36+i*56+14} y={162} fontSize="9" fill={c} fontWeight="700">{l}</text>
+              </g>
+            ))}
+          </svg>
+        ) : isMarketing ? (
+          // Digital Marketing / SEO illustration
+          <svg width="220" height="200" viewBox="0 0 220 200" fill="none">
+            <rect x="20" y="30" width="180" height="130" rx="12" fill="rgba(33,150,243,.06)" stroke="rgba(33,150,243,.2)" strokeWidth="1.5"/>
+            {/* Bar chart */}
+            <rect x="40" y="120" width="20" height="25" rx="4" fill="rgba(33,150,243,.4)"/>
+            <rect x="68" y="100" width="20" height="45" rx="4" fill="rgba(33,150,243,.55)"/>
+            <rect x="96" y="80" width="20" height="65" rx="4" fill="rgba(33,150,243,.7)"/>
+            <rect x="124" y="60" width="20" height="85" rx="4" fill="rgba(16,185,129,.6)"/>
+            <rect x="152" y="40" width="20" height="105" rx="4" fill="rgba(16,185,129,.8)"/>
+            {/* Trend line */}
+            <polyline points="50,118 78,98 106,78 134,58 162,38" stroke="#10B981" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+            {[50,78,106,134,162].map((x,i) => <circle key={i} cx={x} cy={[118,98,78,58,38][i]} r="4" fill="#10B981" stroke="rgba(255,255,255,.3)" strokeWidth="1.5"/>)}
+            {/* Floating metric cards */}
+            <rect x="130" y="8" width="78" height="26" rx="7" fill="rgba(16,185,129,.15)" stroke="rgba(16,185,129,.35)" strokeWidth="1"/>
+            <text x="140" y="18" fontSize="8" fill="rgba(16,185,129,.9)" fontWeight="700">↑ 143%</text>
+            <text x="140" y="28" fontSize="7" fill="rgba(255,255,255,.4)">Organic Traffic</text>
+            <rect x="8" y="55" width="70" height="26" rx="7" fill="rgba(33,150,243,.15)" stroke="rgba(33,150,243,.35)" strokeWidth="1"/>
+            <text x="18" y="65" fontSize="8" fill="rgba(33,150,243,.9)" fontWeight="700">4.9★ Ads</text>
+            <text x="18" y="75" fontSize="7" fill="rgba(255,255,255,.4)">Quality Score</text>
+            {/* Bottom labels */}
+            {['Jan','Mar','May','Jul','Sep'].map((l,i) => (
+              <text key={l} x={46+i*28} y="172" fontSize="8" fill="rgba(255,255,255,.3)" textAnchor="middle">{l}</text>
+            ))}
+          </svg>
+        ) : isVideo ? (
+          // Video / Animation illustration
+          <svg width="220" height="200" viewBox="0 0 220 200" fill="none">
+            <rect x="20" y="30" width="130" height="100" rx="10" fill="rgba(124,58,237,.12)" stroke="rgba(124,58,237,.35)" strokeWidth="1.5"/>
+            <circle cx="85" cy="80" r="28" fill="rgba(124,58,237,.2)" stroke="rgba(124,58,237,.4)" strokeWidth="1.5"/>
+            <polygon points="78,68 78,92 102,80" fill="rgba(167,139,250,.8)"/>
+            {/* Film strip right */}
+            <rect x="160" y="20" width="40" height="160" rx="6" fill="rgba(33,150,243,.1)" stroke="rgba(33,150,243,.25)" strokeWidth="1"/>
+            {[0,1,2,3,4].map(i => <rect key={i} x="165" y={28+i*30} width="30" height="20" rx="3" fill={`rgba(33,150,243,${0.1+i*0.05})`}/>)}
+            {/* Bottom timeline */}
+            <rect x="20" y="142" width="130" height="22" rx="6" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.1)" strokeWidth="1"/>
+            <rect x="26" y="148" width="50" height="10" rx="3" fill="rgba(124,58,237,.4)"/>
+            <rect x="82" y="148" width="30" height="10" rx="3" fill="rgba(245,158,11,.3)"/>
+            <rect x="118" y="148" width="25" height="10" rx="3" fill="rgba(16,185,129,.3)"/>
+            {/* Labels */}
+            <rect x="20" y="170" width="55" height="20" rx="5" fill="rgba(124,58,237,.15)" stroke="rgba(124,58,237,.3)" strokeWidth="1"/>
+            <text x="30" y="183" fontSize="8" fill="rgba(167,139,250,.9)" fontWeight="700">2D/3D Anim</text>
+            <rect x="83" y="170" width="55" height="20" rx="5" fill="rgba(33,150,243,.15)" stroke="rgba(33,150,243,.3)" strokeWidth="1"/>
+            <text x="93" y="183" fontSize="8" fill="rgba(147,197,253,.9)" fontWeight="700">4K Video</text>
+          </svg>
+        ) : isEcom ? (
+          // E-commerce illustration
+          <svg width="220" height="200" viewBox="0 0 220 200" fill="none">
+            <rect x="20" y="20" width="180" height="140" rx="12" fill="rgba(33,150,243,.07)" stroke="rgba(33,150,243,.2)" strokeWidth="1.5"/>
+            <rect x="20" y="20" width="180" height="24" rx="12" fill="rgba(33,150,243,.18)"/>
+            <circle cx="38" cy="32" r="4" fill="rgba(239,68,68,.5)"/>
+            <circle cx="51" cy="32" r="4" fill="rgba(245,158,11,.5)"/>
+            <circle cx="64" cy="32" r="4" fill="rgba(16,185,129,.5)"/>
+            {/* Product cards */}
+            {[[36,52],[114,52],[36,120],[114,120]].map(([x,y],i) => (
+              <g key={i}>
+                <rect x={x} y={y} width="72" height="60" rx="7" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.1)" strokeWidth="1"/>
+                <rect x={x+8} y={y+8} width="56" height="30" rx="4" fill={['rgba(33,150,243,.2)','rgba(16,185,129,.2)','rgba(245,158,11,.2)','rgba(124,58,237,.2)'][i]}/>
+                <rect x={x+8} y={y+44} width="36" height="5" rx="2" fill="rgba(255,255,255,.25)"/>
+                <rect x={x+8} y={y+52} width="22" height="4" rx="2" fill="rgba(33,150,243,.5)"/>
+                <rect x={x+46} y={y+44} width="18" height="14" rx="4" fill="rgba(33,150,243,.35)"/>
+              </g>
+            ))}
+            {/* Cart badge */}
+            <rect x="145" y="8" width="55" height="26" rx="8" fill="rgba(16,185,129,.15)" stroke="rgba(16,185,129,.4)" strokeWidth="1"/>
+            <text x="155" y="18" fontSize="8" fill="rgba(16,185,129,.9)" fontWeight="700">Cart: ₹4,299</text>
+            <text x="155" y="28" fontSize="7" fill="rgba(255,255,255,.4)">Razorpay Ready</text>
+          </svg>
+        ) : isLanding ? (
+          // Landing page / conversion illustration
+          <svg width="220" height="200" viewBox="0 0 220 200" fill="none">
+            <rect x="30" y="10" width="160" height="175" rx="10" fill="rgba(33,150,243,.07)" stroke="rgba(33,150,243,.2)" strokeWidth="1.5"/>
+            <rect x="30" y="10" width="160" height="18" rx="10" fill="rgba(33,150,243,.2)"/>
+            <rect x="50" y="38" width="120" height="12" rx="4" fill="rgba(255,255,255,.2)"/>
+            <rect x="65" y="54" width="90" height="8" rx="3" fill="rgba(255,255,255,.1)"/>
+            <rect x="75" y="70" width="70" height="22" rx="6" fill="rgba(33,150,243,.6)"/>
+            <text x="95" y="85" fontSize="9" fill="white" fontWeight="700">Get Quote</text>
+            <line x1="50" y1="105" x2="170" y2="105" stroke="rgba(255,255,255,.08)" strokeWidth="1"/>
+            {/* Feature row */}
+            {[50,100,150].map((x,i) => (
+              <g key={i}>
+                <circle cx={x} cy="120" r="10" fill={['rgba(33,150,243,.2)','rgba(16,185,129,.2)','rgba(245,158,11,.2)'][i]}/>
+                <rect x={x-18} y="135" width="36" height="5" rx="2" fill="rgba(255,255,255,.15)"/>
+                <rect x={x-12} y="143" width="24" height="4" rx="2" fill="rgba(255,255,255,.08)"/>
+              </g>
+            ))}
+            {/* Conversion arrow */}
+            <path d="M100 160 L100 175 L110 168 M100 175 L90 168" stroke="rgba(16,185,129,.6)" strokeWidth="2" strokeLinecap="round"/>
+            <text x="76" y="190" fontSize="8" fill="rgba(16,185,129,.7)" fontWeight="700">High Conversion</text>
+          </svg>
+        ) : isPwa ? (
+          // PWA illustration
+          <svg width="220" height="200" viewBox="0 0 220 200" fill="none">
+            <rect x="40" y="20" width="140" height="100" rx="10" fill="rgba(33,150,243,.1)" stroke="rgba(33,150,243,.3)" strokeWidth="1.5"/>
+            <rect x="55" y="35" width="110" height="70" rx="6" fill="rgba(33,150,243,.08)"/>
+            <rect x="63" y="43" width="70" height="8" rx="3" fill="rgba(33,150,243,.4)"/>
+            <rect x="63" y="55" width="50" height="6" rx="2" fill="rgba(255,255,255,.2)"/>
+            <rect x="63" y="65" width="60" height="20" rx="4" fill="rgba(16,185,129,.25)" stroke="rgba(16,185,129,.4)" strokeWidth="1"/>
+            <text x="73" y="78" fontSize="8" fill="rgba(16,185,129,.9)" fontWeight="700">Install App</text>
+            {/* Mobile below */}
+            <rect x="85" y="128" width="50" height="60" rx="8" fill="rgba(124,58,237,.12)" stroke="rgba(124,58,237,.35)" strokeWidth="1.5"/>
+            <rect x="92" y="138" width="36" height="36" rx="4" fill="rgba(124,58,237,.15)"/>
+            <circle cx="110" cy="176" r="3" fill="rgba(255,255,255,.2)"/>
+            {/* Badges */}
+            <rect x="0" y="40" width="60" height="22" rx="6" fill="rgba(16,185,129,.15)" stroke="rgba(16,185,129,.3)" strokeWidth="1"/>
+            <text x="10" y="50" fontSize="7" fill="rgba(16,185,129,.9)" fontWeight="700">Offline Ready</text>
+            <text x="10" y="60" fontSize="6" fill="rgba(255,255,255,.4)">Service Worker</text>
+            <rect x="158" y="90" width="58" height="22" rx="6" fill="rgba(245,158,11,.15)" stroke="rgba(245,158,11,.3)" strokeWidth="1"/>
+            <text x="168" y="100" fontSize="7" fill="rgba(245,158,11,.9)" fontWeight="700">PageSpeed</text>
+            <text x="168" y="110" fontSize="7" fill="rgba(255,255,255,.4)">90+ Score</text>
+          </svg>
+        ) : (
+          // Default: Website Development illustration
+          <svg width="220" height="200" viewBox="0 0 220 200" fill="none">
+            <rect x="15" y="20" width="190" height="130" rx="12" fill="rgba(33,150,243,.08)" stroke="rgba(33,150,243,.25)" strokeWidth="1.5"/>
+            <rect x="15" y="20" width="190" height="28" rx="12" fill="rgba(33,150,243,.2)"/>
+            <circle cx="33" cy="34" r="5" fill="rgba(239,68,68,.5)"/>
+            <circle cx="48" cy="34" r="5" fill="rgba(245,158,11,.5)"/>
+            <circle cx="63" cy="34" r="5" fill="rgba(16,185,129,.5)"/>
+            {/* URL bar */}
+            <rect x="78" y="27" width="110" height="14" rx="4" fill="rgba(255,255,255,.08)"/>
+            <text x="85" y="38" fontSize="7.5" fill="rgba(255,255,255,.35)">nakshatranamahacreations.com</text>
+            {/* Hero area */}
+            <rect x="28" y="58" width="80" height="75" rx="6" fill="rgba(33,150,243,.12)"/>
+            <rect x="36" y="66" width="64" height="9" rx="3" fill="rgba(33,150,243,.5)"/>
+            <rect x="36" y="80" width="50" height="6" rx="2" fill="rgba(255,255,255,.2)"/>
+            <rect x="36" y="90" width="58" height="6" rx="2" fill="rgba(255,255,255,.15)"/>
+            <rect x="36" y="104" width="46" height="16" rx="5" fill="rgba(33,150,243,.5)"/>
+            {/* Right content */}
+            <rect x="118" y="58" width="74" height="34" rx="6" fill="rgba(16,185,129,.12)" stroke="rgba(16,185,129,.25)" strokeWidth="1"/>
+            <rect x="126" y="66" width="40" height="6" rx="2" fill="rgba(16,185,129,.4)"/>
+            <rect x="126" y="76" width="30" height="5" rx="2" fill="rgba(255,255,255,.15)"/>
+            <rect x="118" y="100" width="34" height="33" rx="6" fill="rgba(245,158,11,.12)" stroke="rgba(245,158,11,.25)" strokeWidth="1"/>
+            <rect x="126" y="108" width="18" height="5" rx="2" fill="rgba(245,158,11,.4)"/>
+            <rect x="126" y="117" width="14" height="5" rx="2" fill="rgba(255,255,255,.12)"/>
+            <rect x="160" y="100" width="32" height="33" rx="6" fill="rgba(124,58,237,.12)" stroke="rgba(124,58,237,.25)" strokeWidth="1"/>
+            <rect x="167" y="108" width="18" height="5" rx="2" fill="rgba(167,139,250,.4)"/>
+            {/* Code lines at bottom */}
+            <rect x="28" y="142" width="164" height="0" rx="0"/>
+            {/* Stand */}
+            <rect x="95" y="150" width="30" height="8" rx="2" fill="rgba(33,150,243,.25)"/>
+            <rect x="80" y="158" width="60" height="6" rx="3" fill="rgba(33,150,243,.2)"/>
+          </svg>
+        )}
+      </div>
+
+      {/* Stats row */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 16 }}>
+        {[
+          { n: stat1, l: stat1Label },
+          { n: '4.9★', l: 'Google Rating' },
+          { n: '8+', l: 'Years Operating' },
+          { n: '35+', l: 'In-house Team' },
+        ].map(s => (
+          <div key={s.l} style={{ textAlign: 'center', padding: '14px 10px', background: 'rgba(255,255,255,.04)', borderRadius: 10, border: '1px solid rgba(255,255,255,.06)' }}>
+            <div style={{ fontSize: 24, fontWeight: 800, color: '#2196F3', letterSpacing: '-.06em', lineHeight: 1, marginBottom: 4 }}>{s.n}</div>
+            <div style={{ fontSize: 11, color: 'rgba(255,255,255,.4)' }}>{s.l}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Office tag */}
+      <div style={{ padding: '12px 14px', background: 'rgba(16,185,129,.08)', border: '1px solid rgba(16,185,129,.2)', borderRadius: 10 }}>
+        <div style={{ fontSize: 10, fontWeight: 700, color: '#10B981', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 3 }}>Bengaluru Head Office</div>
+        <div style={{ fontSize: 12, color: 'rgba(255,255,255,.45)', lineHeight: 1.5 }}>Darshan Plaza, 1st Floor, Channasandra, Bengaluru – 560 098</div>
+      </div>
+    </div>
+  )
+}
+
 export default function ServicePageContent({ data }) {
   const router = useRouter()
   const [openFaq, setOpenFaq] = useState(null)
@@ -92,28 +336,9 @@ export default function ServicePageContent({ data }) {
               </div>
             </div>
 
-            {/* Stats panel */}
+            {/* Illustration panel */}
             <div className="col-lg-5 d-none d-lg-block">
-              <div style={{ background: 'rgba(255,255,255,.06)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,.12)', borderRadius: 16, padding: 32 }}>
-                <div style={{ fontSize: 13, fontWeight: 600, color: 'rgba(255,255,255,.4)', marginBottom: 20, textTransform: 'uppercase', letterSpacing: '.1em' }}>NNC at a Glance</div>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
-                  {[
-                    { n: data.stat1, l: data.stat1Label },
-                    { n: '4.9★', l: 'Google Rating' },
-                    { n: '8+', l: 'Years Operating' },
-                    { n: '35+', l: 'In-house Team' },
-                  ].map(s => (
-                    <div key={s.l} style={{ textAlign: 'center', padding: '16px 12px', background: 'rgba(255,255,255,.04)', borderRadius: 10, border: '1px solid rgba(255,255,255,.06)' }}>
-                      <div style={{ fontSize: 28, fontWeight: 800, color: '#2196F3', letterSpacing: '-.06em', lineHeight: 1, marginBottom: 5 }}>{s.n}</div>
-                      <div style={{ fontSize: 11.5, color: 'rgba(255,255,255,.4)' }}>{s.l}</div>
-                    </div>
-                  ))}
-                </div>
-                <div style={{ marginTop: 20, padding: '14px 16px', background: 'rgba(16,185,129,.08)', border: '1px solid rgba(16,185,129,.2)', borderRadius: 10 }}>
-                  <div style={{ fontSize: 10.5, fontWeight: 700, color: '#10B981', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 4 }}>Bengaluru Head Office</div>
-                  <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,.5)', lineHeight: 1.6 }}>Darshan Plaza, 1st Floor, Channasandra, Bengaluru – 560 098</div>
-                </div>
-              </div>
+              <ServiceIllustration badge={data.badge} stat1={data.stat1} stat1Label={data.stat1Label} />
             </div>
           </div>
         </div>
@@ -133,7 +358,7 @@ export default function ServicePageContent({ data }) {
             </div>
             <div className="col-lg-7 d-flex align-items-end">
               <p style={{ fontSize: 16, color: '#6B7A99', lineHeight: 1.74 }}>
-                Every project from NNC includes these capabilities — delivered by permanent in-house specialists with no outsourcing and no compromises.
+                Every project from NNC includes these capabilities delivered by permanent in-house specialists with no outsourcing and no compromises.
               </p>
             </div>
           </div>

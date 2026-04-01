@@ -3,6 +3,7 @@ import '@/styles/globals.css'
 import Script from 'next/script'
 import WhatsAppChat from '@/components/WhatsAppChat'
 import QuoteModal from '@/components/QuoteModal'
+import CallFloat from '@/components/CallFloat'
 
 export const metadata = {
   title: 'Website & App Development Company in Bangalore | NNC',
@@ -41,7 +42,7 @@ export const metadata = {
     type: 'website',
     locale: 'en_IN',
     url: 'https://www.nakshatranamahacreations.com',
-    siteName: 'NNC Digital — Website Development Company Bangalore',
+    siteName: 'NNC Digital Website Development Company Bangalore',
     title: 'Website & App Development Company in Bangalore | NNC',
     description:
       'NNC builds websites, mobile apps, CRM software and runs digital marketing. 35+ in-house team, 565+ projects, 4 offices. Fixed price. Free quote in 24hrs.',
@@ -50,7 +51,7 @@ export const metadata = {
         url: 'https://www.nakshatranamahacreations.com/media/teams/NNCGRPPHO.avif',
         width: 1200,
         height: 630,
-        alt: 'Nakshatra Namaha Creations — Digital Agency Team Bangalore',
+        alt: 'Nakshatra Namaha Creations Digital Agency Team Bangalore',
       },
     ],
   },
@@ -187,7 +188,7 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   '@id': 'https://www.nakshatranamahacreations.com/#website',
-  name: 'NNC Digital — Website Development Company Bangalore',
+  name: 'NNC Digital Website Development Company Bangalore',
   url: 'https://www.nakshatranamahacreations.com',
   publisher: { '@id': 'https://www.nakshatranamahacreations.com/#organization' },
   potentialAction: {
@@ -214,7 +215,7 @@ const faqSchema = {
       name: 'Do I own the source code after delivery?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes — completely and permanently. On delivery you receive every source file, database schema, admin credential and hosting login. The website or app is 100% yours with no platform dependency or licence fees.',
+        text: 'Yes completely and permanently. On delivery you receive every source file, database schema, admin credential and hosting login. The website or app is 100% yours with no platform dependency or licence fees.',
       },
     },
     {
@@ -242,6 +243,14 @@ export default function RootLayout({ children }) {
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Google Tag Manager */}
+        <Script
+          id="gtm-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PB7CNFK7');`,
+          }}
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -269,10 +278,20 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-PB7CNFK7"
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
         {children}
         <WhatsAppChat />
+        <CallFloat />
         <QuoteModal />
-        {/* Bootstrap JS — loaded after page content */}
+        {/* Bootstrap JS loaded after page content */}
         <Script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
           strategy="afterInteractive"

@@ -15,16 +15,18 @@ export default function Hero() {
           <div className="col-lg-6">
 
 
+            {/* Trust badge */}
+           
             <h1 className="hero-h1 mb-3">
               Website Development Company<br />
-              <span className="sky">in Bangalore</span> — Apps, CRM &amp; Digital Marketing
+              <span className="sky">Apps, CRM &amp; Digital Marketing</span>
             </h1>
 
             <p className="hero-sub mb-4">
               <Link href="/website-development-company-in-bangalore" style={{ color: 'inherit', textDecoration: 'underline', textDecorationColor: 'rgba(255,255,255,.3)' }}>Custom websites</Link>,{' '}
               <Link href="/mobile-app-development-company-in-bangalore" style={{ color: 'inherit', textDecoration: 'underline', textDecorationColor: 'rgba(255,255,255,.3)' }}>mobile apps</Link>,{' '}
               <Link href="/custom-crm-development" style={{ color: 'inherit', textDecoration: 'underline', textDecorationColor: 'rgba(255,255,255,.3)' }}>CRM systems</Link> &amp;{' '}
-              <Link href="/digital-marketing-agency-in-bangalore" style={{ color: 'inherit', textDecoration: 'underline', textDecorationColor: 'rgba(255,255,255,.3)' }}>digital marketing</Link> — by a{' '}
+              <Link href="/digital-marketing-agency-in-bangalore" style={{ color: 'inherit', textDecoration: 'underline', textDecorationColor: 'rgba(255,255,255,.3)' }}>digital marketing</Link> by a{' '}
               <strong>35+ member in-house team</strong> across Bengaluru, Mumbai, Mysuru &amp; Hyderabad.{' '}
               <strong>565+ projects delivered. Zero outsourced.</strong>
             </p>
@@ -33,13 +35,15 @@ export default function Hero() {
               <button className="btn btn-sky fw-bold px-4 py-3 d-inline-flex align-items-center gap-2"
                 onClick={() => window.dispatchEvent(new CustomEvent('open-quote'))}>
                 Get Free Consultation
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
               </button>
-
-           
+              <Link href="/our-works" className="btn btn-outline-light fw-semibold px-4 py-3 d-inline-flex align-items-center gap-2" style={{ borderColor: 'rgba(255,255,255,.25)', color: '#fff' }}>
+                View Our Work
+              </Link>
             </div>
 
             <div className="d-flex flex-wrap gap-3">
-              {['PageSpeed 90+ Guaranteed', 'Source Code 100% Yours', 'Fixed Price — No Surprises', '24hr Quote Turnaround'].map(t => (
+              {['PageSpeed 90+ Guaranteed', '4.9★ Google Rating', 'Fixed Price · No Surprises', 'Zero Outsourcing Ever'].map(t => (
                 <div key={t} className="hero-check">
                   <div className="hc-ico">
                     <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="var(--sky)" strokeWidth="3">
@@ -52,7 +56,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* RIGHT — Sketch Illustration */}
+          {/* RIGHT Sketch Illustration */}
           <div className="col-lg-6 d-none d-lg-block">
             <div style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 500 }}>
               <svg width="100%" height="500" viewBox="0 0 560 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

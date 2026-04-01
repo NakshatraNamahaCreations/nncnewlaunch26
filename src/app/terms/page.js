@@ -12,7 +12,7 @@ export const metadata = {
 const sections = [
   {
     title: '1. Agreement',
-    body: `By engaging NNC Digital (Nakshatra Namaha Creations Pvt. Ltd.) for any service — including website development, mobile app development, CRM software, digital marketing, graphic design or video production — you ("Client") agree to be bound by these Terms of Service. These terms govern all projects, proposals and engagements between NNC Digital and the Client.`,
+    body: `By engaging NNC Digital (Nakshatra Namaha Creations Pvt. Ltd.) for any service including website development, mobile app development, CRM software, digital marketing, graphic design or video production you ("Client") agree to be bound by these Terms of Service. These terms govern all projects, proposals and engagements between NNC Digital and the Client.`,
   },
   {
     title: '2. Project Scope & Fixed Pricing',
@@ -48,7 +48,7 @@ const sections = [
   },
   {
     title: '10. Contact',
-    body: `For questions about these terms, contact us at ${SITE.email} or call ${SITE.phone}. Registered office: Darshan Plaza, 1st Floor, Channasandra, Bengaluru — 560 098. CIN: ${SITE.cin}.`,
+    body: `For questions about these terms, contact us at ${SITE.email} or call ${SITE.phone}. Registered office: Darshan Plaza, 1st Floor, Channasandra, Bengaluru 560 098. CIN: ${SITE.cin}.`,
   },
 ]
 

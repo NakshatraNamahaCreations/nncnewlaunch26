@@ -22,7 +22,7 @@ export const metadata = {
         url: 'https://www.nakshatranamahacreations.com/media/teams/NNCGRPPHO.avif',
         width: 1200,
         height: 630,
-        alt: 'NNC Digital — Mobile App Development Company Bangalore',
+        alt: 'NNC Digital Mobile App Development Company Bangalore',
       },
     ],
   },
@@ -125,7 +125,7 @@ export const faqSchema = {
     },
     {
       '@type': 'Question',
-      name: 'React Native or Flutter — which should I choose?',
+      name: 'React Native or Flutter which should I choose?',
       acceptedAnswer: {
         '@type': 'Answer',
         text: 'Both deliver Android and iOS apps from one codebase. React Native has a larger ecosystem. Flutter gives more precise UI control. NNC recommends the right framework after reviewing your requirements.',
@@ -136,7 +136,7 @@ export const faqSchema = {
       name: 'Will NNC handle Play Store and App Store submission?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes — completely. NNC manages the full submission process including store listing, screenshots, review responses and release management on both platforms.',
+        text: 'Yes completely. NNC manages the full submission process including store listing, screenshots, review responses and release management on both platforms.',
       },
     },
   ],

@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link'
 import { OFFICES } from '@/data/siteData'
 
 const HIGHLIGHTS = [
@@ -31,7 +32,7 @@ export default function About() {
           backgroundSize: 'cover',
           backgroundPosition: 'center 20%',
         }} />
-        {/* Dark gradient overlay — heavier on right for text readability */}
+        {/* Dark gradient overlay heavier on right for text readability */}
         <div style={{
           position: 'absolute', inset: 0,
           background: 'linear-gradient(90deg, rgba(7,20,53,.3) 0%, rgba(7,20,53,.75) 45%, rgba(7,20,53,.92) 100%)',
@@ -39,10 +40,10 @@ export default function About() {
 
         <div style={{ maxWidth: 1220, margin: '0 auto', padding: '80px 24px', position: 'relative', zIndex: 2, width: '100%' }}>
           <div className="row align-items-center">
-            {/* Left spacer — image shows through */}
+            {/* Left spacer image shows through */}
             <div className="col-lg-5 d-none d-lg-block" />
 
-            {/* Right — content on overlay */}
+            {/* Right content on overlay */}
             <div style={{marginRight:'-690px'}}>
               <div style={{
                 display: 'inline-flex', alignItems: 'center', gap: 8,
@@ -77,14 +78,9 @@ export default function About() {
               </p>
 
               <div className="d-flex flex-wrap gap-3 mb-4" style={{ marginLeft: 40 }}>
-                <a href="#faq" className="btn-about-primary"
-                   onClick={e => { e.preventDefault(); document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' }) }}>
-                  Work With Us <Ico d="M5 12h14M12 5l7 7-7 7" size={15} color="#fff" />
-                </a>
-                <a href="#work" className="btn-about-outline"
-                   onClick={e => { e.preventDefault(); document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' }) }}>
-                  See Our Work
-                </a>
+                <Link href="/our-works" className="btn-about-primary">
+                  See Our Work <Ico d="M5 12h14M12 5l7 7-7 7" size={15} color="#fff" />
+                </Link>
               </div>
             </div>
           </div>

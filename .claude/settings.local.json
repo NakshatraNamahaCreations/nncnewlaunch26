@@ -3,7 +3,22 @@
     "allow": [
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
       "Bash(curl -s http://localhost:3000)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3001)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3001)",
+      "Bash(cp \"WhatsApp Image 2026-03-31 at 1.31.10 PM.jpeg\" \"team-1.jpg\")",
+      "Bash(cp \"WhatsApp Image 2026-03-31 at 1.31.12 PM \\(1\\).jpeg\" \"team-2.jpg\")",
+      "Bash(cp \"WhatsApp Image 2026-03-31 at 1.31.12 PM \\(2\\).jpeg\" \"team-3.jpg\")",
+      "Bash(cp \"WhatsApp Image 2026-03-31 at 1.31.12 PM.jpeg\" \"team-4.jpg\")",
+      "Bash(cp \"WhatsApp Image 2026-03-31 at 1.31.13 PM \\(1\\).jpeg\" \"team-5.jpg\")",
+      "Bash(npx tailwindcss:*)",
+      "Bash(./node_modules/.bin/tailwindcss init:*)",
+      "Bash(curl -s http://localhost:3000 -o /dev/null -w \"%{http_code}\")",
+      "Bash(npm uninstall:*)",
+      "Bash(node -e \"const mongoose = require\\('mongoose'\\); mongoose.connect\\('mongodb://localhost:27017/creative-printz'\\).then\\(\\(\\) => { console.log\\('MongoDB connected'\\); process.exit\\(0\\); }\\).catch\\(e => { console.log\\('MongoDB error:', e.message\\); process.exit\\(1\\); }\\);\")"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\HP\\Creative printz website\\backend",
+      "C:\\Users\\HP\\Creative printz website\\frontend\\src",
+      "C:\\Users\\HP\\Creative printz website\\frontend"
     ]
   }
 }

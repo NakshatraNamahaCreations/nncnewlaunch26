@@ -15,7 +15,7 @@ export default function WhyNNC() {
           </div>
           <div className="col-lg-7 d-flex align-items-end">
             <p className="sec-sub">
-              These aren&apos;t promises on a website. They&apos;re verifiable facts about how NNC operates every single day —
+              These aren&apos;t promises on a website. They&apos;re verifiable facts about how NNC operates every single day
               facts you can confirm by walking into any of our four offices.
             </p>
           </div>

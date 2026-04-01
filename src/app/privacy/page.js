@@ -12,7 +12,7 @@ export const metadata = {
 const sections = [
   {
     title: '1. Information We Collect',
-    body: `When you submit an enquiry via our website forms, we collect your name, phone number, email address and any project details you provide. We may also automatically collect non-personal information such as browser type, pages visited and approximate location via analytics tools. We do not collect payment card information directly — all transactions are handled by regulated payment processors.`,
+    body: `When you submit an enquiry via our website forms, we collect your name, phone number, email address and any project details you provide. We may also automatically collect non-personal information such as browser type, pages visited and approximate location via analytics tools. We do not collect payment card information directly all transactions are handled by regulated payment processors.`,
   },
   {
     title: '2. How We Use Your Information',
@@ -44,7 +44,7 @@ const sections = [
   },
   {
     title: '9. Contact',
-    body: `For privacy-related questions or requests, contact us at ${SITE.email} or call ${SITE.phone}. Registered office: Darshan Plaza, 1st Floor, Channasandra, Bengaluru — 560 098. CIN: ${SITE.cin}.`,
+    body: `For privacy-related questions or requests, contact us at ${SITE.email} or call ${SITE.phone}. Registered office: Darshan Plaza, 1st Floor, Channasandra, Bengaluru 560 098. CIN: ${SITE.cin}.`,
   },
 ]
 

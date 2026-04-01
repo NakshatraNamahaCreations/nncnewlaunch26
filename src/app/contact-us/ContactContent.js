@@ -64,7 +64,7 @@ export default function ContactContent() {
         <div style={{ maxWidth: 1220, margin: '0 auto', padding: '0 24px' }}>
           <div className="row g-5">
 
-            {/* LEFT — direct contacts + offices */}
+            {/* LEFT direct contacts + offices */}
             <div className="col-lg-5">
               {/* Quick contact */}
               <div style={{ marginBottom: 36 }}>
@@ -107,7 +107,7 @@ export default function ContactContent() {
                             <span style={{ fontSize: 10, fontWeight: 700, color: c, background: `${c}18`, padding: '1px 7px', borderRadius: 20 }}>{o.type}</span>
                           </div>
                           <div style={{ fontSize: 12.5, color: '#94A3B8', lineHeight: 1.55 }}>
-                            {o.address}<br />{o.state} — {o.pin}
+                            {o.address}<br />{o.state} {o.pin}
                           </div>
                         </div>
                       </div>
@@ -117,7 +117,7 @@ export default function ContactContent() {
               </div>
             </div>
 
-            {/* RIGHT — contact form */}
+            {/* RIGHT contact form */}
             <div className="col-lg-7">
               <div style={{ background: '#fff', borderRadius: 20, border: '1.5px solid #E2E8F0', padding: '40px', boxShadow: '0 4px 40px rgba(11,31,75,.06)' }}>
                 <div style={{ marginBottom: 28 }}>
@@ -157,7 +157,7 @@ export default function ContactContent() {
                     </div>
                     <div className="mb-4">
                       <label style={{ fontSize: 12.5, fontWeight: 600, color: '#475569', marginBottom: 6, display: 'block' }}>Project Description</label>
-                      <textarea style={{ width: '100%', border: '1.5px solid #E2E8F0', borderRadius: 8, padding: '13px 16px', fontFamily: 'inherit', fontSize: 14, color: '#1E293B', outline: 'none', resize: 'vertical', minHeight: 120, lineHeight: 1.6, transition: 'border-color .15s' }} rows="4" placeholder="Tell us about your project — what you need, timeline, budget range, any specific requirements..." value={form.message} onChange={e => setForm({ ...form, message: e.target.value })}
+                      <textarea style={{ width: '100%', border: '1.5px solid #E2E8F0', borderRadius: 8, padding: '13px 16px', fontFamily: 'inherit', fontSize: 14, color: '#1E293B', outline: 'none', resize: 'vertical', minHeight: 120, lineHeight: 1.6, transition: 'border-color .15s' }} rows="4" placeholder="Tell us about your project what you need, timeline, budget range, any specific requirements..." value={form.message} onChange={e => setForm({ ...form, message: e.target.value })}
                         onFocus={e => e.target.style.borderColor = '#2196F3'} onBlur={e => e.target.style.borderColor = '#E2E8F0'} />
                     </div>
                     <button type="submit" disabled={sending} style={{ width: '100%', background: sending ? '#6B7A99' : '#2196F3', color: '#fff', fontFamily: 'inherit', fontSize: 15.5, fontWeight: 700, padding: '16px', borderRadius: 10, border: 'none', cursor: sending ? 'not-allowed' : 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 9, marginBottom: 16, transition: 'all .2s' }}>
@@ -199,7 +199,7 @@ export default function ContactContent() {
                     <div style={{ fontSize: 18, fontWeight: 800, color: '#0B1F4B', marginBottom: 4 }}>{o.city}</div>
                     <span style={{ display: 'inline-flex', fontSize: 10.5, fontWeight: 700, color: c, background: `${c}18`, padding: '2px 9px', borderRadius: 20, marginBottom: 10 }}>{o.type}</span>
                     <p style={{ fontSize: 12.5, color: '#94A3B8', lineHeight: 1.6, marginBottom: 14 }}>
-                      {o.address}<br />{o.state} — {o.pin}
+                      {o.address}<br />{o.state} {o.pin}
                     </p>
                     <div style={{ fontSize: 12.5, fontWeight: 600, color: '#475569' }}>Mon – Sat · 9am – 7pm IST</div>
                   </div>

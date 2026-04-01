@@ -41,7 +41,7 @@ const SERVICES = [
     ico: 'M12 2L2 7l10 5 10-5-10-5M2 17l10 5 10-5M2 12l10 5 10-5', ib: 'rgba(245,158,11,.12)', ic: '#F59E0B',
     slug: '/custom-crm-development',
     eyebrow: 'Software Solutions', title: ['Custom CRM &', 'SaaS Platforms'],
-    desc: 'Proprietary CRM systems, SaaS platforms and admin dashboards — replacing manual workflows with software your team actually uses.',
+    desc: 'Proprietary CRM systems, SaaS platforms and admin dashboards replacing manual workflows with software your team actually uses.',
     links: [
       { name: 'Custom CRM Systems',           href: '/custom-crm-development' },
       { name: 'SaaS & Subscription Platforms',href: '/custom-crm-development' },
@@ -56,7 +56,7 @@ const SERVICES = [
     ico: 'M22 12h-4l-3 9L9 3l-3 9H2', ib: 'rgba(124,58,237,.12)', ic: '#7C3AED',
     slug: '/digital-marketing-agency-in-bangalore',
     eyebrow: 'Growth & Marketing', title: ['Digital Marketing', 'That Drives Leads'],
-    desc: 'Google Ads, Meta Ads, technical SEO and social media — managed by in-house specialists who report on real business outcomes.',
+    desc: 'Google Ads, Meta Ads, technical SEO and social media managed by in-house specialists who report on real business outcomes.',
     links: [
       { name: 'Google Search & Display Ads', href: '/paid-marketing-services' },
       { name: 'Facebook & Instagram Ads',    href: '/paid-marketing-services' },
@@ -71,7 +71,7 @@ const SERVICES = [
     ico: 'M15 10l4.553-2.069A1 1 0 0121 8.87V15.13a1 1 0 01-1.447.9L15 14M3 8h12v8H3z', ib: 'rgba(239,68,68,.12)', ic: '#EF4444',
     slug: '/corporate-video-production-company-in-bangalore',
     eyebrow: 'Visual Production', title: ['Video & Animation', 'Production'],
-    desc: 'Brand films to explainer animations — scripted, shot and edited by the NNC in-house production team. Zero outsourcing from brief to final file.',
+    desc: 'Brand films to explainer animations scripted, shot and edited by the NNC in-house production team. Zero outsourcing from brief to final file.',
     links: [
       { name: 'Corporate Brand Films',    href: '/corporate-video-makers' },
       { name: '2D Explainer Animation',   href: '/animated-video-creators' },
@@ -86,7 +86,7 @@ const SERVICES = [
     ico: 'M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z', ib: 'rgba(245,158,11,.12)', ic: '#F59E0B',
     slug: '/graphic-design-company-in-bangalore',
     eyebrow: 'Design & Branding', title: ['Brand Identity &', 'UI/UX Design'],
-    desc: 'Logo design, brand identity systems, UI/UX for web and apps — and complete social media creative kits. Consistent visual language across every touchpoint.',
+    desc: 'Logo design, brand identity systems, UI/UX for web and apps and complete social media creative kits. Consistent visual language across every touchpoint.',
     links: [
       { name: 'Logo & Brand Identity',       href: '/graphic-designing-company' },
       { name: 'UI/UX for Web & Apps',        href: '/ui-ux-design-agency' },
@@ -121,7 +121,7 @@ const PORTFOLIO_ITEMS = [
 
 const COMPANY_ABOUT = [
   { name: 'About NNC',         dot: '#2196F3', href: '/about-us' },
-  { name: 'Our In-house Team', dot: '#10B981', href: '/our-team' },
+  { name: 'Our In-house Team', dot: '#10B981', href: '/about-us' },
   { name: 'Careers',           dot: '#F59E0B', badge: 'Hiring', bb: '#FEF9C3', bc: '#713F12', href: '/careers' },
   { name: 'Client Reviews',    dot: '#0B1F4B', badge: '4.9 ★', bb: '#EFF6FF', bc: '#1E40AF', href: '/client-reviews' },
 ]
@@ -316,7 +316,7 @@ function PortfolioDrop({ open }) {
           565+ Projects Delivered
         </div>
         {PORTFOLIO_ITEMS.map(p => (
-          <a key={p.name} href="#" style={{ textDecoration: 'none' }}>
+          <Link key={p.name} href="/our-works" style={{ textDecoration: 'none' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '12px 14px', borderRadius: 9, border: '1px solid transparent', transition: 'all .18s', marginBottom: 4, cursor: 'pointer' }}>
               <div style={{ width: 3, height: 36, borderRadius: 2, background: p.color, flexShrink: 0 }} />
               <div style={{ flex: 1 }}>
@@ -325,8 +325,14 @@ function PortfolioDrop({ open }) {
               </div>
               <span style={{ fontSize: 12, fontWeight: 800, color: '#2196F3', background: '#EFF6FF', padding: '3px 10px', borderRadius: 20, flexShrink: 0 }}>{p.count}</span>
             </div>
-          </a>
+          </Link>
         ))}
+        <Link href="/our-works" style={{ textDecoration: 'none', display: 'block', marginTop: 8 }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, padding: '10px 14px', borderRadius: 9, background: '#EFF6FF', border: '1px solid rgba(33,150,243,.2)', cursor: 'pointer' }}>
+            <span style={{ fontSize: 13, fontWeight: 700, color: '#2196F3' }}>View All Our Works</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#2196F3" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+          </div>
+        </Link>
       </div>
     </DDShell>
   )
@@ -488,8 +494,12 @@ export default function Navbar() {
         <div style={{ maxWidth: '100%', margin: '0 auto', padding: '0 48px', display: 'flex', alignItems: 'center', height: 72 }}>
 
           {/* Logo */}
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', flexShrink: 0, marginRight: 28 }}>
-            <img src={SITE.logo} alt="NNC Digital Logo" width={42} height={42} style={{ borderRadius: 10, objectFit: 'contain' }} />
+          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', flexShrink: 0, marginRight: 28 }}>
+            <img src={SITE.logo} alt="NNC Digital Logo" width={68} height={68} style={{ borderRadius: 10, objectFit: 'contain' }} />
+            <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.2 }}>
+              <span style={{ fontSize: 14, fontWeight: 800, color: '#0B1F4B', letterSpacing: '-.02em', whiteSpace: 'nowrap' }}>Nakshatra Namaha Creations</span>
+              <span style={{ fontSize: 11, fontWeight: 500, color: '#94A3B8', letterSpacing: '.01em' }}>Yours Digital Partner Solutions</span>
+            </div>
           </Link>
 
           {/* Desktop nav */}
@@ -503,8 +513,17 @@ export default function Navbar() {
               <IndustriesDrop open={openMenu === 'ind'} />
             </div>
             <div style={{ position: 'relative', height: 72, display: 'flex', alignItems: 'center' }}>
-              <NavTrigger label="Portfolio" open={openMenu === 'port'} onClick={() => tog('port')} />
-              <PortfolioDrop open={openMenu === 'port'} />
+              <Link href="/our-works" style={{
+                display: 'flex', alignItems: 'center', height: 72,
+                padding: '0 12px', fontSize: 13.5, fontWeight: 600,
+                color: pathname === '/our-works' ? '#2196F3' : '#475569',
+                textDecoration: 'none',
+                borderBottom: `2px solid ${pathname === '/our-works' ? '#2196F3' : 'transparent'}`,
+                marginBottom: -1.5, transition: 'color .18s,border-color .18s',
+                whiteSpace: 'nowrap',
+              }}>
+                Our Works
+              </Link>
             </div>
             <div style={{ position: 'relative', height: 72, display: 'flex', alignItems: 'center' }}>
               <NavTrigger label="Company" open={openMenu === 'co'} onClick={() => tog('co')} />
@@ -517,13 +536,18 @@ export default function Navbar() {
             <Link href="/about-us" style={{ display: 'flex', alignItems: 'center', height: 72, padding: '0 12px', fontSize: 13.5, fontWeight: 600, color: '#475569', textDecoration: 'none', borderBottom: '2px solid transparent', marginBottom: -1.5, transition: 'color .18s,border-color .18s', whiteSpace: 'nowrap' }}>
               About Us
             </Link>
-            <Link href="/blog" style={{ display: 'flex', alignItems: 'center', height: 72, padding: '0 12px', fontSize: 13.5, fontWeight: 600, color: '#475569', textDecoration: 'none', borderBottom: '2px solid transparent', marginBottom: -1.5, transition: 'color .18s,border-color .18s', whiteSpace: 'nowrap' }}>
-              Blog
-            </Link>
           </nav>
 
           {/* Desktop CTAs */}
           <div className="d-none d-lg-flex" style={{ alignItems: 'center', gap: 10, marginLeft: 16, flexShrink: 0 }}>
+            <Link href="/behind-the-scenes" className="bts-nav-pill" title="Behind The Scenes" style={{ textDecoration: 'none' }}>
+              <span className="bts-pill-ring" />
+              <span className="bts-pill-inner">
+                <span className="bts-pill-dot" />
+                <span className="bts-pill-icon">🎬</span>
+                <span className="bts-pill-text">BTS</span>
+              </span>
+            </Link>
             <a href={SITE.phoneHref} style={{ display: 'flex', alignItems: 'center', gap: 7, fontSize: 13, fontWeight: 600, color: '#475569', padding: '0 16px', height: 38, borderRadius: 8, border: '1.5px solid #E2E8F0', background: '#fff', textDecoration: 'none', transition: 'all .2s', whiteSpace: 'nowrap' }}>
               <Svg d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" size={13} color="currentColor" sw={2} />
               Call
@@ -575,6 +599,18 @@ export default function Navbar() {
               </div>
             </MobSection>
 
+            <MobSection title="Our Works" open={mobSec.port} onToggle={() => togMob('port')}>
+              {PORTFOLIO_ITEMS.map(p => (
+                <Link key={p.name} href="/our-works" onClick={() => setMobileOpen(false)} style={{ textDecoration: 'none' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '9px 8px', borderRadius: 8 }}>
+                    <div style={{ width: 6, height: 6, borderRadius: '50%', background: p.color, flexShrink: 0 }} />
+                    <span style={{ fontSize: 13.5, fontWeight: 600, color: '#1E293B', flex: 1 }}>{p.name}</span>
+                    <span style={{ fontSize: 11, fontWeight: 700, color: '#2196F3', background: '#EFF6FF', padding: '2px 8px', borderRadius: 20 }}>{p.count}</span>
+                  </div>
+                </Link>
+              ))}
+            </MobSection>
+
             <MobSection title="Company" open={mobSec.co} onToggle={() => togMob('co')}>
               {[...COMPANY_ABOUT, ...COMPANY_RES].map(c => (
                 <div key={c.name} style={{ display: 'flex', alignItems: 'center', gap: 9, padding: '9px 8px', borderRadius: 8 }}>
@@ -601,7 +637,12 @@ export default function Navbar() {
               ))}
             </MobSection>
 
-            <div style={{ paddingTop: 16, display: 'flex', gap: 8 }}>
+            <Link href="/behind-the-scenes" onClick={() => setMobileOpen(false)} className="bts-mob-btn" style={{ textDecoration: 'none' }}>
+              <span className="bts-pill-dot" style={{ width:8, height:8 }} />
+              🎬 Behind The Scenes
+            </Link>
+
+            <div style={{ paddingTop: 0, display: 'flex', gap: 8 }}>
               <a href={SITE.phoneHref} style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 7, padding: 13, borderRadius: 8, border: '1.5px solid #E2E8F0', background: '#fff', fontSize: 14, fontWeight: 600, color: '#0B1F4B', textDecoration: 'none' }}>
                 <Svg d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" size={14} color="currentColor" sw={2} />
                 Call

@@ -34,10 +34,10 @@ const QUESTIONS = [
     id: 'timeline',
     question: "When do you need this delivered?",
     options: [
-      { label: 'ASAP — within 2 weeks', icon: '🚀' },
+      { label: 'ASAP within 2 weeks', icon: '🚀' },
       { label: '1 – 2 months', icon: '📅' },
       { label: '2 – 3 months', icon: '📅' },
-      { label: '3+ months — no rush', icon: '🕐' },
+      { label: '3+ months no rush', icon: '🕐' },
       { label: 'Just exploring options', icon: '🔍' },
     ],
   },
@@ -69,9 +69,9 @@ const QUESTIONS = [
     id: 'existing_site',
     question: "Do you have an existing website or app?",
     options: [
-      { label: 'Yes — need a redesign / upgrade', icon: '🔄' },
-      { label: 'Yes — need additional features', icon: '➕' },
-      { label: 'No — building from scratch', icon: '🆕' },
+      { label: 'Yes need a redesign / upgrade', icon: '🔄' },
+      { label: 'Yes need additional features', icon: '➕' },
+      { label: 'No building from scratch', icon: '🆕' },
       { label: 'Have a design / wireframe ready', icon: '🎯' },
     ],
   },
@@ -171,7 +171,7 @@ export default function WhatsAppChat() {
         setTyping(false)
         setMessages([{
           from: 'bot',
-          text: "Welcome to Nakshatra Namaha Creations — trusted by 565+ businesses across 4 countries.\n\nI'll ask you a few quick questions to understand your project. It takes less than 2 minutes.\n\nLet's start — what's your name?",
+          text: "Welcome to Nakshatra Namaha Creations trusted by 565+ businesses across 4 countries.\n\nI'll ask you a few quick questions to understand your project. It takes less than 2 minutes.\n\nLet's start what's your name?",
           time: new Date(),
         }])
         setStep('name')
@@ -316,7 +316,7 @@ export default function WhatsAppChat() {
           landingPage: typeof window !== 'undefined' ? window.location.pathname : '/',
         }),
       })
-    } catch { /* silent fail — WhatsApp is the primary channel */ }
+    } catch { /* silent fail WhatsApp is the primary channel */ }
   }
 
   const fmtTime = (d) => d.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', hour12: true })

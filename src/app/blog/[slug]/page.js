@@ -12,7 +12,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const post = BLOG_POSTS.find(p => p.slug === params.slug)
   if (!post) return { title: 'Blog | NNC Digital' }
-  const description = post.description || `${post.title} — practical insights from NNC Digital's in-house team in Bengaluru. Expert guide on ${post.category.toLowerCase()} for businesses in India.`
+  const description = post.description || `${post.title} practical insights from NNC Digital's in-house team in Bengaluru. Expert guide on ${post.category.toLowerCase()} for businesses in India.`
   return {
     title: `${post.title} | NNC Digital Blog`,
     description,
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }) {
       type: 'article',
       publishedTime: post.date,
       url: `${SITE.url}/blog/${post.slug}`,
-      images: [{ url: SITE.teamPhoto, width: 1200, height: 630, alt: `${post.title} — NNC Digital Blog` }],
+      images: [{ url: SITE.teamPhoto, width: 1200, height: 630, alt: `${post.title} NNC Digital Blog` }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -40,7 +40,7 @@ function generateContent(post) {
   const paras = [
     `This is a comprehensive guide on ${post.title.toLowerCase()} from NNC Digital's team in Bengaluru. Our in-house specialists have delivered 565+ projects and bring real, hands-on experience to every topic we cover.`,
     `Understanding ${post.category.toLowerCase()} is critical for businesses in India looking to grow their digital presence. Whether you're a startup or an established company, the insights here will help you make smarter decisions.`,
-    `At NNC Digital, we've worked with businesses across healthcare, real estate, e-commerce, education and more. Our team of 35+ permanent in-house specialists has seen what works — and what doesn't — in the Indian market.`,
+    `At NNC Digital, we've worked with businesses across healthcare, real estate, e-commerce, education and more. Our team of 35+ permanent in-house specialists has seen what works and what doesn't in the Indian market.`,
     `The key takeaway from our experience: the best results come from clarity of requirements, a fixed-price engagement, and a team that is permanently accountable for what they build. Not freelancers. Not outsourced work. Permanent employees with skin in the game.`,
     `If you have questions about ${post.title.toLowerCase()}, or want to discuss how NNC Digital can help your business, contact our team. We respond with a detailed scope and fixed price within 24 hours.`,
   ]

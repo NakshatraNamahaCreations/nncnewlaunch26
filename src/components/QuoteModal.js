@@ -106,7 +106,7 @@ export default function QuoteModal() {
         <div style={{ padding: '36px 40px 40px' }}>
             <div style={{ marginBottom: 28 }}>
               <div style={{ display: 'inline-block', background: '#EFF6FF', color: '#2196F3', fontSize: 11.5, fontWeight: 700, padding: '4px 10px', borderRadius: 20, marginBottom: 10, letterSpacing: '.04em', textTransform: 'uppercase' }}>
-                Free Quote — 24hrs
+                Free Quote 24hrs
               </div>
               <h2 style={{ fontSize: 22, fontWeight: 800, color: '#0B1F4B', margin: '0 0 6px', lineHeight: 1.2 }}>
                 Tell Us About Your Project

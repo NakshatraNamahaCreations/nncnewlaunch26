@@ -46,7 +46,7 @@ export const APP_TECH = [
 
 export const APP_TYPES = [
   { ico: '🛍️', name: 'E-commerce Apps',       desc: 'Product catalogues, cart, Razorpay/UPI payments, order tracking and vendor dashboards.' },
-  { ico: '🚗', name: 'On-demand Apps',          desc: 'Uber-style booking — customer app, service provider app and admin panel.' },
+  { ico: '🚗', name: 'On-demand Apps',          desc: 'Uber-style booking customer app, service provider app and admin panel.' },
   { ico: '🏥', name: 'Healthcare Apps',         desc: 'Appointment booking, doctor consultation, prescription management and health records.' },
   { ico: '📚', name: 'EdTech Apps',             desc: 'Course delivery, video streaming, live classes, quizzes and certificate generation.' },
   { ico: '🏋️', name: 'Fitness & Sports Apps',   desc: 'Workout tracking, coach booking, tournament management and leaderboards.' },
@@ -59,7 +59,7 @@ export const APP_TYPES = [
 
 export const APP_PROCESS = [
   { n: '01', title: 'Requirement Discovery',   desc: 'We map your complete user journey, feature list and tech requirements. No assumptions.', time: 'Day 1' },
-  { n: '02', title: 'UI/UX Wireframing',        desc: 'Figma screens for every flow — onboarding, core features, edge cases. You approve before code.', time: 'Week 1–2' },
+  { n: '02', title: 'UI/UX Wireframing',        desc: 'Figma screens for every flow onboarding, core features, edge cases. You approve before code.', time: 'Week 1–2' },
   { n: '03', title: 'API & Backend Setup',      desc: 'Node JS REST APIs, MongoDB/PostgreSQL database and AWS infrastructure provisioned.', time: 'Week 2–3' },
   { n: '04', title: 'App Development',          desc: 'React Native or Flutter build. Weekly TestFlight/APK drops so you track progress live.', time: 'Week 3–10' },
   { n: '05', title: 'QA & Device Testing',      desc: 'Tested on 15+ real devices. Performance, crash and battery benchmarks run before submission.', time: 'Week 10–11' },
@@ -70,9 +70,9 @@ export const APP_FEATURES = [
   { ico: '⚡', title: 'React Native & Flutter',  desc: 'Single codebase for Android + iOS. 60fps performance. 30–40% faster delivery vs. native builds.' },
   { ico: '☁️', title: 'AWS Cloud Backend',       desc: 'Node JS APIs + MongoDB/PostgreSQL on AWS EC2/RDS. Auto-scaling. 99.9% uptime SLA.' },
   { ico: '🔐', title: 'Secure by Default',        desc: 'JWT auth, data encryption at rest and in transit, OWASP best practices on every build.' },
-  { ico: '📊', title: 'Analytics Built-in',       desc: 'Firebase Analytics, Mixpanel or custom dashboards — track every user action from day one.' },
+  { ico: '📊', title: 'Analytics Built-in',       desc: 'Firebase Analytics, Mixpanel or custom dashboards track every user action from day one.' },
   { ico: '🔔', title: 'Push Notifications',       desc: 'Firebase Cloud Messaging for targeted, segmented push notifications on both platforms.' },
-  { ico: '💳', title: 'Payment Integrations',     desc: 'Razorpay, Stripe, PayU, PhonePe and UPI — all PCI-DSS compliant integrations.' },
+  { ico: '💳', title: 'Payment Integrations',     desc: 'Razorpay, Stripe, PayU, PhonePe and UPI all PCI-DSS compliant integrations.' },
   { ico: '🌐', title: 'Offline Mode Support',     desc: 'Local SQLite caching so your app works without internet and syncs when back online.' },
   { ico: '🛠️', title: '30 Days Post-launch',      desc: 'Bug fixes and minor updates for 30 days after Play Store / App Store launch at no extra cost.' },
 ]
@@ -175,33 +175,33 @@ export const APP_PORTFOLIO = [
 export const APP_FAQS = [
   {
     q: 'How much does mobile app development cost in Bangalore?',
-    a: 'A basic MVP app starts from ₹75,000. A full-featured business app is typically ₹1,50,000–₹2,50,000. Enterprise platforms with complex features are scoped individually. All pricing is fixed before work begins — no hourly billing or surprise invoices.',
+    a: 'A basic MVP app starts from ₹75,000. A full-featured business app is typically ₹1,50,000–₹2,50,000. Enterprise platforms with complex features are scoped individually. All pricing is fixed before work begins no hourly billing or surprise invoices.',
   },
   {
     q: 'How long does it take to build a mobile app?',
     a: 'An MVP takes 6–8 weeks. A full business app takes 10–14 weeks. Enterprise platforms take 14–24 weeks. Your timeline is agreed in writing before development begins and tracked weekly.',
   },
   {
-    q: 'React Native or Flutter — which is better for my app?',
+    q: 'React Native or Flutter which is better for my app?',
     a: 'Both are excellent. React Native has a larger ecosystem and shares code with web React projects. Flutter gives more precise UI control and better performance for animation-heavy apps. NNC recommends the best fit after understanding your specific requirements.',
   },
   {
     q: 'Do I need separate apps for Android and iOS?',
-    a: 'Not with React Native or Flutter. One codebase delivers both Android and iOS apps — saving 30–40% in development time and cost while maintaining near-native performance.',
+    a: 'Not with React Native or Flutter. One codebase delivers both Android and iOS apps saving 30–40% in development time and cost while maintaining near-native performance.',
   },
   {
     q: 'Will NNC handle Play Store and App Store submission?',
-    a: 'Yes — completely. NNC manages the full submission process including store listing, screenshots, description, review responses and release management on both Google Play Store and Apple App Store.',
+    a: 'Yes completely. NNC manages the full submission process including store listing, screenshots, description, review responses and release management on both Google Play Store and Apple App Store.',
   },
   {
     q: 'Do I own the source code?',
-    a: 'Yes — completely and permanently. On delivery you receive the full app source code, backend code, database schema, all API credentials and hosting logins. The app is 100% yours with zero ongoing obligation to NNC.',
+    a: 'Yes completely and permanently. On delivery you receive the full app source code, backend code, database schema, all API credentials and hosting logins. The app is 100% yours with zero ongoing obligation to NNC.',
   },
 ]
 
 export const APP_TESTIMONIALS = [
   {
-    quote: '"NNC built our complete on-demand platform — customer app, vendor app and admin panel — in 8 weeks. Within 6 months of launch we had 340% more bookings. The team was always reachable and delivered exactly what was scoped."',
+    quote: '"NNC built our complete on-demand platform customer app, vendor app and admin panel in 8 weeks. Within 6 months of launch we had 340% more bookings. The team was always reachable and delivered exactly what was scoped."',
     author: 'Vijaya Home Services',
     role: 'On-demand Services · Bengaluru',
     result: '340% booking growth',

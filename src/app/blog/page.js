@@ -6,7 +6,7 @@ import { SITE } from '@/data/siteData'
 
 export const metadata = {
   title: 'Blog & Insights | Website Development, SEO & Digital Marketing Tips | NNC Digital',
-  description: 'Expert articles on website development, mobile app development, SEO, digital marketing, React JS, Next JS and business growth strategies from NNC Digital — a top-rated agency in Bangalore with 565+ projects delivered.',
+  description: 'Expert articles on website development, mobile app development, SEO, digital marketing, React JS, Next JS and business growth strategies from NNC Digital a top-rated agency in Bangalore with 565+ projects delivered.',
   alternates: { canonical: `${SITE.url}/blog` },
 }
 
@@ -21,7 +21,7 @@ export default function BlogPage() {
               NNC Digital <span style={{ color: '#2196F3' }}>Blog & Insights</span>
             </h1>
             <p style={{ fontSize: 16, color: 'rgba(255,255,255,.5)', maxWidth: 480, margin: '0 auto', lineHeight: 1.7 }}>
-              Practical guides and insights from NNC&apos;s in-house team — on web development, mobile apps, digital marketing and more.
+              Practical guides and insights from NNC&apos;s in-house team on web development, mobile apps, digital marketing and more.
             </p>
           </div>
         </section>

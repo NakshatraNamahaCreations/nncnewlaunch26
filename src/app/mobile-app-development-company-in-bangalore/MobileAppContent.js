@@ -1,7 +1,6 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import Image from 'next/image'
 import Link from 'next/link'
 import {
   APP_PAGE, APP_STATS, APP_TECH, APP_TYPES,
@@ -118,42 +117,58 @@ function Hero() {
             </div>
           </div>
 
-          {/* RIGHT — phone mockup block */}
-          <div className="col-lg-6 d-none d-lg-block" style={{ animation: 'slideLeft .8s .4s ease both' }}>
-            <div style={{ position: 'relative' }}>
-              {/* Main card */}
-              <div style={{ background: 'rgba(255,255,255,.07)', backdropFilter: 'blur(12px)', border: '1px solid rgba(255,255,255,.14)', borderRadius: 20, overflow: 'hidden', boxShadow: '0 24px 64px rgba(0,0,0,.35)' }}>
-                <Image
-                  src="https://www.nakshatranamahacreations.com/media/ourwork/proleverage.webp"
-                  alt="Mobile app portfolio — Pro Leverage finance app built by NNC Bangalore"
-                  width={640} height={340} priority
-                  style={{ width: '100%', height: 340, objectFit: 'cover', filter: 'brightness(.8)' }}
-                />
-                <div style={{ padding: '20px 24px', background: 'rgba(7,14,53,.95)' }}>
-                  <div style={{ fontSize: 10, fontWeight: 700, color: 'var(--sky)', textTransform: 'uppercase', letterSpacing: '.1em', marginBottom: 6, display: 'flex', alignItems: 'center', gap: 6 }}>
-                    <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--mint)', display: 'inline-block', animation: 'pulse 2s infinite' }} />
-                    Live on Play Store · Built by NNC
-                  </div>
-                  <div style={{ fontSize: 16, fontWeight: 800, color: '#fff', marginBottom: 3 }}>Pro Leverage — Finance App</div>
-                  <div style={{ fontSize: 12, color: 'rgba(255,255,255,.42)' }}>10,000+ downloads · 4.4★ · Flutter · NNC delivered in 6 weeks</div>
-                </div>
+          {/* RIGHT illustration panel (matches other service pages) */}
+          <div className="col-lg-6 d-none d-lg-block">
+            <div style={{ position: 'relative', borderRadius: 20, overflow: 'hidden', background: 'rgba(255,255,255,.05)', border: '1px solid rgba(255,255,255,.1)', padding: '28px 24px 24px' }}>
+              <div style={{ position: 'absolute', top: -60, right: -60, width: 200, height: 200, borderRadius: '50%', background: 'radial-gradient(circle,rgba(33,150,243,.18) 0%,transparent 70%)', pointerEvents: 'none' }} />
+
+              {/* Mobile app illustration */}
+              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 24 }}>
+                <svg width="260" height="190" viewBox="0 0 260 190" fill="none">
+                  <rect x="70" y="5" width="90" height="175" rx="18" fill="rgba(33,150,243,.12)" stroke="rgba(33,150,243,.4)" strokeWidth="2"/>
+                  <rect x="82" y="22" width="66" height="130" rx="8" fill="rgba(33,150,243,.1)"/>
+                  <rect x="90" y="30" width="50" height="10" rx="3" fill="rgba(33,150,243,.5)"/>
+                  <rect x="90" y="45" width="35" height="7" rx="2" fill="rgba(255,255,255,.2)"/>
+                  <rect x="90" y="57" width="50" height="32" rx="6" fill="rgba(33,150,243,.2)" stroke="rgba(33,150,243,.35)" strokeWidth="1"/>
+                  <polyline points="96,83 106,72 116,76 126,65 136,68" stroke="#2196F3" strokeWidth="1.8" strokeLinecap="round" fill="none"/>
+                  {[96,106,116,126,136].map((x,i)=><circle key={i} cx={x} cy={[83,72,76,65,68][i]} r="2.5" fill="#2196F3"/>)}
+                  <rect x="90" y="96" width="23" height="20" rx="4" fill="rgba(16,185,129,.2)" stroke="rgba(16,185,129,.4)" strokeWidth="1"/>
+                  <rect x="118" y="96" width="23" height="20" rx="4" fill="rgba(245,158,11,.15)" stroke="rgba(245,158,11,.35)" strokeWidth="1"/>
+                  <rect x="90" y="122" width="50" height="14" rx="4" fill="rgba(33,150,243,.4)"/>
+                  <circle cx="115" cy="168" r="5" fill="rgba(255,255,255,.2)"/>
+                  <rect x="0" y="30" width="62" height="26" rx="8" fill="rgba(16,185,129,.15)" stroke="rgba(16,185,129,.3)" strokeWidth="1"/>
+                  <text x="10" y="41" fontSize="8" fill="rgba(16,185,129,.9)" fontWeight="700">React Native</text>
+                  <text x="10" y="52" fontSize="8" fill="rgba(255,255,255,.4)">iOS & Android</text>
+                  <rect x="198" y="60" width="58" height="26" rx="8" fill="rgba(124,58,237,.15)" stroke="rgba(124,58,237,.3)" strokeWidth="1"/>
+                  <text x="208" y="71" fontSize="8" fill="rgba(167,139,250,.9)" fontWeight="700">Flutter</text>
+                  <text x="208" y="82" fontSize="8" fill="rgba(255,255,255,.4)">Play Store</text>
+                  <rect x="198" y="100" width="58" height="26" rx="8" fill="rgba(33,150,243,.15)" stroke="rgba(33,150,243,.3)" strokeWidth="1"/>
+                  <text x="208" y="111" fontSize="8" fill="rgba(147,197,253,.9)" fontWeight="700">Firebase</text>
+                  <text x="208" y="122" fontSize="8" fill="rgba(255,255,255,.4)">Real-time DB</text>
+                  <rect x="0" y="120" width="62" height="26" rx="8" fill="rgba(245,158,11,.15)" stroke="rgba(245,158,11,.3)" strokeWidth="1"/>
+                  <text x="10" y="131" fontSize="8" fill="rgba(251,191,36,.9)" fontWeight="700">App Store</text>
+                  <text x="10" y="142" fontSize="8" fill="rgba(255,255,255,.4)">iOS Approved</text>
+                </svg>
               </div>
 
-              {/* Float 1 */}
-              <div style={{ position: 'absolute', top: -14, right: -14, background: '#fff', borderRadius: 10, padding: '13px 17px', boxShadow: '0 8px 32px rgba(11,31,75,.18)', minWidth: 140, animation: 'scaleIn .6s .9s ease both' }}>
-                <div style={{ fontSize: 22, fontWeight: 800, color: 'var(--navy)', letterSpacing: '-.04em', lineHeight: 1, marginBottom: 3 }}>150+</div>
-                <div style={{ fontSize: 10.5, color: 'var(--ink4)', fontWeight: 500 }}>Apps Delivered</div>
-                <div style={{ height: 3, background: 'var(--surface)', borderRadius: 2, marginTop: 8, overflow: 'hidden' }}>
-                  <div style={{ height: '100%', background: 'var(--sky)', borderRadius: 2, animation: 'barFill .8s 1.2s ease both', width: 0, '--w': '85%' }} />
-                </div>
+              {/* Stats */}
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 14 }}>
+                {[
+                  { n: '150+', l: 'Apps Delivered' },
+                  { n: '4.9★', l: 'Google Rating' },
+                  { n: '8+',   l: 'Years Operating' },
+                  { n: '35+',  l: 'In-house Team' },
+                ].map(s => (
+                  <div key={s.l} style={{ textAlign: 'center', padding: '13px 10px', background: 'rgba(255,255,255,.04)', borderRadius: 10, border: '1px solid rgba(255,255,255,.06)' }}>
+                    <div style={{ fontSize: 22, fontWeight: 800, color: '#2196F3', letterSpacing: '-.06em', lineHeight: 1, marginBottom: 4 }}>{s.n}</div>
+                    <div style={{ fontSize: 11, color: 'rgba(255,255,255,.4)' }}>{s.l}</div>
+                  </div>
+                ))}
               </div>
-              {/* Float 2 */}
-              <div style={{ position: 'absolute', bottom: 90, left: -18, background: '#fff', borderRadius: 10, padding: '13px 17px', boxShadow: '0 8px 32px rgba(11,31,75,.18)', minWidth: 140, animation: 'scaleIn .6s 1.05s ease both' }}>
-                <div style={{ fontSize: 22, fontWeight: 800, color: 'var(--navy)', letterSpacing: '-.04em', lineHeight: 1, marginBottom: 3 }}>4.9★</div>
-                <div style={{ fontSize: 10.5, color: 'var(--ink4)', fontWeight: 500 }}>Google Rating</div>
-                <div style={{ height: 3, background: 'var(--surface)', borderRadius: 2, marginTop: 8, overflow: 'hidden' }}>
-                  <div style={{ height: '100%', background: 'var(--sky)', borderRadius: 2, animation: 'barFill .8s 1.2s ease both', width: 0, '--w': '98%' }} />
-                </div>
+
+              <div style={{ padding: '12px 14px', background: 'rgba(16,185,129,.08)', border: '1px solid rgba(16,185,129,.2)', borderRadius: 10 }}>
+                <div style={{ fontSize: 10, fontWeight: 700, color: '#10B981', textTransform: 'uppercase', letterSpacing: '.08em', marginBottom: 3 }}>Bengaluru Head Office</div>
+                <div style={{ fontSize: 12, color: 'rgba(255,255,255,.45)', lineHeight: 1.5 }}>Darshan Plaza, 1st Floor, Channasandra, Bengaluru – 560 098</div>
               </div>
             </div>
           </div>
@@ -203,7 +218,7 @@ function TechSection() {
             <h2 className="sec-h">React Native. Flutter.<br /><span className="sky">Right tool for your app.</span></h2>
           </div>
           <div className="col-lg-7 d-flex align-items-end">
-            <p className="sec-sub">Both React Native and Flutter deliver Android + iOS from one codebase — saving you 30–40% in cost. We recommend the right one after understanding your specific requirements.</p>
+            <p className="sec-sub">Both React Native and Flutter deliver Android + iOS from one codebase saving you 30–40% in cost. We recommend the right one after understanding your specific requirements.</p>
           </div>
         </div>
 
@@ -237,7 +252,7 @@ function AppTypes() {
         <div className="text-center mb-5 anim">
           <div className="section-tag d-inline-flex"><span className="tag-dot" />What We Build</div>
           <h2 className="sec-h mt-1">10 Types of Apps<br /><span className="sky">Delivered Across Industries</span></h2>
-          <p className="sec-sub mx-auto mt-2" style={{ maxWidth: 540 }}>From on-demand apps to enterprise platforms — NNC has in-house expertise built from 150+ delivered mobile projects.</p>
+          <p className="sec-sub mx-auto mt-2" style={{ maxWidth: 540 }}>From on-demand apps to enterprise platforms NNC has in-house expertise built from 150+ delivered mobile projects.</p>
         </div>
 
         <div className="row g-3">
@@ -269,7 +284,7 @@ function Features() {
             <h2 className="sec-h" style={{ color: '#fff' }}>Eight Things Included<br /><span className="sky">In Every NNC App</span></h2>
           </div>
           <div className="col-lg-7 d-flex align-items-end">
-            <p className="sec-sub">These aren&apos;t add-ons — they&apos;re the baseline NNC delivers on every mobile app project. No surprise extras, no hidden fees.</p>
+            <p className="sec-sub">These aren&apos;t add-ons they&apos;re the baseline NNC delivers on every mobile app project. No surprise extras, no hidden fees.</p>
           </div>
         </div>
 
@@ -302,7 +317,7 @@ function Process() {
             <h2 className="sec-h">Six Steps.<br /><span className="sky">Your App. On Time.</span></h2>
           </div>
           <div className="col-lg-7 d-flex align-items-end">
-            <p className="sec-sub">From discovery to Play Store — every step is transparent. You get weekly APK/TestFlight builds so you can test on your own phone throughout development.</p>
+            <p className="sec-sub">From discovery to Play Store every step is transparent. You get weekly APK/TestFlight builds so you can test on your own phone throughout development.</p>
           </div>
         </div>
 
@@ -349,15 +364,21 @@ function Portfolio() {
               <div className="anim h-100" style={{ transitionDelay: `${i * .1}s`, background: '#fff', border: '1.5px solid var(--border)', borderRadius: 'var(--r)', overflow: 'hidden', boxShadow: 'var(--sh)', transition: 'box-shadow .25s' }}
                 onMouseEnter={e => e.currentTarget.style.boxShadow = 'var(--sh2)'}
                 onMouseLeave={e => e.currentTarget.style.boxShadow = 'var(--sh)'}>
-                {/* Image */}
-                <div style={{ position: 'relative', height: 220, overflow: 'hidden', background: 'var(--surface)' }}>
-                  <Image src={p.img} alt={`${p.name} mobile app built by NNC Bangalore`}
-                    fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    style={{ objectFit: 'cover', filter: 'brightness(.8)', transition: 'transform .5s,filter .5s' }} />
+                {/* App preview illustration */}
+                <div style={{ position: 'relative', height: 220, overflow: 'hidden', background: ['linear-gradient(135deg,#0B1F4B,#1565C0)','linear-gradient(135deg,#064e3b,#0d9488)','linear-gradient(135deg,#3b0764,#7c3aed)'][i % 3], display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <div style={{ textAlign: 'center' }}>
+                    <div style={{ width: 64, height: 64, borderRadius: 16, background: 'rgba(255,255,255,.15)', border: '2px solid rgba(255,255,255,.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 12px' }}>
+                      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+                      </svg>
+                    </div>
+                    <div style={{ fontSize: 14, fontWeight: 700, color: 'rgba(255,255,255,.8)' }}>{p.name}</div>
+                    <div style={{ fontSize: 11, color: 'rgba(255,255,255,.4)', marginTop: 4 }}>{p.type}</div>
+                  </div>
                   {/* Store badges */}
                   <div style={{ position: 'absolute', top: 12, right: 12, display: 'flex', gap: 6 }}>
                     {p.stores.map((s, si) => (
-                      <span key={si} style={{ fontSize: 9.5, fontWeight: 700, color: '#fff', background: 'rgba(7,14,53,.75)', border: '1px solid rgba(255,255,255,.2)', padding: '3px 9px', borderRadius: 20, backdropFilter: 'blur(8px)' }}>{s}</span>
+                      <span key={si} style={{ fontSize: 9.5, fontWeight: 700, color: '#fff', background: 'rgba(7,14,53,.75)', border: '1px solid rgba(255,255,255,.2)', padding: '3px 9px', borderRadius: 20 }}>{s}</span>
                     ))}
                   </div>
                 </div>
@@ -529,7 +550,7 @@ function FaqContact() {
       const res = await fetch('/api/enquiry', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: form.name, phone: form.phone, email: form.email, service: `Mobile App — ${form.app || ''}`, message: form.budget ? `Budget: ${form.budget}` : '', landingPage: '/mobile-app-development-company-in-bangalore' }),
+        body: JSON.stringify({ name: form.name, phone: form.phone, email: form.email, service: `Mobile App ${form.app || ''}`, message: form.budget ? `Budget: ${form.budget}` : '', landingPage: '/mobile-app-development-company-in-bangalore' }),
       })
       if (res.ok) { router.push('/thankyou') } else { alert('Something went wrong. Please try again.') }
     } catch { alert('Network error. Please try again.') }
@@ -594,7 +615,7 @@ function FaqContact() {
                     <option value="75k-150k">₹75,000 – ₹1,50,000 (MVP)</option>
                     <option value="150k-300k">₹1,50,000 – ₹3,00,000 (Business App)</option>
                     <option value="300k+">₹3,00,000+ (Enterprise)</option>
-                    <option value="discuss">Not sure — let&apos;s discuss</option>
+                    <option value="discuss">Not sure let&apos;s discuss</option>
                   </select>
                   <textarea className="cc-ta d-block mb-2" rows="3" placeholder="Brief description of your app idea..." value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} />
                   <button type="submit" className="cc-submit mb-3" disabled={sending}>
@@ -629,7 +650,7 @@ function CtaBand() {
               <span style={{ color: 'var(--sky)' }}>Let&apos;s Talk Scope, Stack & Price.</span>
             </h2>
             <p style={{ fontSize: 15.5, color: 'rgba(255,255,255,.42)', lineHeight: 1.7, marginBottom: 18 }}>
-              Share your idea. We&apos;ll recommend the right tech stack, give you a realistic timeline and a fixed price — in writing, within 24 hours.
+              Share your idea. We&apos;ll recommend the right tech stack, give you a realistic timeline and a fixed price in writing, within 24 hours.
             </p>
             <div className="d-flex flex-wrap gap-4">
               {['Free consultation', 'React Native & Flutter', 'Play Store & App Store', 'Fixed price', 'Source code yours'].map((c, i) => (

@@ -22,7 +22,7 @@ const PACKAGES = [
       { label: 'Starter Website', price: '₹24,999', desc: '5–8 pages, corporate website, React JS, mobile responsive, basic SEO' },
       { label: 'Business Website', price: '₹45,000', desc: '10–15 pages, blog, enquiry forms, CMS, on-page SEO, AWS hosting' },
       { label: 'E-commerce', price: '₹65,000', desc: 'Product catalogue, Razorpay/Stripe, inventory, order management, admin panel' },
-      { label: 'Custom Web App', price: 'Custom', desc: 'Portals, SaaS, booking platforms — scoped individually with fixed price' },
+      { label: 'Custom Web App', price: 'Custom', desc: 'Portals, SaaS, booking platforms scoped individually with fixed price' },
     ],
     includes: ['React JS / Next JS', 'Mobile responsive', 'PageSpeed 90+ guaranteed', 'On-page SEO', 'Source code 100% yours', 'AWS deployment support'],
   },
@@ -84,7 +84,7 @@ export default function PricingPage() {
               Clear Pricing.<br /><span style={{ color: '#2196F3' }}>No Surprises. Ever.</span>
             </h1>
             <p style={{ fontSize: 16, color: 'rgba(255,255,255,.5)', maxWidth: 500, margin: '0 auto', lineHeight: 1.72 }}>
-              Every project is fixed price — agreed in writing before work starts. In 565+ projects over 8 years, not one client has paid more than quoted.
+              Every project is fixed price agreed in writing before work starts. In 565+ projects over 8 years, not one client has paid more than quoted.
             </p>
           </div>
         </section>
@@ -187,7 +187,7 @@ export default function PricingPage() {
                   The NNC <span style={{ color: '#2196F3' }}>Price Promise</span>
                 </h2>
                 <p style={{ fontSize: 16, color: 'rgba(255,255,255,.48)', lineHeight: 1.74, marginBottom: 20 }}>
-                  The price in your proposal is the price you pay. Not an estimate. Not a starting figure. A fixed commitment in writing — agreed before a single wireframe is drawn, before a single line of code is written.
+                  The price in your proposal is the price you pay. Not an estimate. Not a starting figure. A fixed commitment in writing agreed before a single wireframe is drawn, before a single line of code is written.
                 </p>
                 <p style={{ fontSize: 15, color: 'rgba(255,255,255,.38)', lineHeight: 1.7 }}>
                   In 565+ projects across 8 years of operation, not one client has been invoiced more than their original quote.
@@ -196,7 +196,7 @@ export default function PricingPage() {
               <div className="col-lg-5">
                 <div style={{ background: 'rgba(255,255,255,.05)', border: '1px solid rgba(255,255,255,.1)', borderRadius: 14, padding: 28 }}>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginBottom: 22 }}>
-                    {['Fixed price agreed before work starts', 'No hourly billing — ever', 'No change order invoices', 'No surprise fees on delivery', 'Pay final 50% only when satisfied'].map(p => (
+                    {['Fixed price agreed before work starts', 'No hourly billing ever', 'No change order invoices', 'No surprise fees on delivery', 'Pay final 50% only when satisfied'].map(p => (
                       <div key={p} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 14, color: '#fff' }}>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2.5"><polyline points="20 6 9 17 4 12" /></svg>
                         {p}

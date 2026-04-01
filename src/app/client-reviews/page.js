@@ -13,7 +13,7 @@ export const metadata = {
 const REVIEWS = [
   { name: 'Puran Interiors', type: 'Interior Design · Bengaluru', stars: 5, text: 'NNC delivered a website that changed how our business operates online. Within 90 days we were on page 1 and receiving 12+ qualified enquiries per month that didn\'t exist before. Professional, communicative and on budget.', result: '12+ enquiries/month' },
   { name: 'Make My Documents', type: 'Document Services · Bengaluru', stars: 5, text: 'Professional, responsive and ensured the website was designed exactly as I envisioned. Clean, functional and user-friendly. A special thanks to the entire NNC team.', result: 'On time & on budget' },
-  { name: 'Chaandini Srinivas', type: 'Client · Bengaluru', stars: 5, text: 'Our business consultant at NNC is excellent in understanding client requirements. The best support team — they guide and improve your ideas and deliver what they promise.', result: 'Ongoing relationship' },
+  { name: 'Chaandini Srinivas', type: 'Client · Bengaluru', stars: 5, text: 'Our business consultant at NNC is excellent in understanding client requirements. The best support team they guide and improve your ideas and deliver what they promise.', result: 'Ongoing relationship' },
   { name: 'Vijaya Home Services', type: 'On-demand Platform · Bengaluru', stars: 5, text: 'NNC built our entire on-demand app from scratch. The team was incredibly professional and understood exactly what we needed. The app has been running perfectly since launch.', result: '340% booking growth' },
   { name: 'HealthCare Solutions', type: 'Healthcare Tech · Bengaluru', stars: 5, text: 'Excellent experience working with NNC. They understood our vision completely and delivered a mobile app that exceeded expectations. The team was always responsive and available.', result: '10K+ downloads' },
   { name: 'Fashion House India', type: 'E-commerce · Mumbai', stars: 5, text: 'The team at NNC built our e-commerce platform from scratch with all integrations working perfectly on day one. Best web development company in Bangalore by far.', result: 'Live on schedule' },
@@ -38,7 +38,7 @@ export default function ClientReviewsPage() {
               What Our Clients<br /><span style={{ color: '#2196F3' }}>Say About NNC</span>
             </h1>
             <p style={{ fontSize: 16, color: 'rgba(255,255,255,.5)', maxWidth: 500, margin: '0 auto', lineHeight: 1.7 }}>
-              87 verified reviews published publicly on Google. Not a curated list — a verifiable public record anyone can check.
+              87 verified reviews published publicly on Google. Not a curated list a verifiable public record anyone can check.
             </p>
           </div>
         </section>

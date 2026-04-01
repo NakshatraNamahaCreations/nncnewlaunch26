@@ -1,5 +1,5 @@
 // ─── NNC SITE DATA ───────────────────────────────────────────────────────────
-// All content in one place. Update here — reflects everywhere.
+// All content in one place. Update here reflects everywhere.
 
 export const SITE = {
   name: 'Nakshatra Namaha Creations Pvt. Ltd.',
@@ -13,7 +13,7 @@ export const SITE = {
   founded: '2015',
   cin: 'U74999KA2015PTC082563',
   logo: 'https://s3.eu-north-1.amazonaws.com/admin.nakshatranamahacreations.in/NNC+NEW+LOGO+2020+low+res.png',
-  teamPhoto: 'https://www.nakshatranamahacreations.com/media/teams/NNCGRPPHO.avif',
+  teamPhoto: '/nnc-team.jpg',
   social: {
     instagram: 'https://www.instagram.com/nnc.digitalbengaluru/',
     linkedin: 'https://www.linkedin.com/company/nakshatra-namaha-creation/',
@@ -71,9 +71,33 @@ export const STATS = [
 ]
 
 export const CLIENTS = [
-  'Puran Interiors', 'Vijaya Home Services', 'Pro Leverage',
-  'CND Play', 'Aadhya Instruments', 'Make My Documents',
-  'Rent Angadi', '3M Car Care',
+  { name: 'Homjee',               logo: '/assets/logo.png' },
+  { name: 'Puran Interiors',       logo: '/assets/pi-logo.png' },
+  { name: 'Vijaya Home Services',  logo: '/assets/vhs-logo.png' },
+  { name: 'Rent Angadi',           logo: '/assets/rent-logo.webp' },
+  { name: 'Novus',                 logo: '/assets/novus-logo.webp' },
+  { name: 'Avyakth',              logo: '/assets/avyakth-logo.webp' },
+  { name: 'KH',                    logo: '/assets/kh-logo.webp' },
+  { name: 'LT',                    logo: '/assets/lt-logo.png' },
+  { name: 'AFC',                   logo: '/assets/afc-logo.jpeg' },
+  { name: 'CR',                    logo: '/assets/cr-logo.jpeg' },
+  { name: 'TT',                    logo: '/assets/tt-logo.jpeg' },
+  { name: 'Rent',                  logo: '/assets/rent-logo.jpg' },
+  { name: 'Chiru',                 logo: '/assets/chiru-logo.webp' },
+  { name: 'KG',                    logo: '/assets/kg-logo.png' },
+  { name: 'DH',                    logo: '/assets/dh-logo.jpeg' },
+  { name: 'RB',                    logo: '/assets/rb-logo.png' },
+  { name: 'Think It',              logo: '/assets/th-logo.png' },
+  { name: 'Studio99',              logo: '/assets/st99.webp' },
+  { name: 'Pro Leverage',          logo: '/assets/pr.png' },
+  { name: 'Coffee Mart',           logo: '/assets/cf-logo.jpeg' },
+  { name: 'Ecomgyan',              logo: '/assets/eg.webp' },
+  { name: 'Ganesh Interiors',      logo: '/assets/gd.webp' },
+  { name: 'Make My Documents',     logo: '/assets/md.png' },
+  { name: 'Nithya Event',          logo: '/assets/nt-logo.png' },
+  { name: 'CND Play',              logo: null },
+  { name: 'Aadhya Instruments',    logo: null },
+  { name: '3M Car Care',           logo: null },
 ]
 
 export const SERVICES = [
@@ -85,7 +109,7 @@ export const SERVICES = [
     icon: 'M3 3h18v14H3zM8 21h8M12 17v4',
     iconBg: 'rgba(33,150,243,.1)',
     iconColor: '#2196F3',
-    desc: 'Custom React JS & Next JS websites — corporate, e-commerce, portals and SaaS. PageSpeed 90+ in every delivery contract.',
+    desc: 'Custom React JS & Next JS websites corporate, e-commerce, portals and SaaS. PageSpeed 90+ in every delivery contract.',
     features: ['Corporate & business websites', 'E-commerce & portals', 'React JS / Next JS', 'PageSpeed 90+ guaranteed'],
     price: 'From ₹24,999',
   },
@@ -97,7 +121,7 @@ export const SERVICES = [
     icon: 'M5 2h14a2 2 0 012 2v16a2 2 0 01-2 2H5a2 2 0 01-2-2V4a2 2 0 012-2z',
     iconBg: 'rgba(16,185,129,.1)',
     iconColor: '#10B981',
-    desc: 'iOS & Android on React Native & Flutter — MVP to enterprise with complete Play Store & App Store deployment.',
+    desc: 'iOS & Android on React Native & Flutter MVP to enterprise with complete Play Store & App Store deployment.',
     features: ['React Native cross-platform', 'Flutter for iOS & Android', 'Play Store deployment', 'On-demand platforms'],
     price: 'From ₹75,000',
   },
@@ -109,7 +133,7 @@ export const SERVICES = [
     icon: 'M12 2L2 7l10 5 10-5-10-5M2 17l10 5 10-5M2 12l10 5 10-5',
     iconBg: 'rgba(245,158,11,.1)',
     iconColor: '#F59E0B',
-    desc: 'Proprietary CRM systems, SaaS platforms and admin dashboards — replacing manual workflows with scalable software.',
+    desc: 'Proprietary CRM systems, SaaS platforms and admin dashboards replacing manual workflows with scalable software.',
     features: ['Custom CRM for any sector', 'SaaS & subscription platforms', 'Razorpay & WhatsApp integration', 'Admin dashboards'],
     price: 'Custom scope',
   },
@@ -121,7 +145,7 @@ export const SERVICES = [
     icon: 'M22 12h-4l-3 9L9 3l-3 9H2',
     iconBg: 'rgba(124,58,237,.1)',
     iconColor: '#7C3AED',
-    desc: 'Google Ads, Meta Ads, SEO & social media — real leads reported, not vanity metrics.',
+    desc: 'Google Ads, Meta Ads, SEO & social media real leads reported, not vanity metrics.',
     features: ['Google Search & Display', 'Facebook & Instagram Ads', 'Technical SEO & on-page', 'Social media management'],
     price: 'From ₹15,000/mo',
   },
@@ -133,7 +157,7 @@ export const SERVICES = [
     icon: 'M15 10l4.553-2.069A1 1 0 0121 8.87V15.13a1 1 0 01-1.447.9L15 14M3 8h12v8H3z',
     iconBg: 'rgba(239,68,68,.1)',
     iconColor: '#EF4444',
-    desc: 'Brand films, drone footage & motion graphics — full in-house production from scripting to 4K.',
+    desc: 'Brand films, drone footage & motion graphics full in-house production from scripting to 4K.',
     features: ['Corporate brand films', 'Drone & aerial video', 'Product & ad shoots', 'Motion graphics'],
     price: 'From ₹50,000',
   },
@@ -145,7 +169,7 @@ export const SERVICES = [
     icon: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',
     iconBg: 'rgba(16,185,129,.1)',
     iconColor: '#10B981',
-    desc: 'Explainer videos, character animation & social media reels — script to delivery, entirely in-house.',
+    desc: 'Explainer videos, character animation & social media reels script to delivery, entirely in-house.',
     features: ['Explainer & demo videos', 'Character animation', 'Whiteboard animations', 'Social media reels'],
     price: 'From ₹18,000/min',
   },
@@ -178,37 +202,37 @@ export const SERVICES = [
 export const WHY_NNC = [
   {
     num: '01',
-    title: '35+ permanent in-house employees — zero outsourcing',
+    title: '35+ permanent in-house employees zero outsourcing',
     body: "Every person on your project is a full-time NNC employee. Walk into our Bengaluru office today and meet them. No freelancers, no offshore contractors.",
     proof: '4 walk-in offices · Meet your team in person',
   },
   {
     num: '02',
     title: 'PageSpeed 90+ written into every delivery contract',
-    body: "Not a target — a contractual requirement. If the website doesn't hit 90+ on mobile and desktop, we fix it before you pay the balance.",
+    body: "Not a target a contractual requirement. If the website doesn't hit 90+ on mobile and desktop, we fix it before you pay the balance.",
     proof: 'Every project · Mobile + Desktop · Contractual',
   },
   {
     num: '03',
-    title: 'Fixed price agreed before work starts — zero surprises',
+    title: 'Fixed price agreed before work starts zero surprises',
     body: 'We quote a fixed price before a single wireframe is drawn. In 565+ projects over 8 years, not one client has been invoiced more than agreed.',
     proof: '50% at kickoff · 50% before delivery',
   },
   {
     num: '04',
-    title: 'You own 100% of the source code — forever, no strings',
+    title: 'You own 100% of the source code forever, no strings',
     body: 'On delivery: every source file, database, admin credential and hosting login is yours. No platform lock-in, no monthly fees, no obligation.',
     proof: 'No lock-in · No monthly fees · Full ownership',
   },
   {
     num: '05',
-    title: '565+ delivered projects — a verifiable track record',
+    title: '565+ delivered projects a verifiable track record',
     body: 'Operating continuously since 2015. Our portfolio is viewable, our 87 Google reviews are public. We are not a new agency building a portfolio at your expense.',
     proof: 'Verifiable on Google · Since 2015',
   },
   {
     num: '06',
-    title: 'One named project manager — same team, start to finish',
+    title: 'One named project manager same team, start to finish',
     body: "Every project has a named PM from discovery to handover. Weekly staging updates, direct access and no 'that's not my department' moments.",
     proof: 'Weekly updates · Direct access · No handoffs',
   },
@@ -220,7 +244,7 @@ export const CASE_STUDIES = [
     industry: 'Interior Design · Bengaluru',
     tags: ['Next JS', 'SEO', 'CMS'],
     img: 'https://www.nakshatranamahacreations.com/media/tech/puranInterio.avif',
-    title: 'Website & SEO — Page 1 Google in 90 Days',
+    title: 'Website & SEO Page 1 Google in 90 Days',
     challenge: 'No website, no Google ranking. Every client searching for interior designers in Bangalore found competitors first.',
     solution: 'NNC built a Next JS portfolio website with on-page SEO, custom CMS and Core Web Vitals optimisation. PageSpeed 95 on delivery.',
     highlight: 'Page 1 Google ranking within 90 days. 12+ qualified enquiries per month ongoing.',
@@ -236,9 +260,9 @@ export const CASE_STUDIES = [
     industry: 'On-demand Services · Bengaluru',
     tags: ['React Native', 'Node JS', 'AWS'],
     img: 'https://www.nakshatranamahacreations.com/media/tech/vijayhom.avif',
-    title: 'Full Platform — 340% Booking Growth in 6 Months',
+    title: 'Full Platform 340% Booking Growth in 6 Months',
     challenge: 'All bookings managed by phone. No app, no CRM, zero management visibility. Revenue capped by manual processes.',
-    solution: 'NNC built a complete ecosystem: Android customer app, vendor staff app, admin CRM with analytics — all on AWS.',
+    solution: 'NNC built a complete ecosystem: Android customer app, vendor staff app, admin CRM with analytics all on AWS.',
     highlight: '340% more bookings in 6 months. Zero phone bookings remaining. 4.6 stars Play Store.',
     metrics: [
       { n: '340%', l: 'Booking growth' },
@@ -252,7 +276,7 @@ export const CASE_STUDIES = [
     industry: 'Finance & Investment · Bengaluru',
     tags: ['Flutter', 'REST API'],
     img: 'https://www.nakshatranamahacreations.com/media/ourwork/proleverage.webp',
-    title: 'Finance App — 10,000 Downloads in Month One',
+    title: 'Finance App 10,000 Downloads in Month One',
     challenge: 'Real-time financial data needed to be accessible to retail investors on mobile. Competitor apps were unusable.',
     solution: 'NNC built a Flutter app with real-time charts, live data feeds and a UI designed around retail investor behaviour.',
     highlight: '10,000+ Play Store downloads in month one. 4.4 stars. 60% fewer support queries.',
@@ -268,7 +292,7 @@ export const CASE_STUDIES = [
 export const PROCESS_STEPS = [
   { num: '01', title: 'Discovery',       desc: 'We understand your business, goals and audience. No assumptions, no templates.',      time: 'Day 1' },
   { num: '02', title: 'Scope & Quote',   desc: 'Fixed-price proposal agreed in writing before any work begins.',                     time: 'Day 1–2' },
-  { num: '03', title: 'UI/UX Design',    desc: 'Figma wireframes and design — your approval before development starts.',             time: 'Week 1–2' },
+  { num: '03', title: 'UI/UX Design',    desc: 'Figma wireframes and design your approval before development starts.',             time: 'Week 1–2' },
   { num: '04', title: 'Development',     desc: 'Weekly sprints with a live staging environment you can review anytime.',             time: 'Week 2–4' },
   { num: '05', title: 'QA & PageSpeed',  desc: 'Cross-device testing, PageSpeed 90+ audit and on-page SEO before launch.',          time: 'Week 4–5' },
   { num: '06', title: 'Launch & Handoff',desc: 'Full source code, all credentials, 30 days post-launch support included.',          time: 'Week 5' },
@@ -290,7 +314,7 @@ export const TESTIMONIALS = [
     featured: false,
   },
   {
-    quote: '"Our business consultant at NNC is excellent in understanding client requirements. The best support team — they guide and improve your ideas and deliver what they promise."',
+    quote: '"Our business consultant at NNC is excellent in understanding client requirements. The best support team they guide and improve your ideas and deliver what they promise."',
     author: 'Chaandini Srinivas',
     company: 'Client · Bengaluru · Google Review',
     result: 'Ongoing relationship',
@@ -325,11 +349,11 @@ export const TECH_STACK = [
 export const FAQS = [
   {
     q: 'How much does a website or app project cost?',
-    a: 'Website development starts from ₹24,999. E-commerce from ₹45,000. Mobile apps from ₹75,000. CRM and SaaS platforms are scoped individually. All pricing is fixed before work begins — no hourly billing, no change orders, no surprise invoices.',
+    a: 'Website development starts from ₹24,999. E-commerce from ₹45,000. Mobile apps from ₹75,000. CRM and SaaS platforms are scoped individually. All pricing is fixed before work begins no hourly billing, no change orders, no surprise invoices.',
   },
   {
     q: 'Do I own the source code after delivery?',
-    a: 'Yes — completely and permanently. On delivery you receive every source file, database schema, admin credential and hosting login. The website or app is 100% yours — no platform dependency, no licence fees, no ongoing obligation to NNC.',
+    a: 'Yes completely and permanently. On delivery you receive every source file, database schema, admin credential and hosting login. The website or app is 100% yours no platform dependency, no licence fees, no ongoing obligation to NNC.',
   },
   {
     q: 'Does NNC outsource any work?',
@@ -345,6 +369,6 @@ export const FAQS = [
   },
   {
     q: 'Do you work with clients outside Bangalore?',
-    a: 'Yes. Offices in Bengaluru, Mumbai, Mysuru and Hyderabad — and we have delivered projects for clients in the US, UK and Canada. Most collaboration is remote-first using Slack, Jira and weekly video calls.',
+    a: 'Yes. Offices in Bengaluru, Mumbai, Mysuru and Hyderabad and we have delivered projects for clients in the US, UK and Canada. Most collaboration is remote-first using Slack, Jira and weekly video calls.',
   },
 ]

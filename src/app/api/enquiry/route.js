@@ -89,7 +89,7 @@ function thankYouEmail(name, service) {
             </td>
             <td style="padding:12px 0 12px 12px;border-bottom:1px solid #f1f5f9;">
               <strong style="font-size:13.5px;color:#0B1F4B;">Scope &amp; fixed-price quote</strong>
-              <p style="font-size:12.5px;color:#64748b;margin:3px 0 0;line-height:1.5;">You'll receive a detailed scope document with a fixed price — no surprises, no hourly billing.</p>
+              <p style="font-size:12.5px;color:#64748b;margin:3px 0 0;line-height:1.5;">You'll receive a detailed scope document with a fixed price no surprises, no hourly billing.</p>
             </td>
           </tr>
           <tr>
@@ -163,7 +163,7 @@ export async function POST(request) {
       return Response.json({ error: 'Name and phone are required.' }, { status: 400 })
     }
 
-    // Determine the landing page label — prefer explicit landingPage field,
+    // Determine the landing page label prefer explicit landingPage field,
     // fall back to source if it looks like a URL path
     const pagePath = landingPage || (source && String(source).startsWith('/') ? source : null)
 
@@ -184,40 +184,34 @@ export async function POST(request) {
       }).catch(err => console.error('CRM forward error:', err.message))
     }
 
-    // Send emails — non-blocking, errors are logged but don't fail the request
+    // Send emails non-blocking, errors are logged but don't fail the request
     try {
       const transporter = getTransporter()
       const fromAddress = `"Nakshatra Namaha Creations" <${process.env.SMTP_USER}>`
 
+      // Admin notification
       await transporter.sendMail({
-        from: fromAddress,
-        to: 'info@nakshatranamahacreations.com',
-        replyTo: email || undefined,
-        subject: `New Enquiry from ${name} - ${service || 'General'}`,
+        from: `"NNC Website Enquiry" <${process.env.SMTP_USER}>`,
+        to: process.env.SMTP_USER,
+        replyTo: email || process.env.SMTP_USER,
+        subject: `New Enquiry: ${service || 'General'} ${name} (${phone})`,
         html: adminEmail(name, phone, email, service, message),
         text: `New enquiry from ${name}\nPhone: ${phone}\nEmail: ${email || 'N/A'}\nService: ${service || 'N/A'}\nMessage: ${message || 'N/A'}`,
-        headers: {
-          'X-Mailer': 'NNC Website',
-          'List-Unsubscribe': `<mailto:${process.env.SMTP_USER}?subject=unsubscribe>`,
-        },
       })
 
+      // Thank-you email FROM info@ TO customer (different addresses, no loop)
       if (email) {
         await transporter.sendMail({
-          from: fromAddress,
+          from: `"Nakshatra Namaha Creations" <${process.env.SMTP_USER}>`,
           to: email,
           replyTo: process.env.SMTP_USER,
-          subject: `Thank you ${name} - We have received your enquiry`,
+          subject: `Thank you ${name} We've received your enquiry`,
           html: thankYouEmail(name, service),
-          text: `Hi ${name},\n\nThank you for reaching out to Nakshatra Namaha Creations. We have received your${service ? ' ' + service : ''} enquiry and our team will get back to you within 24 hours.\n\nIf you need immediate assistance, call us at +91 99005 66466 (Mon-Sat, 9AM-7PM IST).\n\nBest regards,\nNakshatra Namaha Creations Pvt. Ltd.\nBengaluru | Mumbai | Mysuru | Hyderabad\nhttps://www.nakshatranamahacreations.com`,
-          headers: {
-            'X-Mailer': 'NNC Website',
-            'List-Unsubscribe': `<mailto:${process.env.SMTP_USER}?subject=unsubscribe>`,
-          },
+          text: `Hi ${name},\n\nThank you for reaching out to Nakshatra Namaha Creations. We have received your${service ? ' ' + service : ''} enquiry and our team will get back to you within 24 hours.\n\nCall us: +91 99005 66466 (Mon-Sat, 9AM-7PM IST)\n\nBest regards,\nNakshatra Namaha Creations Pvt. Ltd.`,
         })
       }
     } catch (emailErr) {
-      // Log the email error but don't fail — enquiry is already saved to CRM
+      // Log the email error but don't fail enquiry is already saved to CRM
       console.error('Email send error (non-fatal):', emailErr.message)
     }
 

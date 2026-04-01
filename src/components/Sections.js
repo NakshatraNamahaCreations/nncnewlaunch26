@@ -15,7 +15,7 @@ export function CaseStudies() {
             <h2 className="sec-h">Real Outcomes.<br /><span className="sky">Documented Results.</span></h2>
           </div>
           <div className="col-lg-7 d-flex align-items-end">
-            <p className="sec-sub">Three representative NNC projects — the brief, what was built and the measured result.</p>
+            <p className="sec-sub">Three representative NNC projects the brief, what was built and the measured result.</p>
           </div>
         </div>
 
@@ -158,7 +158,7 @@ export function Testimonials() {
         <div className="d-flex flex-wrap" style={{ borderTop: '1px solid rgba(255,255,255,.07)' }}>
           {CLIENTS.map((c, i) => (
             <div key={i} className="csi-item flex-grow-1">
-              <div className="csi-n">{c}</div>
+              <div className="csi-n">{c.name}</div>
             </div>
           ))}
         </div>
@@ -179,7 +179,7 @@ export function Industries() {
               Ten Industries.<br /><span style={{ color: 'var(--sky)' }}>Sector-Specific Knowledge.</span>
             </h2>
             <p style={{ fontSize: 15.5, color: 'rgba(255,255,255,.5)', lineHeight: 1.7, marginBottom: 24, maxWidth: 420 }}>
-              Deep domain expertise across verticals — not generic templates, but solutions shaped by real industry workflows.
+              Deep domain expertise across verticals not generic templates, but solutions shaped by real industry workflows.
             </p>
             <a href="#faq" className="btn btn-sky fw-bold px-4"
                onClick={e => { e.preventDefault(); document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' }) }}>
@@ -218,7 +218,7 @@ export function TechStack() {
             <h2 className="sec-h">Modern Technology.<br /><span className="sky">Proven in Production.</span></h2>
           </div>
           <div className="col-lg-7 d-flex align-items-end">
-            <p className="sec-sub">We choose the stack that fits your project — not the easiest for us. React JS, Next JS and Node JS for web. React Native and Flutter for mobile.</p>
+            <p className="sec-sub">We choose the stack that fits your project not the easiest for us. React JS, Next JS and Node JS for web. React Native and Flutter for mobile.</p>
           </div>
         </div>
 
@@ -286,7 +286,7 @@ export function FaqContact() {
             <div className="section-tag"><span className="tag-dot" />FAQ</div>
             <h2 className="faq-h mb-2">Questions. <span className="sky">Answered Honestly.</span></h2>
             <p className="sec-sub mb-4" style={{ fontSize: 15.5 }}>
-              Every new client asks these questions. We answer them directly — including the ones that make us look harder to work with.
+              Every new client asks these questions. We answer them directly including the ones that make us look harder to work with.
             </p>
 
             <div style={{ borderTop: '1px solid var(--border)' }}>
@@ -417,7 +417,7 @@ export function Footer() {
           {/* Brand column */}
           <div className="col-12 col-lg-3">
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
-              <img src={SITE.logo} alt="Nakshatra Namaha Creations — NNC Digital Logo" width={44} height={44} style={{ borderRadius: 10, objectFit: 'contain' }} />
+              <img src={SITE.logo} alt="Nakshatra Namaha Creations NNC Digital Logo" width={44} height={44} style={{ borderRadius: 10, objectFit: 'contain' }} />
               <span className="ft-brand">{SITE.name}</span>
             </div>
             <p className="ft-desc">
@@ -478,16 +478,9 @@ export function Footer() {
             <a href="/contact-us" className="ft-link">Contact Us</a>
           </div>
 
-          {/* Portfolio & Resources */}
+          {/* Resources */}
           <div className="col-6 col-md-3 col-lg-2">
-            <div className="ft-col-h">Portfolio</div>
-            <a href="/our-works" className="ft-link">All Projects</a>
-            <a href="/our-works/website-development" className="ft-link">Website Projects</a>
-            <a href="/our-works/mobile-app-development" className="ft-link">Mobile App Projects</a>
-            <a href="/our-works/corporate-video-production" className="ft-link">Video Production Work</a>
-            <a href="/our-works/animation" className="ft-link">Animation Projects</a>
-
-            <div className="ft-col-h mt-4">Resources</div>
+            <div className="ft-col-h">Resources</div>
             <a href="/blog" className="ft-link">Blog & Insights</a>
             <a href="/privacy" className="ft-link">Privacy Policy</a>
             <a href="/terms" className="ft-link">Terms of Service</a>
@@ -533,7 +526,7 @@ export function Footer() {
 }
 
 /* ── FLOATING WHATSAPP ────────────────────────────────────────── */
-// Replaced by the WhatsAppChat chatbot in layout.js — render nothing here.
+// Replaced by the WhatsAppChat chatbot in layout.js render nothing here.
 export function WaFloat() {
   return null
 }

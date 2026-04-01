@@ -21,7 +21,7 @@ export async function generateMetadata({ params }) {
   const location = hood ? `${hood.name}, ${city?.name}` : city?.name || 'India'
   const defaultTitle = `${svc.name} Company in ${location} | NNC Digital`
   const title = config.titleOverride || defaultTitle
-  const description = config.descOverride || `NNC Digital — ${svc.name?.toLowerCase()} company in ${location}. ${svc.desc} 565+ projects. 4.9★ Google. Call +91 99005 66466.`
+  const description = config.descOverride || `NNC Digital ${svc.name?.toLowerCase()} company in ${location}. ${svc.desc} 565+ projects. 4.9★ Google. Call +91 99005 66466.`
 
   return {
     title,
@@ -39,7 +39,7 @@ export async function generateMetadata({ params }) {
       description,
       url: `${SITE.url}/${slug}`,
       type: 'website',
-      images: [{ url: SITE.teamPhoto, width: 1200, height: 630, alt: `${title} — NNC Digital` }],
+      images: [{ url: SITE.teamPhoto, width: 1200, height: 630, alt: `${title} NNC Digital` }],
     },
     twitter: {
       card: 'summary_large_image',

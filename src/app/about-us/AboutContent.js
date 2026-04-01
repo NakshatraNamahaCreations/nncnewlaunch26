@@ -1,26 +1,38 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
+import NextImage from 'next/image'
 import { SITE, OFFICES } from '@/data/siteData'
 
-const TEAM = [
-  { name: 'Anil', role: 'Developer', dept: 'Development Team', photo: 'https://www.nakshatranamahacreations.com/media/teams/Anil.jpeg' },
-  { name: 'Yogesh', role: 'Developer', dept: 'Development Team', photo: 'https://www.nakshatranamahacreations.com/media/teams/Yogesh.jpeg' },
-  { name: 'Suman', role: 'Developer', dept: 'Development Team', photo: 'https://www.nakshatranamahacreations.com/media/teams/Suman.jpeg' },
-  { name: 'Kavana', role: 'Designer', dept: 'Design Team', photo: 'https://www.nakshatranamahacreations.com/media/teams/Kavana.jpg' },
-  { name: 'Kiruthika', role: 'Designer', dept: 'Design Team', photo: 'https://www.nakshatranamahacreations.com/media/teams/Kiruthika.jpeg' },
-  { name: 'Jayanth', role: 'Developer', dept: 'Development Team', photo: 'https://www.nakshatranamahacreations.com/media/teams/Jayanth.jpeg' },
-  { name: 'Guru', role: 'Developer', dept: 'Development Team', photo: 'https://www.nakshatranamahacreations.com/media/teams/Guru.jpeg' },
-  { name: 'Dashavantha', role: 'Specialist', dept: 'Operations Team', photo: 'https://www.nakshatranamahacreations.com/media/teams/Dashu.jpeg' },
-  { name: 'Sathish', role: 'Developer', dept: 'Development Team', photo: 'https://www.nakshatranamahacreations.com/media/teams/Satish.jpeg' },
+// Row 1 Founders
+const TEAM_ROW1 = [
+  { name: 'Harish Kashyap', role: 'Founder & Managing Director', photo: '/team-12.jpg' },
+  { name: 'Anjana DR',       role: 'Head of Operations',          bg: '#059669', photo: '/team-22.jpg' },
+  { name: 'Nithin',          role: 'Business Development Manager', bg: '#EF4444', photo: '/team-18.jpg' },
+]
+// Row 2 Senior Team
+const TEAM_ROW2 = [
+  { name: 'Anil Dev',    role: 'Sr UI/UX Designer',      bg: '#1E40AF', photo: '/team-3.jpg' },
+  { name: 'Yogesh PV',   role: 'Sr Full Stack Developer', bg: '#2DD4BF', photo: '/team-25.jpg' },
+  { name: 'Suman Raj',   role: 'Sr Full Stack Developer', bg: '#7C3AED', photo: '/team-10.jpg' },
+  { name: 'Kavana NP',   role: 'Sr Website Developer',    bg: '#D97706', photo: '/team-15.jpg' },
+  { name: 'Jyanth P',    role: 'Sr Flutter Developer',    bg: '#F97316' ,photo: '/team-20.jpg'},
+]
+// Row 3 Team
+const TEAM_ROW3 = [
+  { name: 'Kiruthika M',         role: 'Full Stack Developer',    bg: '#A78BFA' ,photo: '/team-21.jpg'},
+  { name: 'Dashwanth',           role: 'Motion Graphic Designer', bg: '#34D399' ,photo: '/team-24.jpg'},
+  { name: 'SingamSetty Sathish', role: 'QA Tester',               bg: '#60A5FA',photo: '/team-1.jpg' },
+  { name: 'Aishwarya',         role: 'Project Co-ordinator',       bg: '#FDA4AF',photo: '/team-23.jpg' },
+ 
 ]
 
 const TIMELINE = [
-  { year: '2015', badge: 'Founded', title: 'NNC founded in Bengaluru', body: 'Nakshatra Namaha Creations was established in Bengaluru with a clear mission — to make professional digital solutions accessible to every growing Indian business.' },
+  { year: '2015', badge: 'Founded', title: 'NNC founded in Bengaluru', body: 'Nakshatra Namaha Creations was established in Bengaluru with a clear mission to make professional digital solutions accessible to every growing Indian business.' },
   { year: '2017', badge: 'Expansion', title: 'First 100 projects delivered', body: 'Within two years, NNC delivered over 100 client projects. Client referrals became the primary source of new business.' },
   { year: '2019', badge: 'New services', title: 'Mobile app & video studio launched', body: 'NNC launched in-house mobile app development (React Native & Flutter) and a full video production studio.' },
   { year: '2021', badge: 'Growth', title: 'Mysuru & Hyderabad offices open', body: 'NNC expanded with new offices in Mysuru and Hyderabad. The team grew to 25+ members.' },
-  { year: '2023', badge: 'Mumbai', title: 'Mumbai branch opens — 4 cities', body: "NNC's Mumbai (Thane West) office completed the 4-city footprint. International projects commenced." },
+  { year: '2023', badge: 'Mumbai', title: 'Mumbai branch opens 4 cities', body: "NNC's Mumbai (Thane West) office completed the 4-city footprint. International projects commenced." },
   { year: '2025', badge: 'Today', title: '565+ projects. Expanding globally.', body: 'NNC has delivered 565+ digital projects and is expanding its international client base.' },
 ]
 
@@ -29,7 +41,7 @@ const VALUES = [
   { icon: 'M22 12h-4l-3 9L9 3l-3 9H2', title: 'Performance first', body: 'Every website we build scores 90+ on Core Web Vitals. Speed, mobile-first architecture and SEO are built in from the first line of code.' },
   { icon: 'M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z', title: 'Radical transparency', body: 'You know the scope, timeline and price before we start. No surprise invoices, no scope creep. Weekly progress reports, always.' },
   { icon: 'M3 3h18v14H3zM8 21h8M12 17v4', title: 'Source code ownership', body: 'Your IP is yours. Full source code transfers to you on completion. No lock-in, no monthly licence fees.' },
-  { icon: 'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 7a4 4 0 100 8 4 4 0 000-8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75', title: 'In-house, always', body: '35+ permanent, full-time specialists. Developers, designers, marketers, animators — all under one roof.' },
+  { icon: 'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 7a4 4 0 100 8 4 4 0 000-8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75', title: 'In-house, always', body: '35+ permanent, full-time specialists. Developers, designers, marketers, animators all under one roof.' },
   { icon: 'M12 2a10 10 0 100 20 10 10 0 000-20zM12 6v6l4 2', title: 'Long-term thinking', body: 'We build for scalability, maintainability and growth. A site that breaks under load in a year is not a success.' },
 ]
 
@@ -44,6 +56,136 @@ const ABOUT_FAQS = [
 
 function Ico({ d, size = 22, color = 'currentColor' }) {
   return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d={d} /></svg>
+}
+
+function TeamCard({ m, priority = false }) {
+  const [hovered, setHovered] = useState(false)
+  const [imgLoaded, setImgLoaded] = useState(false)
+  const initials = m.name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase()
+  const accent = m.bg || '#2563EB'
+
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{ display: 'flex', flexDirection: 'column' }}
+    >
+      {/* Photo */}
+      <div style={{
+        position: 'relative',
+        width: '100%',
+        paddingBottom: '115%',
+        overflow: 'hidden',
+        borderRadius: 16,
+        marginBottom: 14,
+        background: 'transparent',
+        boxShadow: 'none',
+        transition: 'box-shadow .35s cubic-bezier(.16,1,.3,1)',
+      }}>
+        {m.photo ? (
+          <>
+            {/* Skeleton shimmer shown until image loads */}
+            {!imgLoaded && (
+              <div style={{
+                position: 'absolute', inset: 0,
+                background: 'linear-gradient(90deg, #E8ECF4 25%, #F4F6FA 50%, #E8ECF4 75%)',
+                backgroundSize: '200% 100%',
+                animation: 'shimmer 1.4s infinite',
+                borderRadius: 16,
+              }} />
+            )}
+            <NextImage
+              src={m.photo}
+              alt={m.name}
+              fill
+              sizes="(max-width: 576px) 45vw, (max-width: 992px) 28vw, 220px"
+              quality={78}
+              priority={priority}
+              onLoad={() => setImgLoaded(true)}
+              style={{
+                objectFit: 'cover',
+                objectPosition: '50% 10%',
+                transform: hovered ? 'scale(1.05)' : 'scale(1)',
+                transition: 'transform .45s cubic-bezier(.16,1,.3,1)',
+                opacity: imgLoaded ? 1 : 0,
+                transitionProperty: 'transform, opacity',
+              }}
+            />
+          </>
+        ) : (
+          <div style={{
+            position: 'absolute', inset: 0,
+            background: 'transparent',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }}>
+            <div style={{
+              width: 66, height: 66, borderRadius: '50%',
+              background: accent,
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontSize: 22, fontWeight: 900, color: '#fff',
+              letterSpacing: '-.02em',
+              boxShadow: `0 4px 16px ${accent}55`,
+            }}>{initials}</div>
+          </div>
+        )}
+
+        {/* Subtle gradient overlay on hover */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(to top, rgba(0,0,0,.28) 0%, transparent 55%)',
+          opacity: hovered ? 1 : 0,
+          transition: 'opacity .3s',
+          pointerEvents: 'none',
+        }} />
+      </div>
+
+      {/* Info */}
+      <div>
+        {/* Colored accent bar */}
+        <div style={{
+          width: hovered ? 32 : 20,
+          height: 3, borderRadius: 2,
+          background: accent,
+          marginBottom: 8,
+          transition: 'width .3s cubic-bezier(.16,1,.3,1)',
+        }} />
+
+        {/* Name */}
+        <div style={{
+          fontSize: 14.5, fontWeight: 800,
+          color: '#0B1F4B',
+          letterSpacing: '-.03em',
+          lineHeight: 1.2,
+          marginBottom: 6,
+        }}>
+          {m.name}
+        </div>
+
+        {/* Role */}
+        <div style={{
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: 5,
+          fontSize: 10.5, fontWeight: 700,
+          color: accent,
+          background: accent + '12',
+          border: `1px solid ${accent}28`,
+          padding: '3px 10px 3px 7px',
+          borderRadius: 20,
+          lineHeight: 1.45,
+          maxWidth: '100%',
+        }}>
+          <span style={{
+            width: 5, height: 5, borderRadius: '50%',
+            background: accent, flexShrink: 0,
+          }} />
+          <span style={{ whiteSpace: 'normal', wordBreak: 'break-word' }}>
+            {m.role}
+          </span>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default function AboutContent() {
@@ -152,9 +294,9 @@ export default function AboutContent() {
               </h2>
               <div style={{ borderLeft: '3px solid var(--sky)', padding: '20px 24px', background: 'rgba(33,150,243,.08)', borderRadius: '0 var(--r) var(--r) 0', marginBottom: 28 }}>
                 <p style={{ fontSize: 16, color: 'rgba(255,255,255,.75)', lineHeight: 1.75, marginBottom: 10 }}>
-                  &ldquo;I started NNC because I saw too many good businesses failing online — not because their products were bad, but because their digital presence did not reflect who they were.&rdquo;
+                  &ldquo;I started NNC because I saw too many good businesses failing online not because their products were bad, but because their digital presence did not reflect who they were.&rdquo;
                 </p>
-                <cite style={{ fontSize: 12.5, fontWeight: 700, color: 'var(--sky)', fontStyle: 'normal' }}>— Founder &amp; Managing Director, Nakshatra Namaha Creations</cite>
+                <cite style={{ fontSize: 12.5, fontWeight: 700, color: 'var(--sky)', fontStyle: 'normal' }}>Founder &amp; Managing Director, Nakshatra Namaha Creations</cite>
               </div>
               <div style={{ fontSize: 15, color: 'rgba(255,255,255,.5)', lineHeight: 1.78 }}>
                 <p style={{ marginBottom: 14 }}>In 2015, NNC was founded in Bengaluru with a single office, a small team and a clear conviction: every business deserves professional digital solutions built with care, accountability and real technical depth.</p>
@@ -270,8 +412,8 @@ export default function AboutContent() {
       <div style={{ background: 'var(--sky)' }}>
         <div className="row g-0">
           {[
-            { icon: 'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 7a4 4 0 100 8 4 4 0 000-8z', title: '35+ specialists in-house', body: 'Full-time developers, designers, marketers, animators — all permanently employed.' },
-            { icon: 'M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2zM9 22V12h6v10', title: '4 offices — walk in anytime', body: 'Bengaluru, Hyderabad, Mumbai and Mysuru. Physical offices mean real accountability.' },
+            { icon: 'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 7a4 4 0 100 8 4 4 0 000-8z', title: '35+ specialists in-house', body: 'Full-time developers, designers, marketers, animators all permanently employed.' },
+            { icon: 'M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2zM9 22V12h6v10', title: '4 offices walk in anytime', body: 'Bengaluru, Hyderabad, Mumbai and Mysuru. Physical offices mean real accountability.' },
             { icon: 'M12 2L2 7l10 5 10-5-10-5M2 17l10 5 10-5M2 12l10 5 10-5', title: 'Modern tech stack', body: 'React JS, Node JS, PostgreSQL, AWS, React Native and Flutter.' },
             { icon: 'M22 11.08V12a10 10 0 11-5.93-9.14M22 4L12 14.01l-3-3', title: '565+ projects delivered', body: 'Every single one is live, verifiable and owned by the client.' },
           ].map(c => (
@@ -289,89 +431,69 @@ export default function AboutContent() {
       </div>
 
       {/* ── TEAM GRID ── */}
-      <section id="team" style={{ borderBottom: '1px solid var(--border)', padding: '90px 0', background: 'linear-gradient(180deg,#f8faff 0%,#fff 100%)' }}>
+      <section id="team" style={{ borderBottom: '1px solid var(--border)', padding: '88px 0', background: '#fff' }}>
         <div style={{ maxWidth: 1220, margin: '0 auto', padding: '0 24px' }}>
 
           {/* Header */}
-          <div className="text-center mb-5 anim" style={{ maxWidth: 640, margin: '0 auto 56px' }}>
-            <div className="section-tag" style={{ margin: '0 auto 14px' }}><span className="tag-dot" />Meet the team</div>
-            <h2 className="sec-h">The people who build <span className="sky">your digital products.</span></h2>
-            <p className="sec-sub" style={{ marginBottom: 0 }}>Designers, developers, animators — all in-house, all accountable to you.</p>
+          <div style={{ textAlign: 'center', marginBottom: 64 }}>
+            <h2 style={{ fontSize: 'clamp(28px,4vw,44px)', fontWeight: 800, color: '#0B1F4B', letterSpacing: '-.04em', marginBottom: 12 }}>
+              Our leadership team
+            </h2>
+            <p style={{ fontSize: 16.5, color: '#94A3B8', maxWidth: 520, margin: '0 auto' }}>
+              Designers, developers, animators all permanent, all in-house, all accountable to you.
+            </p>
           </div>
 
-          {(() => {
-            const deptMeta = {
-              'Development Team': { grad: 'linear-gradient(135deg,#1e3a8a,#2563eb)', accent: '#2563eb', light: 'rgba(37,99,235,.08)', label: 'Development' },
-              'Design Team':      { grad: 'linear-gradient(135deg,#5b21b6,#7c3aed)', accent: '#7c3aed', light: 'rgba(124,58,237,.08)', label: 'Design' },
-              'Operations Team':  { grad: 'linear-gradient(135deg,#065f46,#059669)', accent: '#059669', light: 'rgba(5,150,105,.08)', label: 'Operations' },
-              'Marketing Team':   { grad: 'linear-gradient(135deg,#92400e,#d97706)', accent: '#d97706', light: 'rgba(217,119,6,.08)',   label: 'Marketing' },
+          {/* Shimmer animation */}
+          <style>{`
+            @keyframes shimmer {
+              0% { background-position: 200% 0 }
+              100% { background-position: -200% 0 }
             }
-            return (
-              <div className="row g-4 justify-content-center">
-                {TEAM.map((m, i) => {
-                  const dm = deptMeta[m.dept] || deptMeta['Development Team']
-                  const initials = m.name.slice(0, 2).toUpperCase()
-                  return (
-                    <div key={m.name} className="col-6 col-md-4 col-lg-3 anim" style={{ transitionDelay: `${i * .05}s` }}>
-                      <div
-                        style={{ borderRadius: 24, overflow: 'hidden', background: '#fff', boxShadow: '0 2px 16px rgba(7,20,53,.07)', border: '1.5px solid var(--border)', transition: 'transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .25s' }}
-                        onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-8px) scale(1.02)'; e.currentTarget.style.boxShadow = '0 24px 48px rgba(7,20,53,.13)' }}
-                        onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0) scale(1)'; e.currentTarget.style.boxShadow = '0 2px 16px rgba(7,20,53,.07)' }}
-                      >
-                        {/* Card top — gradient banner with avatar */}
-                        <div style={{ background: dm.grad, padding: '28px 20px 48px', position: 'relative', overflow: 'hidden' }}>
-                          {/* Decorative circles */}
-                          <div style={{ position: 'absolute', top: -20, right: -20, width: 100, height: 100, borderRadius: '50%', background: 'rgba(255,255,255,.07)', pointerEvents: 'none' }} />
-                          <div style={{ position: 'absolute', bottom: -10, left: -10, width: 70, height: 70, borderRadius: '50%', background: 'rgba(255,255,255,.05)', pointerEvents: 'none' }} />
-                          {/* Dept label top-right */}
-                          <div style={{ position: 'absolute', top: 14, right: 14, background: 'rgba(255,255,255,.15)', borderRadius: 999, padding: '3px 10px', fontSize: 10, fontWeight: 700, color: '#fff', letterSpacing: '.06em', textTransform: 'uppercase' }}>{dm.label}</div>
-                          {/* Avatar */}
-                          <div style={{ width: 80, height: 80, borderRadius: '50%', margin: '0 auto', background: 'rgba(255,255,255,.15)', border: '3px solid rgba(255,255,255,.4)', overflow: 'hidden', position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                            <span style={{ fontSize: 26, fontWeight: 800, color: '#fff', userSelect: 'none' }}>{initials}</span>
-                            <img
-                              src={m.photo} alt={m.name} loading="lazy"
-                              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
-                              onError={e => { e.currentTarget.style.display = 'none' }}
-                            />
-                          </div>
-                        </div>
+          `}</style>
 
-                        {/* Card bottom — name & role */}
-                        <div style={{ padding: '20px 20px 22px', textAlign: 'center', background: '#fff', marginTop: -24, borderRadius: '20px 20px 0 0', position: 'relative' }}>
-                          <div style={{ fontSize: 15, fontWeight: 800, color: 'var(--navy)', marginBottom: 3, letterSpacing: '-.01em' }}>{m.name}</div>
-                          <div style={{ fontSize: 12.5, fontWeight: 600, color: dm.accent }}>{m.role}</div>
-                          {/* Divider */}
-                          <div style={{ height: 1, background: 'var(--border)', margin: '14px 0 12px' }} />
-                          <div style={{ display: 'inline-flex', alignItems: 'center', gap: 5, background: dm.light, borderRadius: 999, padding: '5px 12px' }}>
-                            <span style={{ width: 6, height: 6, borderRadius: '50%', background: dm.accent, display: 'inline-block' }} />
-                            <span style={{ fontSize: 11, fontWeight: 700, color: dm.accent }}>NNC {dm.label}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )
-                })}
+          {/* All team 5 per row, founders first */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '52px 24px' }}>
+            {[...TEAM_ROW1, ...TEAM_ROW2, ...TEAM_ROW3].map((m, i) => (
+              <TeamCard key={i} m={m} priority={i < 5} />
+            ))}
 
-                {/* Hiring card */}
-                <div className="col-6 col-md-4 col-lg-3 anim" style={{ transitionDelay: `${TEAM.length * .05}s` }}>
-                  <Link href="/careers" style={{ textDecoration: 'none' }}>
-                    <div
-                      style={{ borderRadius: 24, overflow: 'hidden', background: '#fff', boxShadow: '0 2px 16px rgba(7,20,53,.07)', border: '2px dashed #cbd5e1', transition: 'transform .25s, box-shadow .25s', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 220, padding: 28, textAlign: 'center', gap: 10 }}
-                      onMouseEnter={e => { e.currentTarget.style.transform = 'translateY(-8px)'; e.currentTarget.style.boxShadow = '0 24px 48px rgba(7,20,53,.1)'; e.currentTarget.style.borderColor = '#2563eb' }}
-                      onMouseLeave={e => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 2px 16px rgba(7,20,53,.07)'; e.currentTarget.style.borderColor = '#cbd5e1' }}
-                    >
-                      <div style={{ width: 52, height: 52, borderRadius: '50%', background: 'linear-gradient(135deg,#2563eb,#0ea5e9)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 4, boxShadow: '0 8px 20px rgba(37,99,235,.3)' }}>
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                      </div>
-                      <div style={{ fontSize: 15, fontWeight: 800, color: 'var(--navy)' }}>We&apos;re Hiring</div>
-                      <div style={{ fontSize: 12.5, color: 'var(--ink3)', lineHeight: 1.55 }}>Join our in-house team. Real products, real impact.</div>
-                      <div style={{ fontSize: 12, fontWeight: 700, color: '#2563eb', marginTop: 4 }}>View open positions ↗</div>
-                    </div>
-                  </Link>
+            {/* Hiring card */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+              <Link href="/careers" style={{ textDecoration: 'none', width: '100%' }}>
+                <div style={{
+                  width: '100%',
+                  aspectRatio: '4/5',
+                  borderRadius: 12,
+                  border: '2px dashed #CBD5E1',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: 10,
+                  marginBottom: 18,
+                  background: '#F8FAFC',
+                  cursor: 'pointer',
+                }}>
+                  <div style={{ width: 52, height: 52, borderRadius: '50%', background: 'linear-gradient(135deg,#2563eb,#0ea5e9)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  </div>
+                  <div style={{ fontSize: 13, fontWeight: 700, color: '#0B1F4B', textAlign: 'center', padding: '0 12px' }}>Join our team</div>
+                  <div style={{ fontSize: 11.5, color: '#94A3B8', textAlign: 'center', padding: '0 16px', lineHeight: 1.5 }}>Real products, real impact.</div>
                 </div>
-              </div>
-            )
-          })()}
+              </Link>
+              <div style={{ fontSize: 18, fontWeight: 800, color: '#0B1F4B', letterSpacing: '-.03em', marginBottom: 4 }}>We&apos;re Hiring</div>
+              <div style={{ fontSize: 11.5, fontWeight: 700, color: '#2563eb', textTransform: 'uppercase', letterSpacing: '.08em' }}>View open positions ↗</div>
+            </div>
+          </div>
+
+          {/* Footer note */}
+          <div style={{ textAlign: 'center', marginTop: 56, padding: '24px', background: '#F8FAFC', border: '1.5px solid #E2E8F0', borderRadius: 14 }}>
+            <p style={{ fontSize: 15, color: '#475569', marginBottom: 2 }}>
+              And <strong style={{ color: '#0B1F4B' }}>26 more permanent specialists</strong> across development, design, marketing and production.
+            </p>
+            <p style={{ fontSize: 13, color: '#94A3B8', marginBottom: 0 }}>All in-house · Full-time employees · Mon–Sat 9am–7pm</p>
+          </div>
         </div>
       </section>
 
@@ -392,7 +514,7 @@ export default function AboutContent() {
                     <div style={{ width: 10, height: 10, borderRadius: '50%', background: colors[i], marginBottom: 14 }} />
                     <div style={{ fontSize: 11, fontWeight: 600, letterSpacing: '.1em', textTransform: 'uppercase', color: 'var(--sky)', marginBottom: 6 }}>{o.type}</div>
                     <div style={{ fontSize: 17, fontWeight: 700, color: 'var(--navy)', marginBottom: 6 }}>{o.city}</div>
-                    <p style={{ fontSize: 13, color: 'var(--ink3)', lineHeight: 1.65, marginBottom: 0 }}>{o.address}, {o.state} — {o.pin}</p>
+                    <p style={{ fontSize: 13, color: 'var(--ink3)', lineHeight: 1.65, marginBottom: 0 }}>{o.address}, {o.state} {o.pin}</p>
                   </div>
                 </div>
               )
@@ -406,7 +528,7 @@ export default function AboutContent() {
         <div style={{ maxWidth: 1220, margin: '0 auto', padding: '0 24px' }}>
           <div className="row g-5">
             <div className="col-lg-7 anim">
-              <div className="section-tag"><span className="tag-dot" />About NNC — FAQ</div>
+              <div className="section-tag"><span className="tag-dot" />About NNC FAQ</div>
               <h2 className="sec-h" style={{ marginBottom: 40 }}>Common questions <span style={{ color: 'var(--ink3)' }}>about our agency</span></h2>
               <div style={{ borderTop: '1px solid var(--border)' }}>
                 {ABOUT_FAQS.map((f, i) => (
@@ -426,7 +548,7 @@ export default function AboutContent() {
               <div style={{ background: 'var(--navy2)', borderRadius: 'var(--r)', padding: 36, boxShadow: 'var(--sh2)', position: 'sticky', top: 88 }}>
                 <div style={{ fontSize: 10, fontWeight: 700, color: 'var(--sky)', letterSpacing: '.14em', textTransform: 'uppercase', marginBottom: 9 }}>Get in touch</div>
                 <h3 style={{ fontSize: 22, fontWeight: 800, color: '#fff', letterSpacing: '-.03em', marginBottom: 8 }}>Ready to start your project?</h3>
-                <p style={{ fontSize: 13.5, color: 'rgba(255,255,255,.45)', lineHeight: 1.65, marginBottom: 24 }}>Now you know who we are. The next step is a 30-minute call — no sales pressure, just an honest conversation.</p>
+                <p style={{ fontSize: 13.5, color: 'rgba(255,255,255,.45)', lineHeight: 1.65, marginBottom: 24 }}>Now you know who we are. The next step is a 30-minute call no sales pressure, just an honest conversation.</p>
                 <Link href="/contact-us" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 9, width: '100%', padding: 14, borderRadius: 'var(--r2)', background: 'var(--sky)', color: '#fff', fontSize: 14, fontWeight: 700, textDecoration: 'none' }}>
                   Start a conversation <Ico d="M5 12h14M12 5l7 7-7 7" size={15} color="#fff" />
                 </Link>
