@@ -219,14 +219,6 @@ export default function AboutContent() {
                 <a href="#team" className="btn btn-sky fw-bold px-4 py-3 d-inline-flex align-items-center gap-2">Meet the team <Ico d="M5 12h14M12 5l7 7-7 7" size={15} color="#fff" /></a>
                 <a href="#founder" className="btn btn-outline-dark fw-semibold px-4 py-3 d-inline-flex align-items-center gap-2"><Ico d="M12 2a10 10 0 100 20 10 10 0 000-20zM12 8a3 3 0 100 6 3 3 0 000-6z" size={14} /> Founder&apos;s story</a>
               </div>
-              <div className="d-flex" style={{ background: '#fff', border: '1.5px solid var(--border)', borderRadius: 'var(--r)', boxShadow: 'var(--sh)', overflow: 'hidden' }}>
-                {[['565+', 'Projects'], ['8+', 'Years'], ['35+', 'Team'], ['98%', 'Satisfaction'], ['4', 'Offices']].map(([n, l]) => (
-                  <div key={l} style={{ flex: 1, textAlign: 'center', padding: '16px 12px', borderRight: l !== 'Offices' ? '1px solid var(--border)' : 'none' }}>
-                    <div style={{ fontSize: 26, fontWeight: 800, color: 'var(--navy)', letterSpacing: '-.04em', lineHeight: 1 }}>{n}</div>
-                    <div style={{ fontSize: 11, color: 'var(--ink4)', fontWeight: 500, marginTop: 3 }}>{l}</div>
-                  </div>
-                ))}
-              </div>
             </div>
             <div className="col-lg-6 d-none d-lg-block">
               <div style={{ position: 'relative', borderRadius: 20, overflow: 'hidden', boxShadow: '0 24px 64px rgba(7,20,53,.18)', border: '1.5px solid rgba(37,99,235,.15)', background: 'linear-gradient(135deg, #071435 0%, #0f2460 50%, #1a3a8f 100%)', padding: 32 }}>

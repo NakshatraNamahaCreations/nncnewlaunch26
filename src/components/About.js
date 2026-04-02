@@ -78,26 +78,8 @@ export default function About() {
         </div>
       </div>
 
-      {/* ── HIGHLIGHTS STRIP ── */}
-      <div style={{ background: '#fff', borderBottom: '1px solid var(--border)' }}>
-        <div style={{ maxWidth: 1220, margin: '0 auto', padding: '0 24px' }}>
-          <div className="row g-0">
-            {HIGHLIGHTS.map((h, i) => (
-              <div key={i} className="col-6 col-md-3 about-hl-card" style={{
-                borderRight: i < 3 ? '1px solid var(--border)' : 'none',
-              }}>
-                <div className="about-hl-icon">
-                  <Ico d={h.icon} size={22} color="var(--sky)" />
-                </div>
-                <div className="about-hl-n">{h.n}</div>
-                <div className="about-hl-l">{h.l}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
 
-      {/* ── OFFICES GRID ── */}
+{/* ── OFFICES GRID ── */}
       <div style={{ background: 'var(--surface)', borderBottom: '1px solid var(--border)' }}>
         <div style={{ maxWidth: 1220, margin: '0 auto', padding: '48px 24px' }}>
           <div style={{ textAlign: 'center', marginBottom: 32 }}>

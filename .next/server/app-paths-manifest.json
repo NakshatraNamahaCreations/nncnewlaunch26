@@ -1,8 +1,4 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
   "/about-us/page": "app/about-us/page.js",
-  "/mobile-app-development-company-in-bangalore/page": "app/mobile-app-development-company-in-bangalore/page.js",
-  "/[slug]/page": "app/[slug]/page.js",
-  "/our-works/page": "app/our-works/page.js",
-  "/blog/page": "app/blog/page.js"
+  "/page": "app/page.js"
 }
