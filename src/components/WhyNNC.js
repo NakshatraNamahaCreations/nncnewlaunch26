@@ -3,7 +3,7 @@ import { WHY_NNC } from '@/data/siteData'
 export default function WhyNNC() {
   return (
     <section className="why-section py-5" id="why" aria-label="Why Choose NNC">
-      <div style={{ maxWidth: 1220, margin: '0 auto', padding: '80px 24px' }}>
+      <div style={{ maxWidth: 1220, margin: '0 auto', padding: 'clamp(36px,6vw,80px) clamp(16px,4vw,24px)' }}>
 
         {/* Header */}
         <div className="row g-5 mb-5 anim">

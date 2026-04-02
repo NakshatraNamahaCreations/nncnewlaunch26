@@ -20,7 +20,7 @@ export default function About() {
       {/* ── BANNER WITH OVERLAY ── */}
       <div className="about-banner" style={{
         position: 'relative',
-        minHeight: 600,
+        minHeight: 'clamp(360px,60vw,600px)',
         display: 'flex',
         alignItems: 'center',
         overflow: 'hidden',
@@ -32,52 +32,43 @@ export default function About() {
           backgroundSize: 'cover',
           backgroundPosition: 'center 20%',
         }} />
-        {/* Dark gradient overlay heavier on right for text readability */}
+        {/* Dark gradient overlay — full overlay on mobile, side-heavy on desktop */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(90deg, rgba(7,20,53,.3) 0%, rgba(7,20,53,.75) 45%, rgba(7,20,53,.92) 100%)',
+          background: 'linear-gradient(180deg, rgba(7,20,53,.55) 0%, rgba(7,20,53,.88) 100%)',
         }} />
 
-        <div style={{ maxWidth: 1220, margin: '0 auto', padding: '80px 24px', position: 'relative', zIndex: 2, width: '100%' }}>
+        <div style={{ maxWidth: 1220, margin: '0 auto', padding: 'clamp(36px,6vw,80px) clamp(16px,4vw,24px)', position: 'relative', zIndex: 2, width: '100%' }}>
           <div className="row align-items-center">
-            {/* Left spacer image shows through */}
+            {/* Left spacer — only on large screens */}
             <div className="col-lg-5 d-none d-lg-block" />
 
-            {/* Right content on overlay */}
-            <div style={{marginRight:'-690px'}}>
-              <div style={{
-                display: 'inline-flex', alignItems: 'center', gap: 8,
-                background: 'rgba(0, 0, 0, 0)', border: '1px solid rgba(33, 149, 243, 0)',
-                borderRadius: 20, padding: '6px 16px', marginBottom: 20,
-                marginLeft:"30px",
-              }}>
-                
-                <span style={{ fontSize: 11, fontWeight: 700, color: '#90CAF9', textTransform: 'uppercase', letterSpacing: '.1em' }}>About NNC</span>
-              </div>
+            {/* Content */}
+            <div className="col-12 col-lg-7">
+              <span style={{ fontSize: 'clamp(10px,2vw,11px)', fontWeight: 700, color: '#90CAF9', textTransform: 'uppercase', letterSpacing: '.1em', display: 'block', marginBottom: 16 }}>About NNC</span>
 
               <h2 style={{
-                fontSize: 'clamp(32px, 4vw, 50px)',
+                fontSize: 'clamp(26px,5vw,50px)',
                 fontWeight: 800,
                 color: '#fff',
                 letterSpacing: '-.04em',
                 lineHeight: 1.1,
                 marginBottom: 20,
-                marginLeft:"40px",
               }}>
                 Built in Bangalore.<br />
                 <span style={{ color: '#64B5F6' }}>Operating Across India.</span>
               </h2>
 
-              <p style={{ fontSize: 17, color: 'rgba(255,255,255,.75)',marginLeft:"40px", lineHeight: 1.8, maxWidth: 540, marginBottom: 10 }}>
+              <p style={{ fontSize: 'clamp(14px,2.5vw,17px)', color: 'rgba(255,255,255,.75)', lineHeight: 1.8, maxWidth: 540, marginBottom: 10 }}>
                 NNC was founded in Bengaluru in 2015 with one principle: every project built by the people
                 accountable for it. <strong style={{ color: '#fff' }}>Not outsourced. Not freelanced. Done by a permanent team.</strong>
               </p>
-              <p style={{ fontSize: 15.5, color: 'rgba(255,255,255,.55)',marginLeft:"40px", lineHeight: 1.75, maxWidth: 540, marginBottom: 32 }}>
+              <p style={{ fontSize: 'clamp(13px,2vw,15.5px)', color: 'rgba(255,255,255,.55)', lineHeight: 1.75, maxWidth: 540, marginBottom: 32 }}>
                 Ten years later: 35+ permanent specialists, 565+ projects, four physical offices across India.
                 You can walk into any of them and meet your project team in person.
               </p>
 
-              <div className="d-flex flex-wrap gap-3 mb-4" style={{ marginLeft: 40 }}>
+              <div className="d-flex flex-wrap gap-3 mb-4">
                 <Link href="/our-works" className="btn-about-primary">
                   See Our Work <Ico d="M5 12h14M12 5l7 7-7 7" size={15} color="#fff" />
                 </Link>

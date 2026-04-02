@@ -1486,12 +1486,13 @@ section {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 14px 14px;
+  padding: 14px;
   background: rgba(255,255,255,.04);
   border: 1px solid rgba(255,255,255,.06);
   border-radius: 12px;
   transition: all .3s;
   cursor: default;
+  min-width: 0;
 }
 
 .ind-card:hover {
@@ -1515,21 +1516,43 @@ section {
   font-size: 13px;
   font-weight: 700;
   color: #fff;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
   line-height: 1.3;
 }
 
 .ind-sub {
   font-size: 10.5px;
   color: rgba(255,255,255,.4);
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.4;
 }
 
 @media (max-width:992px) {
   .ind-grid { grid-template-columns: repeat(3, 1fr); }
 }
+
 @media (max-width:600px) {
-  .ind-grid { grid-template-columns: repeat(2, 1fr); }
+  .ind-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .ind-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 14px;
+  }
+  .ind-ico {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+  }
+  .ind-ico svg { width: 17px; height: 17px; }
+  .ind-name { font-size: 12.5px; }
+  .ind-sub { font-size: 10px; }
 }
 
 /* ─── TECH STACK ─── */
@@ -1573,6 +1596,49 @@ section {
   color: var(--ink4);
   margin-top: 2px;
   display: block;
+}
+
+@media (max-width: 600px) {
+  /* Switch to attractive card grid on mobile */
+  .tech-sec .row.g-0 {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 10px !important;
+    border: none !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+  }
+  .ti-item {
+    border: 1.5px solid #E3F2FD !important;
+    border-right: 1.5px solid #E3F2FD !important;
+    border-radius: 14px !important;
+    padding: 16px 8px !important;
+    background: #fff !important;
+    box-shadow: 0 2px 10px rgba(33,150,243,.07) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .ti-ico {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 12px !important;
+    margin-bottom: 10px !important;
+    background: linear-gradient(135deg, #EFF6FF, #DBEAFE) !important;
+    border: 1.5px solid #BFDBFE !important;
+    box-shadow: 0 2px 8px rgba(33,150,243,.12) !important;
+  }
+  .ti-ico svg { width: 20px !important; height: 20px !important; }
+  .ti-name { font-size: 11.5px !important; font-weight: 800 !important; }
+  .ti-type {
+    font-size: 9.5px !important;
+    background: #EFF6FF;
+    color: #2563EB !important;
+    padding: 2px 7px;
+    border-radius: 20px;
+    margin-top: 4px !important;
+    font-weight: 600;
+  }
 }
 
 /* ─── FAQ ─── */
@@ -2072,6 +2138,72 @@ section {
   }
 }
 
+/* ── Navbar Mobile ──────────────────────────────────────────── */
+@media (max-width: 480px) {
+  /* Shrink logo text on very small phones */
+  header a[href="/"] span:first-child {
+    font-size: 11px !important;
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Mobile drawer sections */
+  header .mob-section-title { font-size: 13.5px; }
+
+  /* CTA buttons row */
+  header .mob-cta-row a,
+  header .mob-cta-row button { font-size: 13px !important; padding: 11px !important; }
+
+  /* Hamburger */
+  header button[aria-label="menu"],
+  header .d-xl-none { flex-shrink: 0; }
+}
+
+/* ── Footer Mobile ──────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .main-footer { padding-bottom: 24px; }
+
+  /* Brand col — full width, centered on mobile */
+  .main-footer .col-12.col-lg-3 {
+    text-align: center;
+  }
+  .main-footer .col-12.col-lg-3 .d-flex.align-items-center {
+    justify-content: center;
+  }
+  .main-footer .col-12.col-lg-3 .d-flex.flex-column {
+    align-items: center;
+  }
+  .main-footer .col-12.col-lg-3 .d-flex.gap-2 {
+    justify-content: center;
+  }
+  .ft-desc { text-align: center; }
+
+  /* Link columns — 2 per row */
+  .main-footer .col-6 { padding-bottom: 8px; }
+  .ft-col-h { font-size: 11px; margin-bottom: 10px; }
+  .ft-link { font-size: 12px; margin-bottom: 7px; }
+
+  /* Offices — full width */
+  .main-footer .col-6.col-md-3.col-lg-3 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .ft-office { margin-bottom: 12px; }
+  .ft-office-city { font-size: 12px; }
+  .ft-office-addr { font-size: 11px; }
+
+  /* Bottom bar — stack vertically, centered */
+  .main-footer .d-flex.align-items-center.justify-content-between {
+    flex-direction: column;
+    align-items: center !important;
+    text-align: center;
+    gap: 8px !important;
+    padding: 16px 0 !important;
+  }
+  .ft-copy { font-size: 11px; }
+}
+
 /* ── Mobile Optimisations (≤ 600px) ─────────────────────────── */
 @media (max-width: 600px) {
   /* Section padding */
@@ -2237,6 +2369,23 @@ section {
   white-space: nowrap;
   box-shadow: 0 2px 8px rgba(0,0,0,.08);
   letter-spacing: .04em;
+}
+
+/* ── Our Works Tab Bar ───────────────────────────────────────── */
+.ow-tab-scroll { scroll-snap-type: x mandatory; }
+.ow-tab-btn { scroll-snap-align: start; }
+
+@media (max-width: 600px) {
+  .ow-tab-btn {
+    padding: 10px 10px !important;
+    font-size: 11.5px !important;
+    gap: 5px !important;
+  }
+  .ow-tab-icon { display: none !important; }
+  .ow-tab-btn span[style*="minWidth"] {
+    font-size: 10px !important;
+    padding: 1px 5px !important;
+  }
 }
 
 /* ── Our Works — Tab Animations ─────────────────────────────── */

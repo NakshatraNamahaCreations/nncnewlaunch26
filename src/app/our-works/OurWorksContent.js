@@ -86,9 +86,6 @@ const CATEGORIES = [
   'CRM & Web Apps',
   'Animation',
   'Corporate Video',
-  'Digital Marketing',
-  'Videos',
-  'Behind The Scenes',
 ]
 
 const CAT_META = {
@@ -566,15 +563,16 @@ export default function OurWorksContent() {
         position: 'sticky',
         top: 0,
         zIndex: 40,
-        background: 'rgba(255,255,255,0.97)',
-        backdropFilter: 'blur(16px)',
-        WebkitBackdropFilter: 'blur(16px)',
-        borderBottom: '2px solid #F0F4FA',
-        boxShadow: '0 4px 20px rgba(11,31,75,.07)',
+        background: 'linear-gradient(180deg,#F8FAFF 0%,#fff 100%)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        borderBottom: '1.5px solid #E8EEFF',
+        boxShadow: '0 4px 24px rgba(99,102,241,.08)',
       }}>
-        <div style={{ maxWidth: 1220, margin: '0 auto', padding: '0 24px' }}>
+        <div style={{ maxWidth: 1220, margin: '0 auto', padding: '10px clamp(12px,3vw,24px)' }}>
           <div
             ref={scrollRef}
+            className="ow-tab-scroll"
             style={{
               overflowX: 'auto',
               WebkitOverflowScrolling: 'touch',
@@ -583,7 +581,7 @@ export default function OurWorksContent() {
             }}
           >
             <style>{`div::-webkit-scrollbar{display:none}`}</style>
-            <div style={{ display: 'flex', gap: 0, minWidth: 'max-content' }}>
+            <div style={{ display: 'flex', gap: 6, minWidth: 'max-content', padding: '2px 0' }}>
               {CATEGORIES.map(cat => {
                 const isActive = cat === active
                 const meta = CAT_META[cat] || CAT_META['All']
@@ -593,79 +591,70 @@ export default function OurWorksContent() {
                   <button
                     key={cat}
                     onClick={() => setActive(cat)}
-                    className={cat === 'Behind The Scenes' ? 'bts-tab-btn' : ''}
+                    className="ow-tab-btn"
                     style={{
                       display: 'flex',
                       alignItems: 'center',
-                      gap: 8,
-                      padding: '15px 18px',
-                      fontSize: 13.5,
-                      fontWeight: isActive ? 800 : 600,
-                      color: isActive ? meta.color : cat === 'Behind The Scenes' ? '#92400E' : '#64748B',
-                      border: 'none',
-                      borderBottom: `3px solid ${isActive ? meta.color : 'transparent'}`,
+                      gap: 7,
+                      padding: '8px 14px',
+                      fontSize: 13,
+                      fontWeight: isActive ? 700 : 500,
+                      color: isActive ? '#fff' : '#475569',
+                      border: isActive ? 'none' : '1.5px solid #E2E8F0',
+                      borderRadius: 10,
                       cursor: 'pointer',
-                      transition: 'all .2s',
+                      transition: 'all .22s cubic-bezier(.16,1,.3,1)',
                       fontFamily: 'inherit',
                       whiteSpace: 'nowrap',
                       outline: 'none',
                       WebkitTapHighlightColor: 'transparent',
+                      background: isActive
+                        ? `linear-gradient(135deg,${meta.color},${meta.color}CC)`
+                        : '#fff',
+                      boxShadow: isActive
+                        ? `0 4px 14px ${meta.color}40`
+                        : '0 1px 3px rgba(0,0,0,.06)',
+                      transform: isActive ? 'translateY(-1px)' : 'none',
                     }}
                   >
-                    {/* Icon box */}
-                    <span style={{
-                      width: 30, height: 30,
-                      borderRadius: 8,
-                      background: isActive ? meta.color + '15' : '#F5F7FA',
+                    {/* Icon — hidden on mobile */}
+                    <span className="ow-tab-icon" style={{
+                      width: 24, height: 24,
+                      borderRadius: 6,
+                      background: isActive ? 'rgba(255,255,255,.2)' : meta.color + '15',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       flexShrink: 0,
-                      transition: 'background .2s',
                     }}>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                        stroke={isActive ? meta.color : '#94A3B8'}
-                        strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                        stroke={isActive ? '#fff' : meta.color}
+                        strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                         <path d={meta.icon} />
                       </svg>
                     </span>
 
                     {/* Label */}
                     {cat === 'Videos' ? (
-                      <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
                         <span style={{
-                          width: 7, height: 7, borderRadius: '50%',
-                          background: '#DC2626',
+                          width: 6, height: 6, borderRadius: '50%',
+                          background: isActive ? '#fff' : '#DC2626',
                           display: 'inline-block',
                           animation: 'rec-pulse 1.2s ease-in-out infinite',
                           flexShrink: 0,
                         }} />
                         Videos
                       </span>
-                    ) : cat === 'Behind The Scenes' ? (
-                      <span style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                        📸 Behind The Scenes
-                        {!isActive && (
-                          <span style={{
-                            fontSize: 8.5, fontWeight: 900,
-                            background: '#B45309',
-                            color: '#fff',
-                            padding: '1px 6px',
-                            borderRadius: 10,
-                            letterSpacing: '.06em',
-                            textTransform: 'uppercase',
-                          }}>NEW</span>
-                        )}
-                      </span>
                     ) : cat}
 
                     {/* Count badge */}
                     <span style={{
-                      fontSize: 11, fontWeight: 800,
-                      padding: '2px 8px',
+                      fontSize: 10.5, fontWeight: 700,
+                      padding: '1px 7px',
                       borderRadius: 20,
-                      background: isActive ? meta.color : '#EFF2F8',
-                      color: isActive ? '#fff' : '#94A3B8',
-                      minWidth: 24, textAlign: 'center',
-                      transition: 'all .2s',
+                      background: isActive ? 'rgba(255,255,255,.25)' : meta.color + '15',
+                      color: isActive ? '#fff' : meta.color,
+                      minWidth: 22, textAlign: 'center',
+                      transition: 'all .22s',
                     }}>
                       {count}
                     </span>

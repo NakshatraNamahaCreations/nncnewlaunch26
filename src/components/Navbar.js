@@ -404,7 +404,7 @@ function OfficesDrop({ open }) {
 function NavTrigger({ label, open, onClick }) {
   return (
     <button onClick={onClick} style={{
-      display: 'flex', alignItems: 'center', gap: 5, height: 72,
+      display: 'flex', alignItems: 'center', gap: 5, height: 64,
       padding: '0 12px', fontSize: 13.5, fontWeight: 600,
       color: open ? '#2196F3' : '#475569',
       background: 'none', border: 'none',
@@ -491,14 +491,14 @@ export default function Navbar() {
 
       {/* Main header */}
       <div style={{ background: 'rgba(255,255,255,.98)', borderBottom: '1.5px solid #E2E8F0' }}>
-        <div style={{ maxWidth: '100%', margin: '0 auto', padding: '0 48px', display: 'flex', alignItems: 'center', height: 72 }}>
+        <div style={{ maxWidth: '100%', margin: '0 auto', padding: '0 clamp(16px,4vw,48px)', display: 'flex', alignItems: 'center', height: 64 }}>
 
           {/* Logo */}
-          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', flexShrink: 0, marginRight: 28 }}>
-            <img src={SITE.logo} alt="NNC Digital Logo" width={68} height={68} style={{ borderRadius: 10, objectFit: 'contain' }} />
+          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none', flexShrink: 0, marginRight: 16 }}>
+            <img src={SITE.logo} alt="NNC Digital Logo" width={46} height={46} style={{ borderRadius: 8, objectFit: 'contain' }} />
             <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.2 }}>
-              <span style={{ fontSize: 14, fontWeight: 800, color: '#0B1F4B', letterSpacing: '-.02em', whiteSpace: 'nowrap' }}>Nakshatra Namaha Creations</span>
-              <span style={{ fontSize: 11, fontWeight: 500, color: '#94A3B8', letterSpacing: '.01em' }}>Yours Digital Partner Solutions</span>
+              <span style={{ fontSize: 'clamp(11px,2.5vw,14px)', fontWeight: 800, color: '#0B1F4B', letterSpacing: '-.02em', whiteSpace: 'nowrap' }}>Nakshatra Namaha Creations</span>
+              <span style={{ fontSize: 'clamp(9px,2vw,11px)', fontWeight: 500, color: '#94A3B8', letterSpacing: '.01em', whiteSpace: 'nowrap' }}>Yours Digital Partner Solutions</span>
             </div>
           </Link>
 
@@ -514,7 +514,7 @@ export default function Navbar() {
             </div>
             <div style={{ position: 'relative', height: 72, display: 'flex', alignItems: 'center' }}>
               <Link href="/our-works" style={{
-                display: 'flex', alignItems: 'center', height: 72,
+                display: 'flex', alignItems: 'center', height: 64,
                 padding: '0 12px', fontSize: 13.5, fontWeight: 600,
                 color: pathname === '/our-works' ? '#2196F3' : '#475569',
                 textDecoration: 'none',
@@ -533,7 +533,7 @@ export default function Navbar() {
               <NavTrigger label="Offices" open={openMenu === 'loc'} onClick={() => tog('loc')} />
               <OfficesDrop open={openMenu === 'loc'} />
             </div>
-            <Link href="/about-us" style={{ display: 'flex', alignItems: 'center', height: 72, padding: '0 12px', fontSize: 13.5, fontWeight: 600, color: '#475569', textDecoration: 'none', borderBottom: '2px solid transparent', marginBottom: -1.5, transition: 'color .18s,border-color .18s', whiteSpace: 'nowrap' }}>
+            <Link href="/about-us" style={{ display: 'flex', alignItems: 'center', height: 64, padding: '0 12px', fontSize: 13.5, fontWeight: 600, color: '#475569', textDecoration: 'none', borderBottom: '2px solid transparent', marginBottom: -1.5, transition: 'color .18s,border-color .18s', whiteSpace: 'nowrap' }}>
               About Us
             </Link>
           </nav>
@@ -571,8 +571,8 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       {mobileOpen && (
-        <div style={{ background: '#fff', borderTop: '1px solid #E2E8F0', maxHeight: '80vh', overflowY: 'auto' }}>
-          <div style={{ padding: '10px 20px 28px' }}>
+        <div style={{ background: '#fff', borderTop: '1px solid #E2E8F0', maxHeight: 'calc(100dvh - 64px)', overflowY: 'auto', WebkitOverflowScrolling: 'touch' }}>
+          <div style={{ padding: '8px 16px 32px' }}>
             <MobSection title="Services" open={mobSec.svc} onToggle={() => togMob('svc')}>
               {SERVICES.map(s => (
                 <Link key={s.key} href={s.slug} onClick={() => setMobileOpen(false)} style={{ textDecoration: 'none' }}>

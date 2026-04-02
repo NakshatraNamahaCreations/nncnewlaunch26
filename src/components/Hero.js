@@ -8,7 +8,7 @@ export default function Hero() {
       <div className="hero-glow1" aria-hidden="true" />
       <div className="hero-glow2" aria-hidden="true" />
 
-      <div style={{ maxWidth: 1220, margin: '0 auto', padding: '60px 24px', width: '100%', position: 'relative', zIndex: 1 }}>
+      <div style={{ maxWidth: 1220, margin: '0 auto', padding: 'clamp(28px,6vw,60px) clamp(16px,4vw,24px)', width: '100%', position: 'relative', zIndex: 1 }}>
         <div className="row align-items-center g-5">
 
           {/* LEFT */}

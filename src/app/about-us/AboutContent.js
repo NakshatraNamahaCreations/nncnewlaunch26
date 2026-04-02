@@ -203,9 +203,9 @@ export default function AboutContent() {
       </nav>
 
       {/* ── HERO ── */}
-      <section style={{ padding: '72px 0', background: '#fff', borderBottom: '1px solid var(--border)', overflow: 'hidden', position: 'relative' }}>
+      <section style={{ padding: 'clamp(40px,7vw,72px) 0', background: '#fff', borderBottom: '1px solid var(--border)', overflow: 'hidden', position: 'relative' }}>
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px)', backgroundSize: '60px 60px', opacity: .35, pointerEvents: 'none' }} />
-        <div style={{ maxWidth: 1220, margin: '0 auto', padding: '0 24px', position: 'relative', zIndex: 1 }}>
+        <div style={{ maxWidth: 1220, margin: '0 auto', padding: '0 clamp(16px,4vw,24px)', position: 'relative', zIndex: 1 }}>
           <div className="row align-items-center g-5">
             <div className="col-lg-6">
               <div className="section-tag"><span className="tag-dot" />About Nakshatra Namaha Creations</div>
@@ -431,15 +431,15 @@ export default function AboutContent() {
       </div>
 
       {/* ── TEAM GRID ── */}
-      <section id="team" style={{ borderBottom: '1px solid var(--border)', padding: '88px 0', background: '#fff' }}>
-        <div style={{ maxWidth: 1220, margin: '0 auto', padding: '0 24px' }}>
+      <section id="team" style={{ borderBottom: '1px solid var(--border)', padding: 'clamp(48px,8vw,88px) 0', background: '#fff' }}>
+        <div style={{ maxWidth: 1220, margin: '0 auto', padding: '0 clamp(16px,4vw,24px)' }}>
 
           {/* Header */}
-          <div style={{ textAlign: 'center', marginBottom: 64 }}>
-            <h2 style={{ fontSize: 'clamp(28px,4vw,44px)', fontWeight: 800, color: '#0B1F4B', letterSpacing: '-.04em', marginBottom: 12 }}>
+          <div style={{ textAlign: 'center', marginBottom: 'clamp(36px,6vw,64px)' }}>
+            <h2 style={{ fontSize: 'clamp(24px,4vw,44px)', fontWeight: 800, color: '#0B1F4B', letterSpacing: '-.04em', marginBottom: 12 }}>
               Our leadership team
             </h2>
-            <p style={{ fontSize: 16.5, color: '#94A3B8', maxWidth: 520, margin: '0 auto' }}>
+            <p style={{ fontSize: 'clamp(14px,2.5vw,16.5px)', color: '#94A3B8', maxWidth: 520, margin: '0 auto' }}>
               Designers, developers, animators all permanent, all in-house, all accountable to you.
             </p>
           </div>
@@ -450,10 +450,24 @@ export default function AboutContent() {
               0% { background-position: 200% 0 }
               100% { background-position: -200% 0 }
             }
+            .team-grid {
+              display: grid;
+              grid-template-columns: repeat(5, 1fr);
+              gap: 52px 24px;
+            }
+            @media (max-width: 992px) {
+              .team-grid { grid-template-columns: repeat(4, 1fr); gap: 36px 16px; }
+            }
+            @media (max-width: 768px) {
+              .team-grid { grid-template-columns: repeat(3, 1fr); gap: 28px 14px; }
+            }
+            @media (max-width: 480px) {
+              .team-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 12px; }
+            }
           `}</style>
 
-          {/* All team 5 per row, founders first */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '52px 24px' }}>
+          {/* All team responsive grid, founders first */}
+          <div className="team-grid">
             {[...TEAM_ROW1, ...TEAM_ROW2, ...TEAM_ROW3].map((m, i) => (
               <TeamCard key={i} m={m} priority={i < 5} />
             ))}

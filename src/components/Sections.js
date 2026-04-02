@@ -8,7 +8,7 @@ import { CASE_STUDIES, PROCESS_STEPS, TESTIMONIALS, CLIENTS, INDUSTRIES, TECH_ST
 export function CaseStudies() {
   return (
     <section className="results-sec py-5" id="work" aria-label="Case Studies">
-      <div style={{ maxWidth: 1220, margin: '0 auto', padding: '80px 24px' }}>
+      <div style={{ maxWidth: 1220, margin: '0 auto', padding: 'clamp(36px,6vw,80px) clamp(16px,4vw,24px)' }}>
         <div className="row g-5 mb-5 anim">
           <div className="col-lg-5">
             <div className="section-tag"><span className="tag-dot" />Case Studies</div>
@@ -66,7 +66,7 @@ export function CaseStudies() {
 export function Process() {
   return (
     <section className="proc-sec" aria-label="Our Process">
-      <div style={{ maxWidth: 1220, margin: '0 auto', padding: '48px 24px 64px' }}>
+      <div style={{ maxWidth: 1220, margin: '0 auto', padding: 'clamp(28px,5vw,48px) clamp(16px,4vw,24px) clamp(36px,6vw,64px)' }}>
         <div className="row g-5 mb-5 anim">
           <div className="col-lg-5">
             <div className="section-tag"><span className="tag-dot" />How We Work</div>
@@ -97,7 +97,7 @@ export function Process() {
 export function Testimonials() {
   return (
     <section className="testi-section py-5" id="testimonials" aria-label="Client Reviews">
-      <div style={{ maxWidth: 1220, margin: '0 auto', padding: '80px 24px', position: 'relative', zIndex: 1 }}>
+      <div style={{ maxWidth: 1220, margin: '0 auto', padding: 'clamp(36px,6vw,80px) clamp(16px,4vw,24px)', position: 'relative', zIndex: 1 }}>
 
         {/* Header */}
         <div className="d-flex align-items-end justify-content-between flex-wrap gap-4 mb-4 anim">
@@ -171,7 +171,7 @@ export function Testimonials() {
 export function Industries() {
   return (
     <section className="ind-sec" id="industries" aria-label="Industries We Serve">
-      <div style={{ maxWidth: 1220, margin: '0 auto', padding: '80px 24px' }}>
+      <div style={{ maxWidth: 1220, margin: '0 auto', padding: 'clamp(36px,6vw,80px) clamp(16px,4vw,24px)' }}>
         <div className="row align-items-center g-5 mb-5">
           <div className="col-lg-5 anim">
             <div className="section-tag"><span className="tag-dot" />Industries We Serve</div>
@@ -211,7 +211,7 @@ export function Industries() {
 export function TechStack() {
   return (
     <section className="tech-sec py-5" aria-label="Technology Stack">
-      <div style={{ maxWidth: 1220, margin: '0 auto', padding: '72px 24px' }}>
+      <div style={{ maxWidth: 1220, margin: '0 auto', padding: 'clamp(32px,5vw,72px) clamp(16px,4vw,24px)' }}>
         <div className="row g-5 mb-5 anim">
           <div className="col-lg-5">
             <div className="section-tag"><span className="tag-dot" />Technology Stack</div>
@@ -278,7 +278,7 @@ export function FaqContact() {
 
   return (
     <section className="faq-sec" id="faq" aria-label="FAQ and Contact">
-      <div style={{ maxWidth: 1220, margin: '0 auto', padding: '48px 24px 64px' }}>
+      <div style={{ maxWidth: 1220, margin: '0 auto', padding: 'clamp(28px,5vw,48px) clamp(16px,4vw,24px) clamp(36px,6vw,64px)' }}>
         <div className="row g-5">
 
           {/* FAQ */}
@@ -367,7 +367,7 @@ export function FaqContact() {
 export function CtaBand() {
   return (
     <section className="cta-section py-5" aria-label="Call to Action">
-      <div style={{ maxWidth: 1220, margin: '0 auto', padding: '80px 24px', position: 'relative', zIndex: 1 }}>
+      <div style={{ maxWidth: 1220, margin: '0 auto', padding: 'clamp(36px,6vw,80px) clamp(16px,4vw,24px)', position: 'relative', zIndex: 1 }}>
         <div className="row align-items-center g-5">
           <div className="col-lg-8 anim">
             <h2 className="cta-h mb-2">
@@ -411,11 +411,11 @@ export function Footer() {
    
 
       {/* ── MAIN FOOTER ── */}
-      <div style={{ maxWidth: 1220, margin: '0 auto', padding: '56px 24px 0' }}>
+      <div style={{ maxWidth: 1220, margin: '0 auto', padding: 'clamp(36px,6vw,56px) clamp(16px,4vw,24px) 0' }}>
         <div className="row g-4 pb-5" style={{ borderBottom: '1px solid rgba(255,255,255,.06)' }}>
 
           {/* Brand column */}
-          <div className="col-12 col-lg-3">
+          <div className="col-12 col-lg-3 mb-2">
             <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
               <img src={SITE.logo} alt="Nakshatra Namaha Creations NNC Digital Logo" width={44} height={44} style={{ borderRadius: 10, objectFit: 'contain' }} />
               <span className="ft-brand">{SITE.name}</span>
