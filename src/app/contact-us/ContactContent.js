@@ -19,7 +19,7 @@ export default function ContactContent() {
     e.preventDefault()
     if (!form.name.trim() || form.name.trim().length < 2) { alert('Please enter your full name (at least 2 characters).'); return }
     if (!form.phone.trim() || form.phone.replace(/\D/g, '').length < 7) { alert('Please enter a valid phone number.'); return }
-    if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) { alert('Please enter a valid email address.'); return }
+    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) { alert('Please enter a valid email address.'); return }
     setSending(true)
     try {
       const res = await fetch('/api/enquiry', {
@@ -143,7 +143,7 @@ export default function ContactContent() {
                       </div>
                     </div>
                     <div className="mb-3">
-                      <label style={{ fontSize: 12.5, fontWeight: 600, color: '#475569', marginBottom: 6, display: 'block' }}>Email Address</label>
+                      <label style={{ fontSize: 12.5, fontWeight: 600, color: '#475569', marginBottom: 6, display: 'block' }}>Email Address *</label>
                       <input style={{ width: '100%', border: '1.5px solid #E2E8F0', borderRadius: 8, padding: '13px 16px', fontFamily: 'inherit', fontSize: 14, color: '#1E293B', outline: 'none', transition: 'border-color .15s' }} type="email" placeholder="john@company.com" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })}
                         onFocus={e => e.target.style.borderColor = '#2196F3'} onBlur={e => e.target.style.borderColor = '#E2E8F0'} />
                     </div>

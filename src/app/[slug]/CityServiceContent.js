@@ -222,8 +222,9 @@ export default function CityServiceContent({ slug, svc, city, hood, titleOverrid
 
   const submit = async (e) => {
     e.preventDefault()
-    if (!form.name.trim() || form.name.trim().length < 2) { alert('Please enter your full name.'); return }
+    if (!form.name.trim() || form.name.trim().length < 2) { alert('Please enter your full name (at least 2 characters).'); return }
     if (!form.phone.trim() || form.phone.replace(/\D/g, '').length < 7) { alert('Please enter a valid phone number.'); return }
+    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) { alert('Please enter a valid email address.'); return }
     try {
       await fetch('/api/enquiry', {
         method: 'POST',
@@ -457,7 +458,7 @@ export default function CityServiceContent({ slug, svc, city, hood, titleOverrid
                       <div className="col-6"><input style={{ width: '100%', background: 'rgba(255,255,255,.07)', border: '1px solid rgba(255,255,255,.1)', borderRadius: 8, padding: '12px 14px', fontFamily: 'inherit', fontSize: 14, color: '#fff', outline: 'none', marginBottom: 0 }} placeholder="Your name *" value={form.name} onChange={e => setForm({ ...form, name: e.target.value.replace(/[^A-Za-z\s.'-]/g, '') })} maxLength={100} /></div>
                       <div className="col-6"><input style={{ width: '100%', background: 'rgba(255,255,255,.07)', border: '1px solid rgba(255,255,255,.1)', borderRadius: 8, padding: '12px 14px', fontFamily: 'inherit', fontSize: 14, color: '#fff', outline: 'none' }} type="tel" placeholder="Phone *" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value.replace(/[^0-9+\-\s()]/g, '') })} maxLength={15} /></div>
                     </div>
-                    <input style={{ width: '100%', background: 'rgba(255,255,255,.07)', border: '1px solid rgba(255,255,255,.1)', borderRadius: 8, padding: '12px 14px', fontFamily: 'inherit', fontSize: 14, color: '#fff', outline: 'none', marginBottom: 9, display: 'block' }} type="email" placeholder="Email address" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} />
+                    <input style={{ width: '100%', background: 'rgba(255,255,255,.07)', border: '1px solid rgba(255,255,255,.1)', borderRadius: 8, padding: '12px 14px', fontFamily: 'inherit', fontSize: 14, color: '#fff', outline: 'none', marginBottom: 9, display: 'block' }} type="email" placeholder="Email address *" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} />
                     <textarea style={{ width: '100%', background: 'rgba(255,255,255,.07)', border: '1px solid rgba(255,255,255,.1)', borderRadius: 8, padding: '12px 14px', fontFamily: 'inherit', fontSize: 14, color: '#fff', outline: 'none', marginBottom: 9, resize: 'vertical', minHeight: 80 }} rows="3" placeholder={`Tell us about your ${svc?.name?.toLowerCase()} requirements...`} value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} />
                     <button type="submit" style={{ width: '100%', background: '#2196F3', color: '#fff', fontFamily: 'inherit', fontSize: 15, fontWeight: 700, padding: 14, borderRadius: 8, border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 9, marginBottom: 12 }}>
                       Send Enquiry <Svg d="M5 12h14M12 5l7 7-7 7" size={13} color="#fff" sw={2.5} />

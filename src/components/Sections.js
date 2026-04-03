@@ -248,14 +248,16 @@ export function FaqContact() {
   const [open, setOpen] = useState(null)
   const [form, setForm] = useState({ name: '', phone: '', email: '', service: '', message: '' })
   const [sending, setSending] = useState(false)
+  const [error, setError] = useState('')
 
   const toggle = (i) => setOpen(open === i ? null : i)
 
   const submit = async (e) => {
     e.preventDefault()
-    if (!form.name.trim() || form.name.trim().length < 2) { alert('Please enter your full name (at least 2 characters).'); return }
-    if (!form.phone.trim() || form.phone.replace(/\D/g, '').length < 7) { alert('Please enter a valid phone number.'); return }
-    if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) { alert('Please enter a valid email address.'); return }
+    setError('')
+    if (!form.name.trim() || form.name.trim().length < 2) { setError('Please enter your full name (at least 2 characters).'); return }
+    if (!form.phone.trim() || form.phone.replace(/\D/g, '').length < 7) { setError('Please enter a valid phone number.'); return }
+    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) { setError('Please enter a valid email address.'); return }
     setSending(true)
     try {
       const res = await fetch('/api/enquiry', {
@@ -267,10 +269,10 @@ export function FaqContact() {
       if (res.ok) {
         router.push('/thankyou')
       } else {
-        alert(data.error || 'Something went wrong. Please try again.')
+        setError(data.error || 'Something went wrong. Please try again.')
       }
     } catch {
-      alert('Network error. Please try again.')
+      setError('Network error. Please try again.')
     } finally {
       setSending(false)
     }
@@ -343,9 +345,10 @@ export function FaqContact() {
                     <div className="col-6"><input className="cc-inp" type="text" placeholder="Your name *" value={form.name} onChange={e => setForm({ ...form, name: e.target.value.replace(/[^A-Za-z\s.'-]/g, '') })} maxLength={100} required /></div>
                     <div className="col-6"><input className="cc-inp" type="tel" placeholder="Phone *" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value.replace(/[^0-9+\-\s()]/g, '') })} maxLength={15} required /></div>
                   </div>
-                  <input className="cc-inp d-block mb-2" type="email" placeholder="Email address" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} maxLength={150} />
+                  <input className="cc-inp d-block mb-2" type="email" placeholder="Email address *" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} maxLength={150} />
                   <input className="cc-inp d-block mb-2" placeholder="What do you need? (website, app, CRM...)" value={form.service} onChange={e => setForm({ ...form, service: e.target.value })} />
                   <textarea className="cc-ta d-block mb-2" rows="3" placeholder="Brief description of your project..." value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} />
+                  {error && <p style={{ color: '#EF4444', fontSize: 12.5, marginBottom: 10, marginTop: 2 }}>{error}</p>}
                   <button type="submit" className="cc-submit mb-3" disabled={sending}>
                     {sending ? 'Sending…' : <>Send Enquiry <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg></>}
                   </button>

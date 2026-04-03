@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/about-us/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/about-us/page.js"
+      "static/chunks/app/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -12,10 +12,20 @@
       "static/css/css-src_styles_globals_css.css",
       "static/chunks/app/layout.js"
     ],
-    "/page": [
+    "/thankyou/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/app/thankyou/page.js"
+    ],
+    "/behind-the-scenes/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/behind-the-scenes/page.js"
+    ],
+    "/about-us/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/about-us/page.js"
     ]
   }
 }

@@ -50,10 +50,9 @@ export default function QuoteModal() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (!form.name.trim() || !form.phone.trim()) {
-      setError('Name and phone are required.')
-      return
-    }
+    if (!form.name.trim() || form.name.trim().length < 2) { setError('Please enter your full name (at least 2 characters).'); return }
+    if (!form.phone.trim() || form.phone.replace(/\D/g, '').length < 7) { setError('Please enter a valid phone number.'); return }
+    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) { setError('Please enter a valid email address.'); return }
     setLoading(true)
     setError('')
     try {
@@ -125,7 +124,7 @@ export default function QuoteModal() {
                   <input name="phone" type="tel" value={form.phone} onChange={handleChange} placeholder="+91 98765 43210" required style={inputStyle} />
                 </div>
                 <div style={{ gridColumn: '1 / -1' }}>
-                  <label style={labelStyle}>Email</label>
+                  <label style={labelStyle}>Email *</label>
                   <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="rajesh@company.com" style={inputStyle} />
                 </div>
                 <div style={{ gridColumn: '1 / -1' }}>

@@ -266,7 +266,7 @@ export default function ServicePageContent({ data }) {
     e.preventDefault()
     if (!form.name.trim() || form.name.trim().length < 2) { alert('Please enter your full name (at least 2 characters).'); return }
     if (!form.phone.trim() || form.phone.replace(/\D/g, '').length < 7) { alert('Please enter a valid phone number.'); return }
-    if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) { alert('Please enter a valid email address.'); return }
+    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) { alert('Please enter a valid email address.'); return }
     setSending(true)
     try {
       await fetch('/api/enquiry', {
@@ -502,7 +502,7 @@ export default function ServicePageContent({ data }) {
                       </div>
                     </div>
                     <input style={{ width: '100%', background: 'rgba(255,255,255,.07)', border: '1px solid rgba(255,255,255,.1)', borderRadius: 8, padding: '12px 14px', fontFamily: 'inherit', fontSize: 14, color: '#fff', outline: 'none', marginBottom: 9, display: 'block' }}
-                      type="email" placeholder="Email address" value={form.email}
+                      type="email" placeholder="Email address *" value={form.email}
                       onChange={e => setForm({ ...form, email: e.target.value })} />
                     <textarea style={{ width: '100%', background: 'rgba(255,255,255,.07)', border: '1px solid rgba(255,255,255,.1)', borderRadius: 8, padding: '12px 14px', fontFamily: 'inherit', fontSize: 14, color: '#fff', outline: 'none', marginBottom: 9, resize: 'vertical', minHeight: 80 }}
                       rows="3" placeholder={`Tell us about your ${data.serviceName} requirements...`}

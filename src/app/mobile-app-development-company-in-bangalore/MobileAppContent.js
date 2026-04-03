@@ -544,7 +544,7 @@ function FaqContact() {
     e.preventDefault()
     if (!form.name.trim() || form.name.trim().length < 2) { alert('Please enter your full name (at least 2 characters).'); return }
     if (!form.phone.trim() || form.phone.replace(/\D/g, '').length < 7) { alert('Please enter a valid phone number.'); return }
-    if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) { alert('Please enter a valid email address.'); return }
+    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) { alert('Please enter a valid email address.'); return }
     setSending(true)
     try {
       const res = await fetch('/api/enquiry', {
@@ -608,7 +608,7 @@ function FaqContact() {
                     <div className="col-6"><input className="cc-inp" type="text" placeholder="Your name *" value={form.name} onChange={e => setForm({ ...form, name: e.target.value.replace(/[^A-Za-z\s.'-]/g, '') })} maxLength={100} required /></div>
                     <div className="col-6"><input className="cc-inp" type="tel" placeholder="Phone *" value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value.replace(/[^0-9+\-\s()]/g, '') })} maxLength={15} required /></div>
                   </div>
-                  <input className="cc-inp d-block mb-2" type="email" placeholder="Email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} maxLength={150} />
+                  <input className="cc-inp d-block mb-2" type="email" placeholder="Email *" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} maxLength={150} />
                   <input className="cc-inp d-block mb-2" placeholder="Type of app (on-demand, e-commerce, etc.)" value={form.app} onChange={e => setForm({ ...form, app: e.target.value })} />
                   <select className="cc-inp d-block mb-2" value={form.budget} onChange={e => setForm({ ...form, budget: e.target.value })} style={{ background: 'rgba(255,255,255,.07)', color: form.budget ? '#fff' : 'rgba(255,255,255,.2)' }}>
                     <option value="" disabled>Estimated budget</option>

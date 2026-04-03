@@ -61,7 +61,9 @@ export default function ApplyModal() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (!form.name.trim() || !form.phone.trim() || !form.email.trim()) { setError('Name, phone and email are required.'); return }
+    if (!form.name.trim() || form.name.trim().length < 2) { setError('Please enter your full name (at least 2 characters).'); return }
+    if (!form.phone.trim() || form.phone.replace(/\D/g, '').length < 7) { setError('Please enter a valid phone number.'); return }
+    if (!form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) { setError('Please enter a valid email address.'); return }
     if (resumeError) return
     setLoading(true)
     setError('')
